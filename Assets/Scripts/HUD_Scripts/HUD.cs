@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class HUD : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    enum InfoType { time, score, hp};
+    InfoType type;
+
+
+    private void LateUpdate()
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
