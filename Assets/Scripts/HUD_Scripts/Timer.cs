@@ -8,7 +8,7 @@ public class Timer : MonoBehaviour
     public Text text;
     int minute;
     int second;
-    [SerializeField] float curTime;
+    [SerializeField] public float curTime;
     [SerializeField] float time;
 
     private void Awake()

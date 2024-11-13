@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class HUD : MonoBehaviour
 {
-    enum InfoType { time, score, hp};
-    InfoType type;
-
-
     private void LateUpdate()
     {
 
