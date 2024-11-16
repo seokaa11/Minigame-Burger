@@ -9,4 +9,6 @@ public class HUD : MonoBehaviour
 
     }
 
+    // 스코어 점수변화를 보고 Health 변동 구현?
+
 }
