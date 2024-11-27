@@ -12,20 +12,9 @@ public class DraggableUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
     private void Awake()
     {
-        Initialize();
-    }
-
-    public void Initialize()
-    {
-        canvas = FindObjectOfType<Canvas>().transform; // Canvas 탐색
-        rect = GetComponent<RectTransform>(); // RectTransform 설정
-        canvasGroup = GetComponent<CanvasGroup>(); // CanvasGroup 설정
-
-        if (canvasGroup == null)
-        {
-            // CanvasGroup이 없으면 추가
-            canvasGroup = gameObject.AddComponent<CanvasGroup>();
-        }
+        canvas = FindAnyObjectByType<Canvas>().transform;
+        rect = GetComponent<RectTransform>();
+        canvasGroup = GetComponent<CanvasGroup>();
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -34,11 +23,11 @@ public class DraggableUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
         previousParent = transform.parent;
 
-        transform.SetParent(canvas); // Canvas의 자식으로 설정
+        transform.SetParent(canvas);
         transform.SetAsLastSibling();
 
-        canvasGroup.alpha = 0.6f; // 투명도 조정 (드래그 중 시각적 효과)
-        canvasGroup.blocksRaycasts = false; // Raycast를 비활성화하여 다른 UI와 충돌 방지
+        canvasGroup.alpha = 0.6f;
+        canvasGroup.blocksRaycasts = false;
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -51,11 +40,11 @@ public class DraggableUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     {
         if (transform.parent == canvas)
         {
-            transform.SetParent(previousParent); // 부모를 원래 위치로 되돌림
-            rect.position = previousParent.GetComponent<RectTransform>().position; // 원래 위치로 복귀
+            transform.SetParent(previousParent);
+            rect.position = previousParent.GetComponent<RectTransform>().position;
         }
 
-        canvasGroup.alpha = 1.0f; // 투명도 복구
-        canvasGroup.blocksRaycasts = true; // Raycast를 다시 활성화
+        canvasGroup.alpha = 1.0f;
+        canvasGroup.blocksRaycasts = true;
     }
 }

@@ -1,40 +1,40 @@
-using UnityEngine.EventSystems;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public abstract class Ingredient : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public abstract class Ingredient : MonoBehaviour, IPointerClickHandler
 {
     public int amount; // 고유 속성
 
-    private GameObject clonedObject; // 복제된 오브젝트 참조
-
-    public virtual void OnBeginDrag(PointerEventData eventData)
+    public virtual void OnPointerClick(PointerEventData eventData)
     {
-        // 1. 현재 오브젝트 복제
-        clonedObject = Instantiate(gameObject, transform.parent); // 부모는 동일
+        // 복제 동작
+        GameObject clonedObject = Instantiate(gameObject, transform.parent); // 부모는 동일
         clonedObject.transform.localScale = transform.localScale; // 스케일 유지
-        clonedObject.transform.position = transform.position; // 위치 유지
+        clonedObject.transform.position = transform.position + new Vector3(50, 0, 0); // 위치 약간 조정
 
-        // 2. 복제된 오브젝트에 DraggableUI 추가
-        DraggableUI draggable = clonedObject.GetComponent<DraggableUI>();
-        if (draggable == null)
+        // 컴포넌트 복사 (DraggableUI 포함)
+        CopyComponents(this, clonedObject);
+
+        Debug.Log($"Cloned {gameObject.name} with amount: {amount}");
+    }
+
+    // 컴포넌트 복사 메서드
+    private void CopyComponents(Ingredient original, GameObject clone)
+    {
+        Ingredient clonedIngredient = clone.GetComponent<Ingredient>();
+        if (clonedIngredient != null)
         {
-            draggable = clonedObject.AddComponent<DraggableUI>(); // DraggableUI 없으면 추가
+            clonedIngredient.amount = original.amount; // 수량 복사
         }
 
-        // 3. 복제된 오브젝트의 DraggableUI 초기화
-        draggable.Initialize(); // DraggableUI 초기화
-
-        // 4. 복제된 오브젝트가 드래그 가능한 상태로 설정
-        draggable.OnBeginDrag(eventData); // 드래그 동작 시작
-    }
-
-    public virtual void OnDrag(PointerEventData eventData)
-    {
-        // 원본은 드래그되지 않음
-    }
-
-    public virtual void OnEndDrag(PointerEventData eventData)
-    {
-        // 원본은 드래그 종료 동작 없음
+        // DraggableUI 컴포넌트 복사
+        DraggableUI originalDraggable = original.GetComponent<DraggableUI>();
+        if (originalDraggable != null)
+        {
+            DraggableUI clonedDraggable = clone.AddComponent<DraggableUI>();
+            clonedDraggable.isDropped = originalDraggable.isDropped;
+            clonedDraggable.allowReentry = originalDraggable.allowReentry;
+        }
     }
 }
+
