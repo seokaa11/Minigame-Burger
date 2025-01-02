@@ -33,7 +33,7 @@ public class DraggableUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     public void OnDrag(PointerEventData eventData)
     {
         if (isDropped && !allowReentry) return; // 드래그 제한
-        rect.position = eventData.position;
+        rect.position = eventData.position; 
     }
 
     public void OnEndDrag(PointerEventData eventData)
