@@ -6,7 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class ButtonManager : MonoBehaviour
 {
-        
+    [SerializeField] GameObject settingWindow;  
+    [SerializeField] GameObject helpWindow;
+
 
     public void GameStart()
     {
@@ -23,11 +25,11 @@ public class ButtonManager : MonoBehaviour
 
     public void LoadSetting()
     {
-        Debug.Log("Click-Setting");
+        settingWindow.SetActive(true);        
     }
-    public void LoadHowToPlay()
+    public void LoadHelp()
     {
-        Debug.Log("Click-HowToPlay");
+        helpWindow.SetActive(true);
     } 
     
 }
