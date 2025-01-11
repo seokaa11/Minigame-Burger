@@ -28,7 +28,6 @@ public class Timer : MonoBehaviour
             if (curTime <= 0) { 
                 Debug.Log("Game Over");
                 curTime = 0;
-
             }
             yield return null;
         }

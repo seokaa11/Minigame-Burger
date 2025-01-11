@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96f1f4f3c650fac4382dcf6dd32766d5, type: 3}
+  m_Name: OverTime
+  m_EditorClassIdentifier: 
+  Time: 999
+  isPerfectBurger: 0
+  score: 0
+  health: -1
+  dialog: "\uC2DC\uAC04\uC774 \uC5C6\uC5B4\uC11C \uAC00\uBCF4\uACA0\uC2B5\uB2C8\uB2E4!
+    \uC8C4\uC1A1\uD574\uC694\u3160"

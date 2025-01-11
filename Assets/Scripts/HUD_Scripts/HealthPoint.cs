@@ -12,12 +12,6 @@ public class HealthPoint : MonoBehaviour
         HealthFiller();
     }
 
-
-    IEnumerator ass()
-    {
-        yield return null;
-    }
-
     // Hp 칸을 조절하는 함수입니다. Health는 최대 5, 0.5 단위 조절
     void HealthFiller() 
     {
@@ -27,7 +21,7 @@ public class HealthPoint : MonoBehaviour
         }
     }
 
-    // Health 값에 따라 Hp 이미지 on/off 조절하는 함수입니다.
+    // GameManager Health 값에 따라 Hp 이미지 on/off 조절하는 함수입니다.
     bool DisplayHealthPoint(float _health, int pointNumber) 
     {
         return pointNumber <= (_health * 2) -1; 

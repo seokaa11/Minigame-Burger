@@ -1,34 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BurgerScore : MonoBehaviour
 {
-    public float takenTime;
+    public Scoredata [] scoredata;
 
 
-
-    void EvaluateBurger()
+    // 버거 상태에 따라 점수가 주어지고 대화문 출력
+    public void EvaluateBurger()
     {
-        if (takenTime <= 1)
+        for (int i = 0; i < scoredata.Length / 2; i++)
         {
-            GameManager.instance.score = 100;
-            Debug.Log("… 감사합니다! 수고하세요!");
-        }
-        else if(takenTime < 5)
-        {
-            GameManager.instance.score = 10;
-            Debug.Log("헙..! 너무 완벽해요! 감사합니다^-^");
-        }
-        else if(takenTime < 10)
-        {
-            GameManager.instance.score = 5;
-            Debug.Log("감사합니다! 맛있게 먹을게요!");
-        }
-        else
-        {
-            GameManager.instance.score = 1;
-            Debug.Log("조금 오래 걸렸네요ㅎㅎ.. 감사합니다..!");
+            if (GameManager.instance.takenTime > 20) { i = 4; }
+            if (scoredata[i].Time >= GameManager.instance.takenTime)
+            {
+                if (scoredata[i].isPerfectBurger && i != 4) { i += 5; }
+                GameManager.instance.score += scoredata[i].score;
+                GameManager.instance.health += scoredata[i].health;
+                GameManager.instance.dialog = scoredata[i].dialog;
+                GameManager.instance.takenTime = 0;
+                break;
+            }
         }
     }
 }
