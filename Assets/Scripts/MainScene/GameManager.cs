@@ -46,6 +46,11 @@ public class GameManager : MonoBehaviour
     void GameOver()
     {
         isLive = false;
+        int bestScore = PlayerPrefs.GetInt("bestScore", 0);
+        if(bestScore < score)
+        {
+            PlayerPrefs.SetInt("bestScore", score);
+        }
     }
 
     //게임 재시작

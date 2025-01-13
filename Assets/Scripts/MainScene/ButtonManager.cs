@@ -13,7 +13,7 @@ public class ButtonManager : MonoBehaviour
     public void GameStart()
     {
         Debug.Log("Game Start");
-        Time.timeScale = 0;
+        Time.timeScale = 1;
         GameManager.instance.IsLive = true;
         SceneManager.LoadScene(1);
     }

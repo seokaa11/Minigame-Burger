@@ -2158,7 +2158,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
-  health: 0
+  health: 5
+  takenTime: 0
+  dialog: 
   isLive: 0
 --- !u!4 &1755986800
 Transform:
