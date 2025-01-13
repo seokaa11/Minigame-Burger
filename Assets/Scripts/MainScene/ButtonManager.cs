@@ -13,11 +13,7 @@ public class ButtonManager : MonoBehaviour
     public void GameStart()
     {
         Debug.Log("Game Start");
-<<<<<<< Updated upstream
         Time.timeScale = 0;
-=======
-        Time.timeScale = 1;
->>>>>>> Stashed changes
         GameManager.instance.IsLive = true;
         SceneManager.LoadScene(1);
     }
