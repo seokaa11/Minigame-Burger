@@ -46,8 +46,18 @@ public class GameManager : MonoBehaviour
     void GameOver()
     {
         isLive = false;
+<<<<<<< Updated upstream
+
+=======
+        int bestScore = PlayerPrefs.GetInt("bestScore", 0);
+        if(bestScore < score)
+        {
+            PlayerPrefs.SetInt("bestScore", score);
+        }
     }
 
+
+>>>>>>> Stashed changes
     //게임 재시작
     void GameRestart()
     {
