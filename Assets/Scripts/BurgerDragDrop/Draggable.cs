@@ -12,6 +12,10 @@ public class Draggable : MonoBehaviour
     public Vector3 originalPosition; // 원본 위치를 저장할 변수
     public Vector3 originalScale; // 원본 스케일을 저장할 변수
 
+    public Sprite originalSprite; // 원래 스프라이트
+    public Sprite replacementSprite; // 교체할 스프라이트
+    public Sprite SauceSprite; // 소스 뿌린 이미지 스프라이트
+
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();

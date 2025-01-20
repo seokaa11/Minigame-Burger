@@ -2,16 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    public int score;                   // °ÔÀÓ Á¡¼ö
-    public float health;                // Player ¸ñ¼û
-    public float takenTime;             // ¹ö°Å Á¦ÀÛ ¼Ò¿ä½Ã°£
-    public string dialog;               // ¹ö°Å Á¦Ãâ½Ã ´ëÈ­¹®
-    [SerializeField] bool isGameOver;           // °ÔÀÓ¿À¹öµÇ¾ú? 
+
+    public int score;  // ê²Œì„ ì ìˆ˜
+    public float health; // Player ëª©ìˆ¨
+    public float takenTime; // ë²„ê±° ì œì‘ ì†Œìš”ì‹œê°„
+    public string dialog; // ë²„ê±° ì œì¶œì‹œ ëŒ€í™”ë¬¸
+    public bool isGameOver = false; //ê²Œì„ì´ ëë‚¬ìŒ ì„ ì•Œë¦¼.
+    public GameObject GameOverUI;
+
+    [SerializeField]bool isLive;   // ê²Œì„ì´ ë©ˆì¶°ìˆëŠ”ê°€? 
+    public bool IsLive
+    {
+        get { return isLive; }
+        set { isLive = value; }
+    }
+
 
     void Awake()
     {
@@ -24,7 +35,9 @@ public class GameManager : MonoBehaviour
     }
 
     private void Update()
-    {        
+
+    {
+        if (!isLive) { return; }
 
         takenTime += Time.deltaTime;
         if (health <= 0)
@@ -39,20 +52,32 @@ public class GameManager : MonoBehaviour
         set { isGameOver = value; }
     }
 
-    //°ÔÀÓ ¿À¹ö½Ã ÀÛµ¿
+    //ê²Œì„ ì˜¤ë²„ì‹œ ì‘ë™
     void GameOver()
     {
-        isGameOver = false;
+
+        if (!isGameOver)
+        {
+            int bestScore = PlayerPrefs.GetInt("bestScore", 0);
+            if (bestScore < score)
+            {
+                PlayerPrefs.SetInt("bestScore", score);
+            }
+            isGameOver = true;
+            GameOverUI.SetActive(true);
+        }
+
     }
 
-    //°ÔÀÓ Àç½ÃÀÛ
+    //ê²Œì„ ì¬ì‹œì‘
     public void GameRestart()
     {
-        SceneManager.LoadScene(1);//ÀÓ½Ã 1
-        //´Ù½ÃÇÏ±â
+
+
+
     }
 
-    //°ÔÀÓ ¼³Á¤ ÃÊ±âÈ­
+    //ê²Œì„ ì„¤ì • ì´ˆê¸°í™”
     void Init()
     {
 
