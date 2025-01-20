@@ -7,7 +7,6 @@ TagManager:
   - Draggable
   - DropArea
   - DropArea2
-  - GameManager
   layers:
   - Default
   - TransparentFX

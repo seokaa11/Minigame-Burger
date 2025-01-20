@@ -1,25 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class ButtonManager : MonoBehaviour
 {
-    public static ButtonManager instance;
-    [SerializeField] GameObject settingWindow;
-   GameObject settingWindowPrefab;
+    [SerializeField] GameObject settingWindow;  
+    [SerializeField] GameObject helpWindow;
 
-    // Start is called before the first frame update
-    void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else { Destroy(gameObject); }
-    }
-    
+
     public void GameStart()
     {
         Debug.Log("Game Start");
@@ -27,26 +17,19 @@ public class ButtonManager : MonoBehaviour
         GameManager.instance.IsLive = true;
         SceneManager.LoadScene(1);
     }
-    public void LoadSetting()
-    {
-        if (settingWindowPrefab == null )
-        {
-            settingWindowPrefab = Instantiate(settingWindow);
-        }        
-    }
-    
-    public void LoadHelp()
-    {
-        //∞‘¿” º≥∏Ì æ¿?
-    }
-
     public void GameExit()
     {
         Debug.Log("Game Quit");
         Application.Quit();
     }
-    public void Close(GameObject obj)
+
+    public void LoadSetting()
     {
-       Destroy(obj);
+        settingWindow.SetActive(true);        
     }
+    public void LoadHelp()
+    {
+        helpWindow.SetActive(true);
+    } 
+    
 }
