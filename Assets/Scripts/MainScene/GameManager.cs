@@ -17,11 +17,7 @@ public class GameManager : MonoBehaviour
     public GameObject GameOverUI;
 
     [SerializeField]bool isLive;   // 게임이 멈춰있는가? 
-    public bool IsLive
-    {
-        get { return isLive; }
-        set { isLive = value; }
-    }
+    
 
 
     void Awake()
