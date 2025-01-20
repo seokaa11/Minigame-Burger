@@ -8,19 +8,21 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    public int score;  // °ÔÀÓ Á¡¼ö
-    public float health; // Player ¸ñ¼û
-    public float takenTime; // ¹ö°Å Á¦ÀÛ ¼Ò¿ä½Ã°£
-    public string dialog; // ¹ö°Å Á¦Ãâ½Ã ´ëÈ­¹®
-    public bool isGameOver = false; //°ÔÀÓÀÌ ³¡³µÀ½ À» ¾Ë¸².
+
+    public int score;  // ê²Œì„ ì ìˆ˜
+    public float health; // Player ëª©ìˆ¨
+    public float takenTime; // ë²„ê±° ì œì‘ ì†Œìš”ì‹œê°„
+    public string dialog; // ë²„ê±° ì œì¶œì‹œ ëŒ€í™”ë¬¸
+    public bool isGameOver = false; //ê²Œì„ì´ ëë‚¬ìŒ ì„ ì•Œë¦¼.
     public GameObject GameOverUI;
 
-    [SerializeField]bool isLive;   // °ÔÀÓÀÌ ¸ØÃçÀÖ´Â°¡? 
+    [SerializeField]bool isLive;   // ê²Œì„ì´ ë©ˆì¶°ìˆëŠ”ê°€? 
     public bool IsLive
     {
         get { return isLive; }
         set { isLive = value; }
     }
+
 
     void Awake()
     {
@@ -28,17 +30,15 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
-        } else { Destroy(gameObject); }
-    }
-
-    void Start()
-    {
-
+        }
+        else { Destroy(gameObject); }
     }
 
     private void Update()
+
     {
         if (!isLive) { return; }
+
         takenTime += Time.deltaTime;
         if (health <= 0)
         {
@@ -46,9 +46,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    //°ÔÀÓ ¿À¹ö½Ã ÀÛµ¿
+    public bool IsLive
+    {
+        get { return isGameOver; }
+        set { isGameOver = value; }
+    }
+
+    //ê²Œì„ ì˜¤ë²„ì‹œ ì‘ë™
     void GameOver()
     {
+
         if (!isGameOver)
         {
             int bestScore = PlayerPrefs.GetInt("bestScore", 0);
@@ -59,15 +66,19 @@ public class GameManager : MonoBehaviour
             isGameOver = true;
             GameOverUI.SetActive(true);
         }
+
     }
 
-    //°ÔÀÓ Àç½ÃÀÛ
-    void GameRestart()
+    //ê²Œì„ ì¬ì‹œì‘
+    public void GameRestart()
     {
+
+
+
     }
 
-    //°ÔÀÓ ¼³Á¤ ÃÊ±âÈ­
-    void init()
+    //ê²Œì„ ì„¤ì • ì´ˆê¸°í™”
+    void Init()
     {
 
     }
