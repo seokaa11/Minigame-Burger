@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class TitleText : MonoBehaviour
+public class TextBold : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI text;
     public void MouseOverEvent()
