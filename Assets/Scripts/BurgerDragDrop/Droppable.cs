@@ -28,8 +28,23 @@ public class Droppable : MonoBehaviour
         Collider2D other = draggable.GetComponent<Collider2D>();
         if (other != null && other.CompareTag("Draggable"))
         {
-            // 드래그 가능한 오브젝트가 드롭 영역에 들어왔을 때 실행할 코드
             Debug.Log("Draggable entered drop area");
+
+            // Bun(Clone)이 드랍된 경우
+            if (draggable.name.Equals("Bun(Clone)"))
+            {
+                Debug.Log("Bun(Clone) has been dropped. All ingredients can no longer be dragged.");
+
+                // 새로운 부모 오브젝트 생성
+                GameObject hamburger = new GameObject("Hamburger");
+                hamburger.transform.position = transform.position;
+
+                // 드롭 영역을 새로운 부모의 자식으로 설정
+                transform.SetParent(hamburger.transform);
+
+                // 모든 재료의 드래그 기능 비활성화
+                DisableAllDraggableItems();
+            }
 
             // Bun인지 확인하고 처음 놓는 경우 UnderBun으로 변환
             if (draggable.name.Equals("Bun") && stackCount == 0)
@@ -89,6 +104,19 @@ public class Droppable : MonoBehaviour
             }
         }
     }
+
+
+
+
+    private void DisableAllDraggableItems()
+    {
+        // 드롭 영역 내의 모든 드래그 가능한 오브젝트를 비활성화
+        foreach (var draggable in FindObjectsOfType<Draggable>())
+        {
+            draggable.isDraggable = false;
+        }
+    }
+
 
 
 
