@@ -7,6 +7,7 @@ TagManager:
   - Draggable
   - DropArea
   - DropArea2
+  - GameManager
   layers:
   - Default
   - TransparentFX
@@ -43,4 +44,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: BackGround
+    uniqueID: 246956107
     locked: 0

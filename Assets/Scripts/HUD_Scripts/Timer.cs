@@ -1,21 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    public Text text;
+    TextMeshProUGUI text;
     int minute;
     int second;
-    [SerializeField] public float curTime;
+    [SerializeField] float curTime;
     [SerializeField] float time;
 
     private void Awake()
     {
+        text = GetComponent<TextMeshProUGUI>();
+
+    }
+    void Start()
+    {
         StartCoroutine(GameTimer());
     }
-
     IEnumerator GameTimer()
     {
         curTime = time;

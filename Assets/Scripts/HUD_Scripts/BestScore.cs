@@ -1,15 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 public class BestScore : MonoBehaviour
 {
     int bestScore;
-    Text bestScoreText;
+    TextMeshProUGUI bestScoreText;
 
     private void Awake()
     {
-        bestScoreText = GetComponent<Text>();
+        bestScoreText = GetComponent<TextMeshProUGUI>();
         bestScore = PlayerPrefs.GetInt("bestScore", 0);
     }
 
