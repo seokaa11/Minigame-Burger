@@ -48,6 +48,6 @@ MonoBehaviour:
   health: 5
   takenTime: 0
   dialog: 
-  isGameOver: 1
+  isGameOver: 0
   GameOverUI: {fileID: 0}
-  isLive: 0
+  isLive: 1
