@@ -905,6 +905,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   m_GameObject: {fileID: 514441033}
   m_Enabled: 1
   m_CastShadows: 0
@@ -994,11 +995,15 @@ RectTransform:
 =======
 --- !u!114 &243961979
 >>>>>>> Stashed changes
+=======
+--- !u!114 &243961979
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
   m_GameObject: {fileID: 516280497}
   m_Enabled: 1
@@ -1077,12 +1082,17 @@ CanvasRenderer:
   m_GameObject: {fileID: 516280497}
   m_CullTransparentMesh: 1
 =======
+=======
+>>>>>>> Stashed changes
   m_GameObject: {fileID: 243961975}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dcdab2d54d07ed94390e783c40540671, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 --- !u!1 &519420028
 GameObject:
