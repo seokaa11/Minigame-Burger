@@ -2,12 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-
+    [SerializeField]Texture2D cursor;
 
     public int score;  // 게임 점수
     public float health; // Player 목숨
@@ -27,9 +26,12 @@ public class GameManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        else { Destroy(gameObject); }
+        else { Destroy(gameObject); }        
     }
-
+    void Start()
+    {
+        Cursor.SetCursor(cursor,Vector2.zero,CursorMode.Auto);
+    }
     private void Update()
 
     {
