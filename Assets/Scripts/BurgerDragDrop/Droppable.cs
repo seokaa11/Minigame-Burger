@@ -108,7 +108,6 @@ public class Droppable : MonoBehaviour
             }
 
             // Instantiate 메서드 호출
-            Instantiate(draggable.gameObject);
             GameObject clone = Instantiate(draggable.gameObject);
 
             // 클론 오브젝트 이름에서 (Clone) 제거
@@ -151,7 +150,7 @@ public class Droppable : MonoBehaviour
             ingredientCurrentAmounts[index] = newAmount;
         }
     }
-    public void MakeClonesDraggable()
+    public void MakeClonesDraggable() // 클론이 드래그 가능하도록 설정하는 메서드
     {
         // 모든 Draggable 객체를 검색
         var allDraggables = GameObject.FindObjectsOfType<Draggable>();
@@ -176,7 +175,7 @@ public class Droppable : MonoBehaviour
     }
 
     // DropArea 안에 들어간 모든 오브젝트를 제거하는 메서드
-    public void ClearAllDroppedItems()
+    public void ClearAllDroppedItems() // 쓰레기통 구현 메서드
     {
         foreach (GameObject item in droppedItems)
         {
