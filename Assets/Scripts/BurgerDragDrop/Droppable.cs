@@ -18,6 +18,7 @@ public class Droppable : MonoBehaviour
 
     // 재료별 위치를 저장할 리스트
     public List<Vector3> ingredientPositions;
+
     private void Start()
     {
         // 예제 데이터 초기화
@@ -39,6 +40,25 @@ public class Droppable : MonoBehaviour
             new Vector3(8f, -0.09f, 0f)  // Bulgogi2
         };
     }
+    private void CheckAndDisableDraggableItems()
+    {
+        // DropArea 내에 있는 모든 "Bun" 개수 확인
+        int bunCount = droppedItems.Count(item => item.name == "Bun");
+
+        if (bunCount >= 3)
+        {
+            // 새로운 부모 오브젝트 생성
+            GameObject hamburger = new GameObject("Hamburger");
+            hamburger.transform.position = transform.position;
+
+            // 드롭 영역을 새로운 부모의 자식으로 설정
+            transform.SetParent(hamburger.transform);
+
+            // 모든 재료의 드래그 기능 비활성화
+            DisableAllDraggableItems();
+            Debug.Log("Bun 개수가 2개 이상입니다. 모든 Draggable을 비활성화합니다.");
+        }
+    }
 
     public void OnDrop(Draggable draggable)
     {
@@ -46,6 +66,7 @@ public class Droppable : MonoBehaviour
         if (other != null && other.CompareTag("Draggable"))
         {
             Debug.Log("Draggable entered drop area");
+
 
             // Bun인지 확인하고 처음 놓는 경우 UnderBun으로 변환
             if (draggable.name.Equals("Bun") && stackCount == 0)
@@ -139,6 +160,12 @@ public class Droppable : MonoBehaviour
                 cloneDraggable.isDraggable = true;
                 cloneDraggable.GetComponent<Collider2D>().enabled = true;
             }
+
+            // 드롭된 오브젝트 리스트에 추가
+            droppedItems.Add(other.gameObject);
+
+            // 추가: Bun 개수 확인 후 모든 드래그 비활성화 여부 결정
+            CheckAndDisableDraggableItems();
         }
     }
 
@@ -174,14 +201,45 @@ public class Droppable : MonoBehaviour
         }
     }
 
+    private void DisableAllDraggableItems()
+    {
+        // 드롭 영역 내의 모든 드래그 가능한 오브젝트를 비활성화
+        foreach (var draggable in FindObjectsOfType<Draggable>())
+        {
+            draggable.isDraggable = false;
+        }
+    }
+
+    private void AbleAllDraggableItems()
+    {
+        // 드롭 영역 내의 모든 드래그 가능한 오브젝트를 비활성화
+        foreach (var draggable in FindObjectsOfType<Draggable>())
+        {
+            draggable.isDraggable = true;
+        }
+    }
+
     // DropArea 안에 들어간 모든 오브젝트를 제거하는 메서드
     public void ClearAllDroppedItems() // 쓰레기통 구현 메서드
     {
+        // 드롭된 아이템 제거
         foreach (GameObject item in droppedItems)
         {
             Destroy(item);
         }
         droppedItems.Clear();
         stackCount = 0; // 쌓인 오브젝트 수 초기화
+
+        // DropArea의 부모가 Hamburger인지 확인하고 삭제
+        if (transform.parent != null && transform.parent.name == "Hamburger")
+        {
+            GameObject hamburger = transform.parent.gameObject;
+            transform.SetParent(null); // DropArea를 분리
+            Destroy(hamburger); // Hamburger 객체 제거
+        }
+
+        // 모든 Draggable 아이템 다시 활성화
+        AbleAllDraggableItems();
     }
+
 }
