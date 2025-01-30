@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -284, y: -161}
-  m_SizeDelta: {x: 251.3551, y: 50}
+  m_AnchoredPosition: {x: -300, y: -161}
+  m_SizeDelta: {x: 230, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &389154900520460684
 CanvasRenderer:
@@ -92,14 +92,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28
-  m_fontSizeBase: 28
+  m_fontSize: 45
+  m_fontSizeBase: 45
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -812,8 +812,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28
-  m_fontSizeBase: 28
+  m_fontSize: 27.5625
+  m_fontSizeBase: 27.5625
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -867,6 +867,7 @@ GameObject:
   - component: {fileID: 2975659628694010741}
   - component: {fileID: 795374314403554305}
   - component: {fileID: 4151921380695419500}
+  - component: {fileID: 8922853134693582247}
   m_Layer: 5
   m_Name: SettingCanvas
   m_TagString: Untagged
@@ -969,6 +970,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ad1fa5d07085374a84fa6f79ef4ef7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sfxSlider: {fileID: 4414751915680924059}
+  bgmSlider: {fileID: 5492942464063861123}
+--- !u!114 &8922853134693582247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5288129435339524026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73a49f60b764ed047bac5d3497326321, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 02b2d625f99f7c94a8607e84d80731f3, type: 2}
 --- !u!1 &5968104652680537157
 GameObject:
   m_ObjectHideFlags: 0
@@ -980,7 +996,7 @@ GameObject:
   - component: {fileID: 1279215071514310503}
   - component: {fileID: 4414751915680924059}
   m_Layer: 5
-  m_Name: SoundEffect
+  m_Name: SFXSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1053,13 +1069,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 1217636049459414212}
   m_HandleRect: {fileID: 4532066387384476355}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.5
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8922853134693582247}
+        m_TargetAssemblyTypeName: SoundController, Assembly-CSharp
+        m_MethodName: SetSFXVolume
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6357168719588322320
 GameObject:
   m_ObjectHideFlags: 0
@@ -1143,7 +1171,7 @@ GameObject:
   - component: {fileID: 7550236326009480435}
   - component: {fileID: 5492942464063861123}
   m_Layer: 5
-  m_Name: BGM
+  m_Name: BGMSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1216,13 +1244,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 523868183320649436}
   m_HandleRect: {fileID: 2689819260777198815}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.5
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8922853134693582247}
+        m_TargetAssemblyTypeName: SoundController, Assembly-CSharp
+        m_MethodName: SetBGMVolume
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7030210281547891296
 GameObject:
   m_ObjectHideFlags: 0
@@ -1257,8 +1297,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -284, y: -433}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -300, y: -433}
+  m_SizeDelta: {x: 230, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &538319013524183495
 CanvasRenderer:
@@ -1315,14 +1355,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28
-  m_fontSizeBase: 28
+  m_fontSize: 45
+  m_fontSizeBase: 45
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1600,8 +1640,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28
-  m_fontSizeBase: 28
+  m_fontSize: 27.5625
+  m_fontSizeBase: 27.5625
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1812,11 +1852,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2850662312411820464, guid: 289c3f0d7ea7d0848bc37a1afe57375b, type: 3}
       propertyPath: m_fontSize
-      value: 18
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2850662312411820464, guid: 289c3f0d7ea7d0848bc37a1afe57375b, type: 3}
       propertyPath: m_fontSizeBase
-      value: 18
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5082091342626425557, guid: 289c3f0d7ea7d0848bc37a1afe57375b, type: 3}
       propertyPath: m_Pivot.x
@@ -1982,11 +2022,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2850662312411820464, guid: 289c3f0d7ea7d0848bc37a1afe57375b, type: 3}
       propertyPath: m_fontSize
+      value: 22.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2850662312411820464, guid: 289c3f0d7ea7d0848bc37a1afe57375b, type: 3}
+      propertyPath: m_fontSizeMax
       value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 2850662312411820464, guid: 289c3f0d7ea7d0848bc37a1afe57375b, type: 3}
       propertyPath: m_fontSizeBase
-      value: 18
+      value: 22.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2850662312411820464, guid: 289c3f0d7ea7d0848bc37a1afe57375b, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5082091342626425557, guid: 289c3f0d7ea7d0848bc37a1afe57375b, type: 3}
       propertyPath: m_Pivot.x
@@ -2152,11 +2200,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2850662312411820464, guid: 289c3f0d7ea7d0848bc37a1afe57375b, type: 3}
       propertyPath: m_fontSize
-      value: 18
+      value: 52
+      objectReference: {fileID: 0}
+    - target: {fileID: 2850662312411820464, guid: 289c3f0d7ea7d0848bc37a1afe57375b, type: 3}
+      propertyPath: m_fontStyle
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2850662312411820464, guid: 289c3f0d7ea7d0848bc37a1afe57375b, type: 3}
       propertyPath: m_fontSizeBase
-      value: 18
+      value: 52
       objectReference: {fileID: 0}
     - target: {fileID: 5082091342626425557, guid: 289c3f0d7ea7d0848bc37a1afe57375b, type: 3}
       propertyPath: m_Pivot.x
