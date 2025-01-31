@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Droppable : MonoBehaviour
 {
-    private int stackCount = 0; // 쌓인 오브젝트 수
+    public int stackCount = 0; // 쌓인 오브젝트 수
     public List<GameObject> originalIngredients; // 원본 재료 프리팹 리스트
 
     // 각 재료의 이름, 최대 수량, 현재 수량을 저장할 리스트
@@ -15,12 +15,49 @@ public class Droppable : MonoBehaviour
 
     // 드롭된 오브젝트들을 저장할 리스트
     public List<GameObject> droppedItems = new List<GameObject>();
+
+    // 재료별 위치를 저장할 리스트
+    public List<Vector3> ingredientPositions;
+
     private void Start()
     {
         // 예제 데이터 초기화
-        ingredientNames = new List<string> { "Bun", "Patty", "Lettuce", "Tomato", "Cheese","Pickle", "Ketchup2", "Mayo2", "Bulgogi2" };
-        ingredientMaxAmounts = new List<int> { 4, 4, 4, 4, 4, 4, 9999, 9999, 9999 };
+        ingredientNames = new List<string> { "Bun", "Patty", "Lettuce", "Tomato", "Cheese", "Pickle", "Ketchup2", "Mayo2", "Bulgogi2" };
+        ingredientMaxAmounts = new List<int> { 10, 10, 10, 10, 10, 10, 9999, 9999, 9999 };
         ingredientCurrentAmounts = new List<int>(ingredientMaxAmounts);
+
+        // 재료별 위치 초기화
+        ingredientPositions = new List<Vector3>
+        {
+            new Vector3(-7.4f, 0.22f, 0f), // Bun
+            new Vector3(-5.15f, 0.16f, 0f), // Patty
+            new Vector3(-2.77f, 0.12f, 0f), // Lettuce
+            new Vector3(-0.47f, 0.13f, 0f), // Tomato
+            new Vector3(1.87f, 0.19f, 0f), // Cheese
+            new Vector3(4.26f, 0.14f, 0f), // Pickle
+            new Vector3(5.95f, -0.09f, 0f), // Ketchup2
+            new Vector3(6.96f, -0.09f, 0f), // Mayo2
+            new Vector3(8f, -0.09f, 0f)  // Bulgogi2
+        };
+    }
+    private void CheckAndDisableDraggableItems()
+    {
+        // DropArea 내에 있는 모든 "Bun" 개수 확인
+        int bunCount = droppedItems.Count(item => item.name == "Bun");
+
+        if (bunCount >= 3)
+        {
+            // 새로운 부모 오브젝트 생성
+            GameObject hamburger = new GameObject("Hamburger");
+            hamburger.transform.position = transform.position;
+
+            // 드롭 영역을 새로운 부모의 자식으로 설정
+            transform.SetParent(hamburger.transform);
+
+            // 모든 재료의 드래그 기능 비활성화
+            DisableAllDraggableItems();
+            Debug.Log("Bun 개수가 2개 이상입니다. 모든 Draggable을 비활성화합니다.");
+        }
     }
 
     public void OnDrop(Draggable draggable)
@@ -30,21 +67,6 @@ public class Droppable : MonoBehaviour
         {
             Debug.Log("Draggable entered drop area");
 
-            // Bun(Clone)이 드랍된 경우
-            if (draggable.name.Equals("Bun(Clone)"))
-            {
-                Debug.Log("Bun(Clone) has been dropped. All ingredients can no longer be dragged.");
-
-                // 새로운 부모 오브젝트 생성
-                GameObject hamburger = new GameObject("Hamburger");
-                hamburger.transform.position = transform.position;
-
-                // 드롭 영역을 새로운 부모의 자식으로 설정
-                transform.SetParent(hamburger.transform);
-
-                // 모든 재료의 드래그 기능 비활성화
-                DisableAllDraggableItems();
-            }
 
             // Bun인지 확인하고 처음 놓는 경우 UnderBun으로 변환
             if (draggable.name.Equals("Bun") && stackCount == 0)
@@ -53,6 +75,15 @@ public class Droppable : MonoBehaviour
                 if (spriteRenderer != null && draggable.replacementSprite != null)
                 {
                     spriteRenderer.sprite = draggable.replacementSprite;
+                }
+            }
+            // Bun의 stackCount가 0이 아니고 Bun의 클론인 경우 원래 이미지로 변경
+            else if (draggable.name.Equals("Bun") && stackCount != 0)
+            {
+                SpriteRenderer spriteRenderer = draggable.GetComponent<SpriteRenderer>();
+                if (spriteRenderer != null && draggable.originalSprite != null)
+                {
+                    spriteRenderer.sprite = draggable.originalSprite;
                 }
             }
 
@@ -97,16 +128,78 @@ public class Droppable : MonoBehaviour
                 spriteRenderer2.sortingOrder = stackCount;
             }
 
-            // 재료를 복제하여 원래 자리로 복귀
-            if (ingredientCurrentAmounts[index] > 0)
+            // Instantiate 메서드 호출
+            GameObject clone = Instantiate(draggable.gameObject);
+
+            // 클론 오브젝트 이름에서 (Clone) 제거
+            clone.name = draggable.name.Replace("(Clone)", "").Trim();
+
+            // 클론 오브젝트에 Draggable 컴포넌트 추가 및 초기화
+            Draggable cloneDraggable = clone.GetComponent<Draggable>();
+            if (cloneDraggable != null)
             {
-                InstantiateNewIngredient(draggable);
+                cloneDraggable.isDraggable = true;
+                // 추가적인 초기화 작업이 필요하면 여기에 추가
             }
+
+            // 클론 위치 및 스케일 설정
+            if (index != -1 && index < ingredientPositions.Count)
+            {
+                clone.transform.position = ingredientPositions[index];
+            }
+            clone.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+
+            // 재료의 수량이 0이면 드래그 불가능하게 설정
+            if (index != -1 && ingredientCurrentAmounts[index] <= 0)
+            {
+                cloneDraggable.isDraggable = false;
+                cloneDraggable.GetComponent<Collider2D>().enabled = false;
+            }
+            else if (index != -1 && ingredientCurrentAmounts[index] > 0)
+            {
+                cloneDraggable.isDraggable = true;
+                cloneDraggable.GetComponent<Collider2D>().enabled = true;
+            }
+
+            // 드롭된 오브젝트 리스트에 추가
+            droppedItems.Add(other.gameObject);
+
+            // 추가: Bun 개수 확인 후 모든 드래그 비활성화 여부 결정
+            CheckAndDisableDraggableItems();
         }
     }
 
+    public void UpdateIngredientAmount(string ingredientName, int newAmount)
+    {
+        int index = ingredientNames.IndexOf(ingredientName);
+        if (index != -1)
+        {
+            ingredientCurrentAmounts[index] = newAmount;
+        }
+    }
+    public void MakeClonesDraggable() // 클론이 드래그 가능하도록 설정하는 메서드
+    {
+        // 모든 Draggable 객체를 검색
+        var allDraggables = GameObject.FindObjectsOfType<Draggable>();
 
-
+        foreach (var cloneDraggable in allDraggables)
+        {
+            if (cloneDraggable != null)
+            {
+                // 드롭 영역에 있는 클론들은 드래그 불가능하게 설정
+                if (cloneDraggable.transform.parent == transform)
+                {
+                    cloneDraggable.isDraggable = false;
+                    cloneDraggable.GetComponent<Collider2D>().enabled = false;
+                }
+                else
+                {
+                    cloneDraggable.isDraggable = true;
+                    cloneDraggable.GetComponent<Collider2D>().enabled = true;
+                }
+            }
+        }
+    }
 
     private void DisableAllDraggableItems()
     {
@@ -117,57 +210,36 @@ public class Droppable : MonoBehaviour
         }
     }
 
-
-
-
-    public void InstantiateNewIngredient(Draggable draggable) // 재료를 복제하는 메서드
+    private void AbleAllDraggableItems()
     {
-        // 드롭된 오브젝트의 원본 프리팹을 찾음
-        GameObject originalIngredient = FindOriginalIngredient(draggable.gameObject);
-        if (originalIngredient != null)
+        // 드롭 영역 내의 모든 드래그 가능한 오브젝트를 비활성화
+        foreach (var draggable in FindObjectsOfType<Draggable>())
         {
-            // 원본 재료의 복제본을 생성
-            GameObject newIngredient = Instantiate(originalIngredient, draggable.originalPosition, originalIngredient.transform.rotation);
-
-            // 클론의 스케일을 원본 오브젝트의 스케일과 동일하게 설정
-            newIngredient.transform.localScale = draggable.originalScale;
-            newIngredient.GetComponent<Draggable>().isDraggable = true;
-
-
-            // 새로운 재료가 Bun인 경우 원래 스프라이트로 설정
-            if (newIngredient.name.Equals("Bun(Clone)"))
-            {
-                SpriteRenderer spriteRenderer = newIngredient.GetComponent<SpriteRenderer>();
-                if (spriteRenderer != null && draggable.originalSprite != null)
-                {
-                    spriteRenderer.sprite = draggable.originalSprite;
-                }
-            }
+            draggable.isDraggable = true;
         }
-    }
-
-    public GameObject FindOriginalIngredient(GameObject droppedObject)
-    {
-        // 드롭된 오브젝트와 같은 종류의 원본 프리팹을 찾음
-        foreach (GameObject ingredient in originalIngredients)
-        {
-            if (ingredient.name == droppedObject.name.Replace("(Clone)", "").Trim())
-            {
-                return ingredient;
-            }
-        }
-        return null;
     }
 
     // DropArea 안에 들어간 모든 오브젝트를 제거하는 메서드
-    public void ClearAllDroppedItems()
+    public void ClearAllDroppedItems() // 쓰레기통 구현 메서드
     {
-
+        // 드롭된 아이템 제거
         foreach (GameObject item in droppedItems)
         {
             Destroy(item);
         }
         droppedItems.Clear();
         stackCount = 0; // 쌓인 오브젝트 수 초기화
+
+        // DropArea의 부모가 Hamburger인지 확인하고 삭제
+        if (transform.parent != null && transform.parent.name == "Hamburger")
+        {
+            GameObject hamburger = transform.parent.gameObject;
+            transform.SetParent(null); // DropArea를 분리
+            Destroy(hamburger); // Hamburger 객체 제거
+        }
+
+        // 모든 Draggable 아이템 다시 활성화
+        AbleAllDraggableItems();
     }
+
 }
