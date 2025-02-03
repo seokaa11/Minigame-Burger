@@ -7,7 +7,7 @@ public class ButtonManager : MonoBehaviour
 {
     public static ButtonManager instance;
     [SerializeField] GameObject settingWindow;
-   GameObject settingWindowPrefab;
+   
 
     // Start is called before the first frame update
     void Awake()
@@ -18,6 +18,7 @@ public class ButtonManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
         else { Destroy(gameObject); }
+        
     }
     
     public void GameStart()
@@ -30,10 +31,7 @@ public class ButtonManager : MonoBehaviour
     }
     public void LoadSetting()
     {
-        if (settingWindowPrefab == null )
-        {
-            settingWindowPrefab = Instantiate(settingWindow);
-        }        
+        settingWindow.SetActive(!settingWindow.activeSelf);
     }
     
     public void LoadHelp()
@@ -48,6 +46,6 @@ public class ButtonManager : MonoBehaviour
     }
     public void Close(GameObject obj)
     {
-       Destroy(obj);
+       obj.SetActive(false);
     }
 }

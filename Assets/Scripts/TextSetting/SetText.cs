@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -12,27 +13,20 @@ public class SetText : MonoBehaviour
     public Button[] buttons; // 폰트 변경 버튼. 작게, 중간, 크게
     TextMeshProUGUI[] texts;
     Dictionary<TextMeshProUGUI, float> originalFontSize;
-    float currentSize;
-    const string fontSizePrefs = "FontSize";
+    float currentSize=1f;
     int selectedIndex;
-
-    void Start()
-    {
+    
+    void OnEnable()
+    {        
         originalFontSize = new Dictionary<TextMeshProUGUI, float>();
-        StoreText();
-
-        // 저장된 폰트 크기 배율 불러오기 (기본값 1.0)
-        currentSize = PlayerPrefs.GetFloat(fontSizePrefs, 1f);
-
-        // 기존 폰트 크기 기준으로 배율 적용
-        ApplyFontSize(currentSize);
-
+        StoreText(SceneManager.GetActiveScene(), LoadSceneMode.Single);
         // 선택된 버튼 비활성화
         CheckSelectedButton(currentSize);
     }
 
-    void StoreText()
+    void StoreText(Scene scene,LoadSceneMode mode)
     {
+        print(SceneManager.GetActiveScene().name);
         // 씬 내 모든 텍스트 불러오기, 초기 폰트 크기 저장
         texts = Resources.FindObjectsOfTypeAll<TextMeshProUGUI>();
         foreach (TextMeshProUGUI text in texts)
@@ -66,6 +60,7 @@ public class SetText : MonoBehaviour
         CheckSelectedButton(currentSize);
     }
 
+    //적용된 폰트사이즈 클릭 방지
     void CheckSelectedButton(float textSize)
     {
         selectedIndex = CheckPressedButton(textSize);
@@ -74,7 +69,7 @@ public class SetText : MonoBehaviour
             buttons[i].interactable = (i != selectedIndex);
         }
     }
-
+    
     void ApplyFontSize(float textSize)
     {
         foreach (KeyValuePair<TextMeshProUGUI, float> original in originalFontSize)
@@ -90,10 +85,6 @@ public class SetText : MonoBehaviour
             text.fontSize = size * textSize; // 원래 폰트 크기에 배율 적용
         }
     }
-
-    void OnDisable()
-    {
-        PlayerPrefs.SetFloat(fontSizePrefs, currentSize);
-        PlayerPrefs.Save(); // 저장 명시적 호출 (권장)
-    }
+    
+    
 }

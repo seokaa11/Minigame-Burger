@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b407b249f56ce044bb5ada764fce71f2, type: 3}
   m_Name: TextSizeBigger
   m_EditorClassIdentifier: 
-  textSize: 1.75
+  textSize: 1.5
