@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class ButtonManager : MonoBehaviour
 {
     public static ButtonManager instance;
-    [SerializeField] GameObject settingWindow;
+    GameObject settingCanvas;
    
 
     // Start is called before the first frame update
@@ -17,10 +17,12 @@ public class ButtonManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        else { Destroy(gameObject); }
-        
+        else { Destroy(gameObject); }        
     }
-    
+    void Start()
+    {
+        settingCanvas = FindAnyObjectByType<SettingCanvas>().settingBorder;
+    }
     public void GameStart()
     {
         SoundManager.instance.PlayBGM(SoundManager.EBgm.BGM_GAME);
@@ -31,7 +33,8 @@ public class ButtonManager : MonoBehaviour
     }
     public void LoadSetting()
     {
-        settingWindow.SetActive(!settingWindow.activeSelf);
+        if (settingCanvas == null) { print("djqt"); return; }
+        settingCanvas.SetActive(!settingCanvas.activeSelf);
     }
     
     public void LoadHelp()

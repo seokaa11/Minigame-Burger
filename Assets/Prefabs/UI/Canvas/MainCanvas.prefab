@@ -926,7 +926,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1220562114796763866, guid: 289c3f0d7ea7d0848bc37a1afe57375b, type: 3}
       propertyPath: m_Name
-      value: Help Text
+      value: Exit Text
       objectReference: {fileID: 0}
     - target: {fileID: 2850662312411820464, guid: 289c3f0d7ea7d0848bc37a1afe57375b, type: 3}
       propertyPath: m_text

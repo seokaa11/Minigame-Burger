@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -13,29 +14,42 @@ public class SetText : MonoBehaviour
     public Button[] buttons; // 폰트 변경 버튼. 작게, 중간, 크게
     TextMeshProUGUI[] texts;
     Dictionary<TextMeshProUGUI, float> originalFontSize;
-    float currentSize=1f;
+    float currentSize = 1f;
     int selectedIndex;
-    
-    void OnEnable()
-    {        
+    void Awake()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
         originalFontSize = new Dictionary<TextMeshProUGUI, float>();
-        StoreText(SceneManager.GetActiveScene(), LoadSceneMode.Single);
-        // 선택된 버튼 비활성화
-        CheckSelectedButton(currentSize);
+    }
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        //새로운 씬 로딩 시 기존 텍스트 딕셔너리 초기화
+        originalFontSize.Clear();
+        // 씬 로드 후 일정 시간 뒤에 StoreText 호출
+        StartCoroutine(DelayedStoreText(scene, mode));
     }
 
-    void StoreText(Scene scene,LoadSceneMode mode)
+    IEnumerator DelayedStoreText(Scene scene, LoadSceneMode mode)
     {
-        print(SceneManager.GetActiveScene().name);
-        // 씬 내 모든 텍스트 불러오기, 초기 폰트 크기 저장
+        // 씬 로딩 완료 후 짧게 대기
+        yield return new WaitForSeconds(0.1f);
+        StoreText(scene, mode); // 씬 로드가 끝나면 StoreText 호출
+        ApplyFontSize(currentSize);
+        CheckSelectedButton(currentSize);
+    }      
+
+    void StoreText(Scene scene, LoadSceneMode mode)
+    {        
         texts = Resources.FindObjectsOfTypeAll<TextMeshProUGUI>();
+
         foreach (TextMeshProUGUI text in texts)
         {
-            if (!originalFontSize.ContainsKey(text))
+            if (text == null || originalFontSize.ContainsKey(text))
             {
-                originalFontSize[text] = text.fontSize; // 원본 폰트 크기 저장
+                continue;
             }
-        }
+            originalFontSize[text] = text.fontSize; // 원본 폰트 크기 저장
+        }        
     }
 
     int CheckPressedButton(float currentSize)
@@ -45,15 +59,13 @@ public class SetText : MonoBehaviour
         else return 2;
     }
 
-    public void ClickTextSize()
+    public void ClickTextSize(Button btn)
     {
         // 클릭한 버튼의 폰트 사이즈 배율 가져오기
-        float textSize = EventSystem.current.currentSelectedGameObject.GetComponent<TextSizeSelect>()
-                            .TextSizeSO.GetTextSize();
+        float textSize = btn.GetComponent<TextSizeSelect>().TextSizeSO.GetTextSize();
 
         currentSize = textSize;
-
-        // 원래 크기에서 배율 적용
+        //사이즈 적용
         ApplyFontSize(currentSize);
 
         // 버튼 상태 갱신
@@ -69,7 +81,7 @@ public class SetText : MonoBehaviour
             buttons[i].interactable = (i != selectedIndex);
         }
     }
-    
+
     void ApplyFontSize(float textSize)
     {
         foreach (KeyValuePair<TextMeshProUGUI, float> original in originalFontSize)
@@ -81,10 +93,8 @@ public class SetText : MonoBehaviour
             {
                 continue;
             }
-
             text.fontSize = size * textSize; // 원래 폰트 크기에 배율 적용
         }
     }
-    
     
 }

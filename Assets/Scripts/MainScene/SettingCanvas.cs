@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class SettingCanvas : MonoBehaviour
 {
     public static SettingCanvas instance;
+    public GameObject settingBorder;
     void Awake()
     {
         if(instance == null)
@@ -40,7 +41,7 @@ public class SettingCanvas : MonoBehaviour
     }
     public void Close()
     {
-        ButtonManager.instance.Close(gameObject);
+        ButtonManager.instance.Close(settingBorder);
     }    
     
 }
