@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class Droppable : MonoBehaviour
 {
+
+    public GameObject burgerPrefab; // Burger 프리팹을 할당할 변수
+    private GameObject instantiatedBurger; // 생성된 Burger 오브젝트를 참조
+
     public int stackCount = 0; // 쌓인 오브젝트 수
     public List<GameObject> originalIngredients; // 원본 재료 프리팹 리스트
 
@@ -40,8 +44,112 @@ public class Droppable : MonoBehaviour
             new Vector3(7.01f, 1.7f, 0f), // Mayo2
             new Vector3(8.09f, 1.7f, 0f)  // Bulgogi2
         };
+
+        GameObject burger = GameObject.Find("Burger");
+        if (burger != null)
+        {
+            SetObjectTransparency(burger, 0f); // Alpha 값을 0으로 설정
+        }
+
     }
-    private void CheckAndDisableDraggableItems()
+
+    private void OnMouseDown()
+    {
+        // Hamburger의 자식 오브젝트들 처리
+        if (transform.parent != null && transform.parent.name == "Hamburger")
+        {
+            Transform parent = transform.parent;
+
+            // Hamburger 투명화
+            SetTransparencyRecursively(parent, 0f);
+
+            // Burger 프리팹 생성
+            if (burgerPrefab != null)
+            {
+                if (instantiatedBurger == null) // 중복 생성 방지
+                {
+                    instantiatedBurger = Instantiate(
+                        burgerPrefab,
+                        parent.position,
+                        Quaternion.identity
+                    );
+                    instantiatedBurger.name = "Burger"; // 생성된 이름 명확히 설정
+                    Debug.Log("Burger 프리팹 생성됨: " + instantiatedBurger.name);
+
+                    // Burger 불투명 설정
+                    SetTransparencyRecursively(instantiatedBurger.transform, 1.0f);
+                }
+            }
+        }
+    }
+
+    private void SetTransparencyRecursively(Transform parent, float alpha)
+    {
+        SetObjectTransparency(parent.gameObject, alpha);
+
+        foreach (Transform child in parent)
+        {
+            SetTransparencyRecursively(child, alpha);
+        }
+    }
+
+    private void SetObjectTransparency(GameObject obj, float alpha)
+    {
+        Renderer renderer = obj.GetComponent<Renderer>();
+        if (renderer != null)
+        {
+            Material material = renderer.material;
+
+            if (material.HasProperty("_Color"))
+            {
+                Color color = material.color;
+                color.a = alpha;
+                material.color = color;
+
+                SetMaterialRenderingMode(material, alpha < 1.0f ? "Transparent" : "Opaque");
+            }
+        }
+        else
+        {
+            CanvasGroup canvasGroup = obj.GetComponent<CanvasGroup>();
+            if (canvasGroup != null)
+            {
+                canvasGroup.alpha = alpha;
+            }
+        }
+    }
+
+    private void SetMaterialRenderingMode(Material material, string mode)
+    {
+        if (mode == "Transparent")
+        {
+            material.SetFloat("_Mode", 3);
+            material.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
+            material.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+            material.SetInt("_ZWrite", 0);
+            material.DisableKeyword("_ALPHATEST_ON");
+            material.EnableKeyword("_ALPHABLEND_ON");
+            material.DisableKeyword("_ALPHAPREMULTIPLY_ON");
+            material.renderQueue = 3000;
+        }
+        else if (mode == "Opaque")
+        {
+            material.SetFloat("_Mode", 0);
+            material.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.One);
+            material.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.Zero);
+            material.SetInt("_ZWrite", 1);
+            material.DisableKeyword("_ALPHATEST_ON");
+            material.DisableKeyword("_ALPHABLEND_ON");
+            material.DisableKeyword("_ALPHAPREMULTIPLY_ON");
+            material.renderQueue = -1;
+        }
+    }
+
+
+
+
+
+private void CheckAndDisableDraggableItems()
     {
         // DropArea 내에 있는 모든 "Bun" 개수 확인
         int bunCount = droppedItems.Count(item => item.name == "Bun");
