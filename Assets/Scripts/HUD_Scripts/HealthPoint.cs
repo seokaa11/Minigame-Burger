@@ -1,15 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class HealthPoint : MonoBehaviour
 {
     public Image[] healthPoints;
-
-    private void Update()
+    public Action DecreaseHealth;
+    private void Awake()
     {
-        HealthFiller();
+        HUD.Submit += HealthFiller;
     }
 
     // Hp 칸을 조절하는 함수입니다. Health는 최대 5, 0.5 단위 조절
@@ -26,4 +28,5 @@ public class HealthPoint : MonoBehaviour
     {
         return pointNumber <= (_health * 2) -1; 
     }
+
 }

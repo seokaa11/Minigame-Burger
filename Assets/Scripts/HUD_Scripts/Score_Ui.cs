@@ -10,10 +10,11 @@ public class Score_Ui : MonoBehaviour
     private void Awake()
     {
         text = GetComponent<TextMeshProUGUI>();
+        HUD.Submit += UpdateScore;
     }
 
-    void Update()
+    void UpdateScore()
     {
-        text.text = GameManager.instance.score.ToString();// 점수 표시 , 코루틴으로 해결?
+        text.text = GameManager.instance.score.ToString();// 점수 표시
     }
 }

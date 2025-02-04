@@ -21,7 +21,7 @@ public class ButtonManager : MonoBehaviour
     }
     void Start()
     {
-        settingCanvas = FindAnyObjectByType<SettingCanvas>().settingBorder;
+        //settingCanvas = FindAnyObjectByType<SettingCanvas>().settingBorder;
     }
     public void GameStart()
     {
