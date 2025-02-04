@@ -35,7 +35,7 @@ public abstract class ChangeSprite : MonoBehaviour
                     {
                         spriteRenderer.sprite = halfSprite;
                         isHalfSpriteSet = true; // 재료가 다시 추가되면 상태를 초기화
-                        transform.position = new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z);
+                        transform.position = new Vector3(transform.position.x, transform.position.y - 0.4f, transform.position.z);
                     }
                 }
                 else

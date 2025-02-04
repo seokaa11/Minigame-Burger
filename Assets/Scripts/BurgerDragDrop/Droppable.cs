@@ -22,22 +22,23 @@ public class Droppable : MonoBehaviour
     private void Start()
     {
         // 예제 데이터 초기화
-        ingredientNames = new List<string> { "Bun", "Patty", "Lettuce", "Tomato", "Cheese", "Pickle", "Ketchup2", "Mayo2", "Bulgogi2" };
-        ingredientMaxAmounts = new List<int> { 10, 10, 10, 10, 10, 10, 9999, 9999, 9999 };
+        ingredientNames = new List<string> { "Bun", "Patty", "Lettuce", "Tomato", "Cheese", "Pickle", "Onion", "Ketchup2", "Mayo2", "Bulgogi2" };
+        ingredientMaxAmounts = new List<int> { 10, 10, 10, 10, 10, 10, 10, 9999, 9999, 9999 };
         ingredientCurrentAmounts = new List<int>(ingredientMaxAmounts);
 
         // 재료별 위치 초기화
         ingredientPositions = new List<Vector3>
         {
-            new Vector3(-7.4f, 0.22f, 0f), // Bun
-            new Vector3(-5.15f, 0.16f, 0f), // Patty
-            new Vector3(-2.77f, 0.12f, 0f), // Lettuce
-            new Vector3(-0.47f, 0.13f, 0f), // Tomato
-            new Vector3(1.87f, 0.19f, 0f), // Cheese
-            new Vector3(4.26f, 0.14f, 0f), // Pickle
-            new Vector3(5.95f, -0.09f, 0f), // Ketchup2
-            new Vector3(6.96f, -0.09f, 0f), // Mayo2
-            new Vector3(8f, -0.09f, 0f)  // Bulgogi2
+            new Vector3(-7.54f, -0.76f, 0f), // Bun
+            new Vector3(-5.04f, -0.91f, 0f), // Patty
+            new Vector3(-2.49f, -0.89f, 0f), // Lettuce
+            new Vector3(0.01f, -0.89f, 0f), // Tomato
+            new Vector3(2.53f, -0.84f, 0f), // Cheese
+            new Vector3(5.02f, -0.88f, 0f), // Pickle
+            new Vector3(7.59f, -0.9f, 0f), // Onion
+            new Vector3(5.9f, 1.7f, 0f), // Ketchup2
+            new Vector3(7.01f, 1.7f, 0f), // Mayo2
+            new Vector3(8.09f, 1.7f, 0f)  // Bulgogi2
         };
     }
     private void CheckAndDisableDraggableItems()
