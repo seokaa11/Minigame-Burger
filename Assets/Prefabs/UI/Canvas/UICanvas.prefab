@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5239496764441293141}
   - component: {fileID: 861959486017790107}
   - component: {fileID: 1578425643958809714}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: HealthPoint5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -321,7 +321,7 @@ GameObject:
   - component: {fileID: 8734547206790161080}
   - component: {fileID: 2456018597898096846}
   - component: {fileID: 4237855987525097490}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: HealthPoint1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -421,6 +421,8 @@ RectTransform:
   - {fileID: 2756861103181117577}
   - {fileID: 5071729797851877541}
   - {fileID: 6179213884725736788}
+  - {fileID: 2864330180278095597}
+  - {fileID: 5428832307065082314}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -437,7 +439,7 @@ Canvas:
   m_GameObject: {fileID: 1673616988405447352}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -491,6 +493,81 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!1 &2038153728534882381
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5428832307065082314}
+  - component: {fileID: 865845533445746657}
+  - component: {fileID: 2950214426215913910}
+  m_Layer: 5
+  m_Name: Background
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &5428832307065082314
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2038153728534882381}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 381993257814317282}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &865845533445746657
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2038153728534882381}
+  m_CullTransparentMesh: 1
+--- !u!114 &2950214426215913910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2038153728534882381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 62b63c9ce39a06c4598c1a9e18467e60, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &2097386142304049173
 GameObject:
   m_ObjectHideFlags: 0
@@ -502,7 +579,7 @@ GameObject:
   - component: {fileID: 2926706908541967016}
   - component: {fileID: 811427857837222043}
   - component: {fileID: 3307422484834798135}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: HealthPoint6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1262,7 +1339,7 @@ GameObject:
   - component: {fileID: 7892000193677424332}
   - component: {fileID: 7600436255395074219}
   - component: {fileID: 4119558397752365046}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: HealthPoint9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1337,7 +1414,7 @@ GameObject:
   - component: {fileID: 2039647709929940472}
   - component: {fileID: 5640536258168313991}
   - component: {fileID: 7220186185064044431}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: HealthPoint8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1620,7 +1697,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9169820343793510081}
   - component: {fileID: 5700741992832700998}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: HUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1674,7 +1751,7 @@ GameObject:
   - component: {fileID: 6762963998026940300}
   - component: {fileID: 4177868036369048695}
   - component: {fileID: 653864599616420370}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ScoreIMG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1750,7 +1827,7 @@ GameObject:
   - component: {fileID: 1254848328036535601}
   - component: {fileID: 7004676037424375019}
   - component: {fileID: 2313240534818909429}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: HealthPoint2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1876,7 +1953,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1555577775903809568}
   - component: {fileID: 5842566705622372287}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: SubmitBurger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2134,7 +2211,7 @@ GameObject:
   - component: {fileID: 6935813730536156570}
   - component: {fileID: 6166326863740823849}
   - component: {fileID: 5598502055058142565}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: HealthPoint7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2356,7 +2433,7 @@ GameObject:
   - component: {fileID: 903022637745399533}
   - component: {fileID: 7924076110075556219}
   - component: {fileID: 6882009537476562469}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: HealthPoint3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2431,7 +2508,7 @@ GameObject:
   - component: {fileID: 9126585643030919957}
   - component: {fileID: 8575720863702249129}
   - component: {fileID: 4818022780758971500}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: HealthPoint10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2507,7 +2584,7 @@ GameObject:
   - component: {fileID: 348477295313689467}
   - component: {fileID: 2364318092771223690}
   - component: {fileID: 7140716922193219310}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Score_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2653,7 +2730,7 @@ GameObject:
   - component: {fileID: 2052974529071206905}
   - component: {fileID: 3415242803882607433}
   - component: {fileID: 3649802808127587045}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: HealthPoint4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2717,6 +2794,81 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &8600662314770969261
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2864330180278095597}
+  - component: {fileID: 2891033601045551690}
+  - component: {fileID: 1029048915285639882}
+  m_Layer: 5
+  m_Name: Background_sky
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2864330180278095597
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8600662314770969261}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 381993257814317282}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &2891033601045551690
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8600662314770969261}
+  m_CullTransparentMesh: 1
+--- !u!114 &1029048915285639882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8600662314770969261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 0d3bc47ae5107a647b9f039b7d86a993, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &8761248611501534897
 GameObject:
   m_ObjectHideFlags: 0
@@ -2729,7 +2881,7 @@ GameObject:
   - component: {fileID: 3562683720029723150}
   - component: {fileID: 8964337799072261784}
   - component: {fileID: 615101918636727514}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: HighScore_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
