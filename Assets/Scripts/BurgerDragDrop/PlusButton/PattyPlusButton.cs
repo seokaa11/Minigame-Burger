@@ -4,7 +4,7 @@ public class PattyPlusButton : MonoBehaviour
 {
     public Droppable droppable; // Droppable 스크립트를 참조하기 위한 변수
 
-    void OnMouseDown()
+    public void SetPattyCount()
     {
         // "Patty"의 수량을 10으로 설정
         droppable.UpdateIngredientAmount("Patty", 10);

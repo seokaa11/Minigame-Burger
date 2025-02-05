@@ -4,7 +4,7 @@ public class LettucePlusButton : MonoBehaviour
 {
     public Droppable droppable; // Droppable 스크립트를 참조하기 위한 변수
 
-    void OnMouseDown()
+    public void SetLettuceCount()
     {
         // "Lettuce"의 수량을 10으로 설정
         droppable.UpdateIngredientAmount("Lettuce", 10);
