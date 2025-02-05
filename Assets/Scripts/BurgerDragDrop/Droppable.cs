@@ -53,7 +53,7 @@ public class Droppable : MonoBehaviour
 
     }
 
-    private void OnMouseDown()
+    void OnMouseDown()
     {
         // Hamburger의 자식 오브젝트들 처리
         if (transform.parent != null && transform.parent.name == "Hamburger")
@@ -76,6 +76,9 @@ public class Droppable : MonoBehaviour
                     instantiatedBurger.name = "Burger"; // 생성된 이름 명확히 설정
                     Debug.Log("Burger 프리팹 생성됨: " + instantiatedBurger.name);
 
+                    // Burger의 위치를 (0, -3, 0)으로 설정
+                    instantiatedBurger.transform.position = new Vector3(0, -3, 0);
+
                     // Burger 불투명 설정
                     SetTransparencyRecursively(instantiatedBurger.transform, 1.0f);
                 }
@@ -83,17 +86,25 @@ public class Droppable : MonoBehaviour
         }
     }
 
-    private void SetTransparencyRecursively(Transform parent, float alpha)
+void SetTransparencyRecursively(Transform obj, float alpha)
+{
+    // Renderer가 존재하는 경우 알파 값을 변경
+    Renderer renderer = obj.GetComponent<Renderer>();
+    if (renderer != null)
     {
-        SetObjectTransparency(parent.gameObject, alpha);
-
-        foreach (Transform child in parent)
-        {
-            SetTransparencyRecursively(child, alpha);
-        }
+        Color color = renderer.material.color;
+        color.a = alpha;
+        renderer.material.color = color;
     }
 
-    private void SetObjectTransparency(GameObject obj, float alpha)
+    // 자식 오브젝트들에 대해서도 재귀적으로 호출
+    foreach (Transform child in obj)
+    {
+        SetTransparencyRecursively(child, alpha);
+    }
+}
+
+    void SetObjectTransparency(GameObject obj, float alpha)
     {
         Renderer renderer = obj.GetComponent<Renderer>();
         if (renderer != null)
@@ -119,7 +130,7 @@ public class Droppable : MonoBehaviour
         }
     }
 
-    private void SetMaterialRenderingMode(Material material, string mode)
+    void SetMaterialRenderingMode(Material material, string mode)
     {
         if (mode == "Transparent")
         {
@@ -145,11 +156,7 @@ public class Droppable : MonoBehaviour
         }
     }
 
-
-
-
-
-private void CheckAndDisableDraggableItems()
+    void CheckAndDisableDraggableItems()
     {
         // DropArea 내에 있는 모든 "Bun" 개수 확인
         int bunCount = droppedItems.Count(item => item.name == "Bun");
@@ -159,6 +166,7 @@ private void CheckAndDisableDraggableItems()
             // 새로운 부모 오브젝트 생성
             GameObject hamburger = new GameObject("Hamburger");
             hamburger.transform.position = transform.position;
+            Debug.Log("Hamburger 객체 생성");
 
             // 드롭 영역을 새로운 부모의 자식으로 설정
             transform.SetParent(hamburger.transform);
