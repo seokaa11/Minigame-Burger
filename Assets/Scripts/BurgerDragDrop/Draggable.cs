@@ -34,7 +34,7 @@ public class Draggable : MonoBehaviour
 
     void OnMouseDown()
     {
-        if (isDraggable)
+        if (isDraggable && Time.timeScale == 1)
         {
             // 마우스를 클릭한 위치와 오브젝트 중심의 차이를 계산
             offset = transform.position - GetMouseWorldPosition();
@@ -47,7 +47,7 @@ public class Draggable : MonoBehaviour
 
     void OnMouseDrag() // 마우스 드래그 시 호출되는 함수
     {
-        if (isDragging && isDraggable)
+        if (isDragging && isDraggable && Time.timeScale == 1)
         {
             // 마우스 위치를 따라 오브젝트를 이동
             transform.position = GetMouseWorldPosition() + offset;

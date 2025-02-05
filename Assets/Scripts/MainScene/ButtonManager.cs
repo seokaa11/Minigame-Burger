@@ -51,4 +51,16 @@ public class ButtonManager : MonoBehaviour
     {
        obj.SetActive(false);
     }
+
+    // 게임 일시정지 버튼을 눌렀을 때
+    public void GamePause()
+    {
+        Time.timeScale = 0;
+    }
+
+    //게임이 다시 재개됐을 때
+    public void GameResume()
+    {
+        Time.timeScale = 1;
+    }
 }
