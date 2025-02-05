@@ -4,7 +4,7 @@ public class PicklePlusButton : MonoBehaviour
 {
     public Droppable droppable; // Droppable 스크립트를 참조하기 위한 변수
 
-    public void SetPickleCount()
+    void OnMouseDown()
     {
         // "Pickle"의 수량을 10으로 설정
         droppable.UpdateIngredientAmount("Pickle", 10);
