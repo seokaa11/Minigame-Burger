@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
         takenTime += Time.deltaTime;
         if (health <= 0 && !isGameOver)
         {
-            GameOverPanel.SetActive(true);
+            Instantiate(GameOverPanel);
             endGame();
         }
     }
