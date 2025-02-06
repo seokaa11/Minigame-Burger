@@ -23,23 +23,23 @@ public class SetText : MonoBehaviour
     }
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        //새로운 씬 로딩 시 기존 텍스트 딕셔너리 초기화
+        print("씬");
+        //새로운 씬 로딩 시 텍스트 딕셔너리 초기화
         originalFontSize.Clear();
         // 씬 로드 후 일정 시간 뒤에 StoreText 호출
         StartCoroutine(DelayedStoreText(scene, mode));
     }
 
     IEnumerator DelayedStoreText(Scene scene, LoadSceneMode mode)
-    {
-        // 씬 로딩 완료 후 짧게 대기
-        yield return new WaitForSeconds(0.1f);
+    {       
+        yield return new WaitForSeconds(0.1f); // 씬 로딩 완료 후 짧게 대기
         StoreText(scene, mode); // 씬 로드가 끝나면 StoreText 호출
         ApplyFontSize(currentSize);
         CheckSelectedButton(currentSize);
-    }      
-
-    void StoreText(Scene scene, LoadSceneMode mode)
-    {        
+    }
+    
+    void StoreText(Scene scene, LoadSceneMode mode)//기본 폰트 사이즈 딕셔너리에 저장. 게임 종료시 사용됨.
+    {
         texts = Resources.FindObjectsOfTypeAll<TextMeshProUGUI>();
 
         foreach (TextMeshProUGUI text in texts)
@@ -49,17 +49,11 @@ public class SetText : MonoBehaviour
                 continue;
             }
             originalFontSize[text] = text.fontSize; // 원본 폰트 크기 저장
-        }        
+        }
     }
-
-    int CheckPressedButton(float currentSize)
-    {
-        if (currentSize == 0.75f) return 0;
-        else if (currentSize == 1f) return 1;
-        else return 2;
-    }
-
-    public void ClickTextSize(Button btn)
+    
+    
+    public void ClickTextSize(Button btn)//버튼 클릭 함수
     {
         // 클릭한 버튼의 폰트 사이즈 배율 가져오기
         float textSize = btn.GetComponent<TextSizeSelect>().TextSizeSO.GetTextSize();
@@ -71,9 +65,15 @@ public class SetText : MonoBehaviour
         // 버튼 상태 갱신
         CheckSelectedButton(currentSize);
     }
-
-    //적용된 폰트사이즈 클릭 방지
-    void CheckSelectedButton(float textSize)
+    
+    int CheckPressedButton(float currentSize)//적용된 폰트사이즈
+    {
+        if (currentSize == 0.75f) return 0;
+        else if (currentSize == 1f) return 1;
+        else return 2;
+    }
+   
+    void CheckSelectedButton(float textSize) //적용된 폰트사이즈 클릭 방지
     {
         selectedIndex = CheckPressedButton(textSize);
         for (int i = 0; i < buttons.Length; i++)
@@ -82,7 +82,7 @@ public class SetText : MonoBehaviour
         }
     }
 
-    void ApplyFontSize(float textSize)
+    void ApplyFontSize(float textSize)//사이즈 변경 함수
     {
         foreach (KeyValuePair<TextMeshProUGUI, float> original in originalFontSize)
         {
@@ -93,8 +93,20 @@ public class SetText : MonoBehaviour
             {
                 continue;
             }
-            text.fontSize = size * textSize; // 원래 폰트 크기에 배율 적용
+            text.fontSize = size * textSize; 
         }
     }
-    
+
+    void SetOriginalTextSize()
+    {
+        //print("사이즈 초기화");
+        foreach (TextMeshProUGUI text in texts)
+        {
+            text.fontSize = originalFontSize[text];
+        }
+    }
+    void OnDisable()
+    {
+        SetOriginalTextSize();
+    }
 }

@@ -17,12 +17,10 @@ public class ButtonManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        else { Destroy(gameObject); }        
+        else { Destroy(gameObject); }
+        settingCanvas = FindAnyObjectByType<SettingCanvas>().settingBorder;
     }
-    void Start()
-    {
-        //settingCanvas = FindAnyObjectByType<SettingCanvas>().settingBorder;
-    }
+    
     public void GameStart()
     {
         SoundManager.instance.PlayBGM(SoundManager.EBgm.BGM_GAME);
@@ -57,7 +55,11 @@ public class ButtonManager : MonoBehaviour
     {
         Time.timeScale = 0;
     }
-
+    public void ToMain()
+    {
+        SceneManager.LoadScene(0);
+        SoundManager.instance.PlayBGM(SoundManager.EBgm.BGM_MAIN);
+    }
     //게임이 다시 재개됐을 때
     public void GameResume()
     {

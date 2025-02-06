@@ -6,7 +6,7 @@ public class PauseMenu : MonoBehaviour
 {
     public void BackToGame()
     {
-        GameManager.instance.isPaused=false;
+        ButtonManager.instance.GameResume();
     }
     public void LoadSetting()
     {
@@ -16,8 +16,8 @@ public class PauseMenu : MonoBehaviour
     {
         ButtonManager.instance.GameStart();
     }
-    public void ExitGame()
+    public void ToMain()
     {
-        ButtonManager.instance.GameExit();
+        ButtonManager.instance.ToMain();
     }
 }

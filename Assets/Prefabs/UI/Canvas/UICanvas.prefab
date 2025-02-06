@@ -297,9 +297,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
-        m_MethodName: GameResume
+      - m_Target: {fileID: 3216292162457311174}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: BackToGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -431,6 +431,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 5842566705622372287}
+        m_TargetAssemblyTypeName: EvalueateBurger, Assembly-CSharp
+        m_MethodName: OnEvalue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 5700741992832700998}
         m_TargetAssemblyTypeName: HUD, Assembly-CSharp
         m_MethodName: submitBurger
@@ -755,6 +767,7 @@ GameObject:
   - component: {fileID: 5688693221585755588}
   - component: {fileID: 4110907235988567378}
   - component: {fileID: 2153408585949178742}
+  - component: {fileID: 3216292162457311174}
   m_Layer: 5
   m_Name: UICanvas
   m_TagString: Untagged
@@ -808,7 +821,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 99
   m_TargetDisplay: 0
 --- !u!114 &4110907235988567378
 MonoBehaviour:
@@ -850,6 +863,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &3216292162457311174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673616988405447352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d872dfc66d421c84b8b8f7af8ba816a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2097386142304049173
 GameObject:
   m_ObjectHideFlags: 0
@@ -1473,7 +1498,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1098947345351958736}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3216292162457311174}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: LoadSetting
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2839481026023099385
 GameObject:
   m_ObjectHideFlags: 0
@@ -1729,9 +1766,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
-        m_MethodName: GameExit
+      - m_Target: {fileID: 3216292162457311174}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: ToMain
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2131,9 +2168,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
-        m_MethodName: GameStart
+      - m_Target: {fileID: 3216292162457311174}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: ReStartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2654,7 +2691,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4743159977496072110
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3154,7 +3191,7 @@ Transform:
   m_GameObject: {fileID: 5677293197304658832}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.667847, y: -13.707596, z: -3.4873173}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3182,6 +3219,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d4f6a3c2ff3bc1144946321ff09c9b3d, type: 2}
   - {fileID: 11400000, guid: ec952f5046c050442852cf9474aac90a, type: 2}
   - {fileID: 11400000, guid: a26ddcbf27e3d1445a77e4a1d438edc7, type: 2}
+  burgerRecipes:
+  - {fileID: 11400000, guid: e029c9eb7edb1c244b60d6aea554fe8e, type: 2}
+  - {fileID: 11400000, guid: 557740692aff1514dac91c3ca4031c10, type: 2}
+  submitedBurger: {fileID: 0}
+  requestBurgerNum: 0
 --- !u!1 &6170018147257033661
 GameObject:
   m_ObjectHideFlags: 0
