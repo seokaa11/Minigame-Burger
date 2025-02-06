@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 991, y: -613}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 465, y: -267}
+  m_SizeDelta: {x: 35, y: 24.3294}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4922936891946919457
 CanvasRenderer:
@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: fe08caffd3e0ce24a8cc75ff15246357, type: 3}
+  m_Sprite: {fileID: -1177791805, guid: fe08caffd3e0ce24a8cc75ff15246357, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -383,8 +383,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
+      - m_Target: {fileID: 8633954118340042020}
+        m_TargetAssemblyTypeName: MainCanvasController, Assembly-CSharp
         m_MethodName: LoadSetting
         m_Mode: 1
         m_Arguments:
@@ -407,6 +407,7 @@ GameObject:
   - component: {fileID: 6944453093241260152}
   - component: {fileID: 3842344755479233568}
   - component: {fileID: 1374810963450250395}
+  - component: {fileID: 8633954118340042020}
   m_Layer: 5
   m_Name: MainCanvas
   m_TagString: Untagged
@@ -501,6 +502,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &8633954118340042020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7070603617194612768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21afc801049e847499819b92297d4508, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4282473743888478376
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -519,11 +532,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2850662312411820464, guid: 289c3f0d7ea7d0848bc37a1afe57375b, type: 3}
       propertyPath: m_fontSize
-      value: 90.10162
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 2850662312411820464, guid: 289c3f0d7ea7d0848bc37a1afe57375b, type: 3}
       propertyPath: m_fontSizeBase
-      value: 90.10162
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 5082091342626425557, guid: 289c3f0d7ea7d0848bc37a1afe57375b, type: 3}
       propertyPath: m_Pivot.x
@@ -618,6 +631,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7354463596299775542, guid: 289c3f0d7ea7d0848bc37a1afe57375b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8633954118340042020}
+    - target: {fileID: 7354463596299775542, guid: 289c3f0d7ea7d0848bc37a1afe57375b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
@@ -631,7 +648,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7354463596299775542, guid: 289c3f0d7ea7d0848bc37a1afe57375b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ButtonManager, Assembly-CSharp
+      value: MainCanvasController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7354463596299775542, guid: 289c3f0d7ea7d0848bc37a1afe57375b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -669,11 +686,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2850662312411820464, guid: 289c3f0d7ea7d0848bc37a1afe57375b, type: 3}
       propertyPath: m_fontSize
-      value: 90.10162
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 2850662312411820464, guid: 289c3f0d7ea7d0848bc37a1afe57375b, type: 3}
       propertyPath: m_fontSizeBase
-      value: 90.10162
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 5082091342626425557, guid: 289c3f0d7ea7d0848bc37a1afe57375b, type: 3}
       propertyPath: m_Pivot.x
@@ -760,12 +777,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7354463596299775542, guid: 289c3f0d7ea7d0848bc37a1afe57375b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8633954118340042020}
+    - target: {fileID: 7354463596299775542, guid: 289c3f0d7ea7d0848bc37a1afe57375b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: LoadHelp
       objectReference: {fileID: 0}
     - target: {fileID: 7354463596299775542, guid: 289c3f0d7ea7d0848bc37a1afe57375b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ButtonManager, Assembly-CSharp
+      value: MainCanvasController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7809109408717419679, guid: 289c3f0d7ea7d0848bc37a1afe57375b, type: 3}
       propertyPath: m_Name
@@ -799,11 +820,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2850662312411820464, guid: 289c3f0d7ea7d0848bc37a1afe57375b, type: 3}
       propertyPath: m_fontSize
-      value: 90.10162
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 2850662312411820464, guid: 289c3f0d7ea7d0848bc37a1afe57375b, type: 3}
       propertyPath: m_fontSizeBase
-      value: 90.10162
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 5082091342626425557, guid: 289c3f0d7ea7d0848bc37a1afe57375b, type: 3}
       propertyPath: m_Pivot.x
@@ -890,16 +911,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7354463596299775542, guid: 289c3f0d7ea7d0848bc37a1afe57375b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8633954118340042020}
+    - target: {fileID: 7354463596299775542, guid: 289c3f0d7ea7d0848bc37a1afe57375b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: GameExit
+      value: ExitGame
       objectReference: {fileID: 0}
     - target: {fileID: 7354463596299775542, guid: 289c3f0d7ea7d0848bc37a1afe57375b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ButtonManager, Assembly-CSharp
+      value: MainCanvasController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7809109408717419679, guid: 289c3f0d7ea7d0848bc37a1afe57375b, type: 3}
       propertyPath: m_Name
-      value: Quit button
+      value: Exit button
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

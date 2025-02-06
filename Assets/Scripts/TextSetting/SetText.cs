@@ -8,12 +8,12 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-
 public class SetText : MonoBehaviour
 {
     public Button[] buttons; // 폰트 변경 버튼. 작게, 중간, 크게
     TextMeshProUGUI[] texts;
     Dictionary<TextMeshProUGUI, float> originalFontSize;
+    [SerializeField] float previousSize = 1f;
     float currentSize = 1f;
     int selectedIndex;
     void Awake()
@@ -23,7 +23,8 @@ public class SetText : MonoBehaviour
     }
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        print("씬");
+        previousSize = currentSize;
+        print("Previous : " + previousSize);
         //새로운 씬 로딩 시 텍스트 딕셔너리 초기화
         originalFontSize.Clear();
         // 씬 로드 후 일정 시간 뒤에 StoreText 호출
@@ -34,6 +35,7 @@ public class SetText : MonoBehaviour
     {       
         yield return new WaitForSeconds(0.1f); // 씬 로딩 완료 후 짧게 대기
         StoreText(scene, mode); // 씬 로드가 끝나면 StoreText 호출
+        print("Currentsize : "+currentSize);
         ApplyFontSize(currentSize);
         CheckSelectedButton(currentSize);
     }
@@ -57,7 +59,7 @@ public class SetText : MonoBehaviour
     {
         // 클릭한 버튼의 폰트 사이즈 배율 가져오기
         float textSize = btn.GetComponent<TextSizeSelect>().TextSizeSO.GetTextSize();
-
+        
         currentSize = textSize;
         //사이즈 적용
         ApplyFontSize(currentSize);
@@ -99,7 +101,8 @@ public class SetText : MonoBehaviour
 
     void SetOriginalTextSize()
     {
-        //print("사이즈 초기화");
+        
+        if (texts == null) return;
         foreach (TextMeshProUGUI text in texts)
         {
             text.fontSize = originalFontSize[text];
@@ -107,6 +110,7 @@ public class SetText : MonoBehaviour
     }
     void OnDisable()
     {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
         SetOriginalTextSize();
     }
 }

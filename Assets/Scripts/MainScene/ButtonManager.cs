@@ -31,7 +31,7 @@ public class ButtonManager : MonoBehaviour
     }
     public void LoadSetting()
     {
-        if (settingCanvas == null) { print("djqt"); return; }
+        if (settingCanvas == null) { return; }
         settingCanvas.SetActive(!settingCanvas.activeSelf);
     }
     

@@ -48,14 +48,7 @@ public class GameManager : MonoBehaviour
     {
         get { return isGameOver; }
         set { isGameOver = value; }
-    }
-    //게임 재시작
-    public void GameRestart()
-    {
-
-
-
-    }
+    }    
 
     //게임 설정 초기화
     void Init()
