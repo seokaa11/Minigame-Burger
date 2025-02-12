@@ -45,11 +45,6 @@ public class Droppable : MonoBehaviour
             new Vector3(8.09f, 1.7f, 0f)  // Bulgogi2
         };
 
-        GameObject burger = GameObject.Find("Burger");
-        if (burger != null)
-        {
-            SetObjectTransparency(burger, 0f); // Alpha 값을 0으로 설정
-        }
 
     }
 
@@ -76,8 +71,6 @@ public class Droppable : MonoBehaviour
                     instantiatedBurger.name = "Burger"; // 생성된 이름 명확히 설정
                     Debug.Log("Burger 프리팹 생성됨: " + instantiatedBurger.name);
 
-                    // Burger 불투명 설정
-                    SetTransparencyRecursively(instantiatedBurger.transform, 1.0f);
                 }
             }
         }
