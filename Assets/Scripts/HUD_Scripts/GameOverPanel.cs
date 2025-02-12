@@ -38,7 +38,7 @@ public class GameOverPanel : MonoBehaviour
         {
             PlayerPrefs.SetInt("bestScore", GameManager.instance.score);
         }
-        GameManager.instance.isGameOver = true;
+        GameManager.instance.IsLive = true;
         GameManager.instance.isPaused = true;
     }
 }

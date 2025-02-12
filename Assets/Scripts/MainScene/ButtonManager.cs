@@ -20,7 +20,7 @@ public class ButtonManager : MonoBehaviour
         else { Destroy(gameObject); }
         settingCanvas = FindAnyObjectByType<SettingCanvas>().settingBorder;
     }
-    
+   
     public void GameStart()
     {
         SoundManager.instance.PlayBGM(SoundManager.EBgm.BGM_GAME);
