@@ -2682,10 +2682,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 220416633418175353, guid: 9168d78b32690c940b9c9d4d635df4cd, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 381993257814317282, guid: 9168d78b32690c940b9c9d4d635df4cd, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2766,66 +2762,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 594356747963697495, guid: 9168d78b32690c940b9c9d4d635df4cd, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1673616988405447352, guid: 9168d78b32690c940b9c9d4d635df4cd, type: 3}
       propertyPath: m_Name
       value: UICanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 2964249546005209842, guid: 9168d78b32690c940b9c9d4d635df4cd, type: 3}
-      propertyPath: m_SortingLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2964249546005209842, guid: 9168d78b32690c940b9c9d4d635df4cd, type: 3}
-      propertyPath: m_SortingLayerID
-      value: 270125849
-      objectReference: {fileID: 0}
-    - target: {fileID: 4261227787906666676, guid: 9168d78b32690c940b9c9d4d635df4cd, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5361600565669559070, guid: 9168d78b32690c940b9c9d4d635df4cd, type: 3}
-      propertyPath: m_HorizontalAlignment
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5688693221585755588, guid: 9168d78b32690c940b9c9d4d635df4cd, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1445939131}
-    - target: {fileID: 5688693221585755588, guid: 9168d78b32690c940b9c9d4d635df4cd, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5688693221585755588, guid: 9168d78b32690c940b9c9d4d635df4cd, type: 3}
-      propertyPath: m_SortingLayerID
-      value: -505030835
-      objectReference: {fileID: 0}
     - target: {fileID: 5842566705622372287, guid: 9168d78b32690c940b9c9d4d635df4cd, type: 3}
       propertyPath: submitedBurger
       value: 
       objectReference: {fileID: 2094803467}
-    - target: {fileID: 6179213884725736788, guid: 9168d78b32690c940b9c9d4d635df4cd, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 55.700195
-      objectReference: {fileID: 0}
-    - target: {fileID: 6179213884725736788, guid: 9168d78b32690c940b9c9d4d635df4cd, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -53.700073
-      objectReference: {fileID: 0}
-    - target: {fileID: 7758873919904082203, guid: 9168d78b32690c940b9c9d4d635df4cd, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 76
-      objectReference: {fileID: 0}
-    - target: {fileID: 7758873919904082203, guid: 9168d78b32690c940b9c9d4d635df4cd, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -56
-      objectReference: {fileID: 0}
-    - target: {fileID: 8761248611501534897, guid: 9168d78b32690c940b9c9d4d635df4cd, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 9020404552493568552, guid: 9168d78b32690c940b9c9d4d635df4cd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 

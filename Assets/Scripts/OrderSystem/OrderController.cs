@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class OrderController : MonoBehaviour
 {
-    
-    public Queue<GameObject> customerQueue= new Queue<GameObject>();
+    [SerializeField]CustomerOrderSystem customerOrderSystem;
+    Queue<GameObject> customerQueue= new Queue<GameObject>();
 
     [SerializeField] float nextOrderTime=7f;
     [SerializeField]CustomerSO[] customers;
@@ -13,8 +13,11 @@ public class OrderController : MonoBehaviour
     [SerializeField] GameObject customerPrefab;
     float reducedTime=0.2f;
     float time=7f;
-    // Start is called before the first frame update
-    
+
+    void Awake()
+    {
+        customerOrderSystem=FindObjectOfType<CustomerOrderSystem>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -34,6 +37,6 @@ public class OrderController : MonoBehaviour
         GameObject customer =Instantiate(customerPrefab, waitingRoom);
         customerQueue.Enqueue(customer);
         customer.GetComponent<SpriteRenderer>().sprite = customers[cutomerIndex].GetCustomerNormalFace();
-        
+        customerOrderSystem.SetCustomerOrder(customers[cutomerIndex]);
     }
 }

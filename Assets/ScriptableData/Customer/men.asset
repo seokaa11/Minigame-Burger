@@ -15,3 +15,5 @@ MonoBehaviour:
   normalFace: {fileID: 21300000, guid: 4061a432688f52b41a4d3e7a7ec661a0, type: 3}
   happyFace: {fileID: 21300000, guid: a98d91133c36f0347b8fc5054a452858, type: 3}
   sadFace: {fileID: 21300000, guid: 1cc45e87db510ec468950d5efe2fe86f, type: 3}
+  customerName: "\uB300\uBA38\uB9AC\uB0A8\uC131"
+  burger: {fileID: 11400000, guid: e029c9eb7edb1c244b60d6aea554fe8e, type: 2}
