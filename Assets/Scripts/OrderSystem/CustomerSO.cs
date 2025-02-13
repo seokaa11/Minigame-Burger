@@ -9,4 +9,8 @@ public class CustomerSO : ScriptableObject
     [SerializeField] Sprite happyFace;
     [SerializeField] Sprite sadFace;
 
+    public Sprite GetCustomerNormalFace()
+    {
+        return normalFace;
+    }
 }

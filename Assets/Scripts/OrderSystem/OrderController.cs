@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class OrderController : MonoBehaviour
 {
+    
+    public Queue<GameObject> customerQueue= new Queue<GameObject>();
+
     [SerializeField] float nextOrderTime=7f;
     [SerializeField]CustomerSO[] customers;
+    [SerializeField]Transform waitingRoom;
+    [SerializeField] GameObject customerPrefab;
     float reducedTime=0.2f;
     float time=7f;
     // Start is called before the first frame update
@@ -20,10 +25,15 @@ public class OrderController : MonoBehaviour
             time = 0f;
             nextOrderTime -= reducedTime;
         }
+        //print(customerQueue.Count);
     }
     void EnterCustomer()
     {
+        //오브젝트 풀로 바꿀까 생각 중
         int cutomerIndex=Random.Range(0, customers.Length);
-        print(customers[cutomerIndex]);
+        GameObject customer =Instantiate(customerPrefab, waitingRoom);
+        customerQueue.Enqueue(customer);
+        customer.GetComponent<SpriteRenderer>().sprite = customers[cutomerIndex].GetCustomerNormalFace();
+        
     }
 }

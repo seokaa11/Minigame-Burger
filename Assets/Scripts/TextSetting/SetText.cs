@@ -24,7 +24,7 @@ public class SetText : MonoBehaviour
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         previousSize = currentSize;
-        print("Previous : " + previousSize);
+        //print("Previous : " + previousSize);
         //새로운 씬 로딩 시 텍스트 딕셔너리 초기화
         originalFontSize.Clear();
         // 씬 로드 후 일정 시간 뒤에 StoreText 호출
@@ -35,7 +35,7 @@ public class SetText : MonoBehaviour
     {       
         yield return new WaitForSeconds(0.1f); // 씬 로딩 완료 후 짧게 대기
         StoreText(scene, mode); // 씬 로드가 끝나면 StoreText 호출
-        print("Currentsize : "+currentSize);
+        //print("Currentsize : "+currentSize);
         ApplyFontSize(currentSize);
         CheckSelectedButton(currentSize);
     }
