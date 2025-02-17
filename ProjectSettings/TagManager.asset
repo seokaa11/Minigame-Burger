@@ -8,7 +8,7 @@ TagManager:
   - DropArea
   - DropArea2
   - GameManager
-  - people
+  - Customer
   layers:
   - Default
   - TransparentFX

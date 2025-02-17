@@ -30,7 +30,7 @@ public class Submission : MonoBehaviour
         // 마우스를 놓았을 때 드랍 가능 여부 확인
         if (isDropped)
         {
-            Debug.Log("Burger가 People에 드롭되었습니다.");
+            Debug.Log("Burger가 Customer에 드롭되었습니다.");
 
             // 여기서 필요한 처리를 진행합니다.
             HandleBurgerDrop();
@@ -52,8 +52,8 @@ public class Submission : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // 드랍 대상의 태그가 people인지 확인
-        if (collision.CompareTag("people"))
+        // 드랍 대상의 태그가 Customer인지 확인
+        if (collision.CompareTag("Customer"))
         {
             isDropped = true;
         }
@@ -62,7 +62,7 @@ public class Submission : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         // 드랍 대상에서 벗어났을 때
-        if (collision.CompareTag("people"))
+        if (collision.CompareTag("Customer"))
         {
             isDropped = false;
         }
@@ -76,12 +76,12 @@ public class Submission : MonoBehaviour
 
     private void HandleBurgerDrop()
     {
-        // Burger가 "people" 영역에 드롭되었을 때 필요한 작업을 수행
-        Debug.Log("Burger가 People에 드롭되었습니다. 아이템을 제거합니다.");
+        // Burger가 "Customer" 영역에 드롭되었을 때 필요한 작업을 수행
+        Debug.Log("Burger가 Customer에 드롭되었습니다. 아이템을 제거합니다.");
 
         // 여기에서 필요한 추가 작업을 처리합니다.
         // 예: 드롭된 아이템 삭제, Burger 생성, 기타 후속 작업 등
-        // 예: "People" 영역에 드롭된 후, 드롭된 아이템을 모두 제거하는 코드
+        // 예: "Customer" 영역에 드롭된 후, 드롭된 아이템을 모두 제거하는 코드
         Droppable droppableScript = FindObjectOfType<Droppable>();
         if (droppableScript != null)
         {

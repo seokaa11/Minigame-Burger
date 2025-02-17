@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: CatsBurger
   m_EditorClassIdentifier: 
   BurgerNum: 0
+  BurgerName: "\uCEA3\uCE20\uBC84\uAC70"
   Ingredients:
   - {fileID: 6965998175364508277, guid: 0e73401f71e8f93478b6f82bb34c2b0f, type: 3}
   - {fileID: 2576549950969995327, guid: 72aa001f8f3bdfd46940b596dae17dba, type: 3}

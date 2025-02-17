@@ -1,24 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class EvalueateBurger : MonoBehaviour
 {
-    public Scoredata [] scoredata;
+    public Scoredata[] scoredata;
     public BurgerRecipe[] burgerRecipes;
     public GameObject submitedBurger;
     public int requestBurgerNum;
-
-
+    OrderController orderController;
+    void Start()
+    {
+        orderController=FindObjectOfType<OrderController>();
+    }
     //버튼이 눌리면 평가
     public void OnEvalue()
     {
         BurgerScore(submitedBurger, requestBurgerNum);
+        if(orderController != null)
+        {
+            orderController.NewOrder();
+        }
     }
 
     // 버거 상태에 따라 점수가 주어지고 대화문 출력
-    public void BurgerScore(GameObject burger,int requestBurgerNum)
+    public void BurgerScore(GameObject burger, int requestBurgerNum)
     {
         for (int i = 0; i < scoredata.Length / 2; i++)
         {
@@ -30,7 +34,7 @@ public class EvalueateBurger : MonoBehaviour
                 GameManager.instance.health += scoredata[i].health;
                 GameManager.instance.dialog = scoredata[i].dialog;
                 GameManager.instance.takenTime = 0;
-                
+
                 break;
             }
         }

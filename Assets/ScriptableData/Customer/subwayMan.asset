@@ -16,4 +16,4 @@ MonoBehaviour:
   happyFace: {fileID: 21300000, guid: ac6c4e47f019bef45800b7f34c0479c2, type: 3}
   sadFace: {fileID: 21300000, guid: 9bc99dd51d53eee40ae3b9d022687f78, type: 3}
   customerName: "\uC606\uC9D1 \uC0AC\uC7A5"
-  burger: {fileID: 11400000, guid: e029c9eb7edb1c244b60d6aea554fe8e, type: 2}
+  burgerNum: 3

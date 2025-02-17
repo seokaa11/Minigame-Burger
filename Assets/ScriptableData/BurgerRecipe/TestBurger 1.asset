@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d8f56ff150c08714a8497ef852498576, type: 3}
-  m_Name: TestBurger
+  m_Name: TestBurger 1
   m_EditorClassIdentifier: 
-  BurgerNum: 1
-  BurgerName: "\uD14C\uC2A4\uD2B8\uBC84\uAC701"
+  BurgerNum: 2
+  BurgerName: "\uD14C\uC2A4\uD2B8\uBC84\uAC702"
   Ingredients:
   - {fileID: 6965998175364508277, guid: 0e73401f71e8f93478b6f82bb34c2b0f, type: 3}
