@@ -99,6 +99,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 739e46453dd8a3e4a89ed349c59b8e90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  burger: {fileID: 0}
+  requestBurgerNum: 0
+  items: {fileID: 0}
+  recipe: {fileID: 0}
 --- !u!50 &-5452793665275210372
 Rigidbody2D:
   serializedVersion: 4

@@ -7,6 +7,11 @@ public class Submission : MonoBehaviour
     private Vector3 offset; // 마우스와 오브젝트 간 거리
     private Camera mainCamera; // 메인 카메라
     private bool isDropped = false; // 드랍 성공 여부
+    private EvalueateBurger evaluateBurgerScript; // EvaluateBurger를 가진 스크립트 참조
+    public GameObject burger;
+    public int requestBurgerNum;
+    public GameObject items;
+    public BurgerRecipe recipe;
 
     private void Start()
     {
@@ -87,5 +92,25 @@ public class Submission : MonoBehaviour
         {
             droppableScript.ClearAllDroppedItems(); // Droppable 스크립트의 아이템 제거 메서드 호출
         }
+
+        //점수계산 코드
+        /*
+        EvalueateBurger evaluateBurgerScript = FindObjectOfType<EvalueateBurger>();
+
+        if (evaluateBurgerScript != null)
+        {
+
+            evaluateBurgerScript.Start();
+
+            evaluateBurgerScript.OnEvalue();
+
+            // BurgerScore 메서드 호출
+            evaluateBurgerScript.BurgerScore(burger, requestBurgerNum);
+
+            // IsPerferctBurger 메서드 호출 (버거가 완벽한지 확인)
+            bool isPerfect = evaluateBurgerScript.IsPerferctBurger(items, recipe);
+
+        }
+        */
     }
 }

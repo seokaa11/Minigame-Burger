@@ -340,6 +340,16 @@ private void CheckAndDisableDraggableItems()
             Destroy(hamburger); // Hamburger 객체 제거
         }
 
+        if (instantiatedBurger != null)
+        {
+            Destroy(instantiatedBurger);
+            instantiatedBurger = null; // 참조 초기화
+        }
+
+        Transform dropArea = FindObjectOfType<Droppable>().transform; // DropArea 참조
+        SetObjectTransparency(dropArea.gameObject, 1.0f); // DropArea를 불투명 상태로 변경
+
+
         // 모든 Draggable 아이템 다시 활성화
         AbleAllDraggableItems();
     }
