@@ -4,21 +4,25 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Scriptable/BurgerRecipe", fileName = "BurgerRecipe")]
 public class BurgerRecipe : ScriptableObject
 {
-    [SerializeField] int BurgerNum; //버거 번호
-    [SerializeField] string BurgerName;
-    public List<GameObject> Ingredients; //버거 재료
+    [SerializeField] int burgerNum; //버거 번호
+    [SerializeField] string orderText;
+    [SerializeField] string burgerName;
+    public List<GameObject> ingredients; //버거 재료
 
     public List<GameObject> GetRecipe()
     {
-        return Ingredients;
+        return ingredients;
     }
     public string GetBurgerName()
     {
-        return BurgerName;
+        return burgerName;
     }
     public int GetBurgerNum()
     {
-        return BurgerNum;
+        return burgerNum;
     }
-    
+    public string GetOrderText()
+    {
+        return orderText;
+    }
 }

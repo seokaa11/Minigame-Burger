@@ -62,8 +62,9 @@ public class CustomerOrderSystem : MonoBehaviour
         orderDisplay.SetActive(false);
 
         // 주문서 생성
-        GameObject newOrder = Instantiate(orderPrefab, orderContainer);
-        Text orderText = newOrder.GetComponentInChildren<Text>();
+        GameObject newOrder = Instantiate(orderPrefab, orderContainer.transform.position, Quaternion.identity ,orderContainer);
+        //newOrder.GetComponentInChildren<TextMeshProUGUI>().text = customer.GetCustomerOrderText();
+        TextMeshProUGUI orderText = newOrder.GetComponentInChildren<TextMeshProUGUI>();
         Button orderButton = newOrder.GetComponent<Button>();
 
         if (orderText != null)
@@ -76,7 +77,6 @@ public class CustomerOrderSystem : MonoBehaviour
             // 주문서 클릭 시 주문 내용 표시
             orderButton.onClick.AddListener(() => ShowOrderDetails(customer));
         }
-
         Debug.Log($"{customerOrderText.text}님의 주문서가 생성되었습니다.");
     }
 
