@@ -32,7 +32,7 @@ public class EvalueateBurger : MonoBehaviour
             if (scoredata[i].Time >= GameManager.instance.takenTime)
             {
                 if (IsPerferctBurger(burger, burgerRecipes[requestBurgerNum]) && i != 4) { i += 5; }
-                GameManager.instance.score += scoredata[i].score;
+                //GameManager.instance.score += scoredata[i].score[customer.id];
                 GameManager.instance.health += scoredata[i].health;
                 GameManager.instance.dialog = scoredata[i].dialog;
                 GameManager.instance.takenTime = 0;

@@ -7,7 +7,7 @@ public class Scoredata : ScriptableObject
 {
     public float Time;
     public bool isPerfectBurger;
-    public int score;
+    public int[] score;
     public float health;
     public string dialog;
 }

@@ -16,3 +16,4 @@ MonoBehaviour:
   BurgerName: "\uD14C\uC2A4\uD2B8\uBC84\uAC702"
   Ingredients:
   - {fileID: 6965998175364508277, guid: 0e73401f71e8f93478b6f82bb34c2b0f, type: 3}
+  - {fileID: 6965998175364508277, guid: 0e73401f71e8f93478b6f82bb34c2b0f, type: 3}

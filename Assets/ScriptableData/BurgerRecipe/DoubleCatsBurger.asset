@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8f56ff150c08714a8497ef852498576, type: 3}
+  m_Name: DoubleCatsBurger
+  m_EditorClassIdentifier: 
+  BurgerNum: 0
+  BurgerName: DoubleCatsBurger
+  Ingredients:
+  - {fileID: 6965998175364508277, guid: 0e73401f71e8f93478b6f82bb34c2b0f, type: 3}
+  - {fileID: 2576549950969995327, guid: 72aa001f8f3bdfd46940b596dae17dba, type: 3}
+  - {fileID: 2630033735541529417, guid: c2cb5c1e12d77204b801eb8ef46b16be, type: 3}
+  - {fileID: 2882269403982427008, guid: a307ed91df3ce1e4b8d156fcc0fa46d5, type: 3}
+  - {fileID: 2719812759473310429, guid: 74f101d99e6f24c438f7735b0a5c9db4, type: 3}
+  - {fileID: 873573852717989173, guid: e6cc13035303848459b74816ef6c13fc, type: 3}
+  - {fileID: 4928579023477580958, guid: 28c2a42b7a96ae548b042b9e1ff697c7, type: 3}
+  - {fileID: 873573852717989173, guid: e6cc13035303848459b74816ef6c13fc, type: 3}
+  - {fileID: 2719812759473310429, guid: 74f101d99e6f24c438f7735b0a5c9db4, type: 3}
+  - {fileID: 6965998175364508277, guid: 0e73401f71e8f93478b6f82bb34c2b0f, type: 3}
