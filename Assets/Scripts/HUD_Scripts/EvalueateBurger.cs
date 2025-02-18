@@ -43,10 +43,10 @@ public class EvalueateBurger : MonoBehaviour
     //버거가 완벽한지 판단
     public bool IsPerferctBurger(GameObject items, BurgerRecipe recipe)
     {
-        for (int i = 0; i < recipe.Ingredients.Count; i++)
+        for (int i = 0; i < recipe.ingredients.Count; i++)
         {
-            if (items.transform.childCount != recipe.Ingredients.Count) { return false; }
-            else if (recipe.Ingredients[i].transform.name != items.transform.GetChild(i).name) { return false; }
+            if (items.transform.childCount != recipe.ingredients.Count) { return false; }
+            else if (recipe.ingredients[i].transform.name != items.transform.GetChild(i).name) { return false; }
         }
         return true;
     }
