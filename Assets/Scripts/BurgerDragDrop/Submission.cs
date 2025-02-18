@@ -16,6 +16,7 @@ public class Submission : MonoBehaviour
     private void Start()
     {
         mainCamera = Camera.main; // 메인 카메라 가져오기
+        evaluateBurgerScript = GetComponent<EvalueateBurger>();
     }
 
     private void OnMouseDown()
@@ -94,23 +95,24 @@ public class Submission : MonoBehaviour
         }
 
         //점수계산 코드
-        /*
-        EvalueateBurger evaluateBurgerScript = FindObjectOfType<EvalueateBurger>();
+
+        //EvalueateBurger evaluateBurgerScript = FindObjectOfType<EvalueateBurger>();
 
         if (evaluateBurgerScript != null)
         {
 
-            evaluateBurgerScript.Start();
+            //evaluateBurgerScript.Start();
 
             evaluateBurgerScript.OnEvalue();
+            HUD.Submit();
 
             // BurgerScore 메서드 호출
-            evaluateBurgerScript.BurgerScore(burger, requestBurgerNum);
+            //evaluateBurgerScript.BurgerScore(burger, requestBurgerNum);
 
             // IsPerferctBurger 메서드 호출 (버거가 완벽한지 확인)
-            bool isPerfect = evaluateBurgerScript.IsPerferctBurger(items, recipe);
+            //bool isPerfect = evaluateBurgerScript.IsPerferctBurger(items, recipe);
 
         }
-        */
+
     }
 }

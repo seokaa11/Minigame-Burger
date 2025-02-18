@@ -10,10 +10,12 @@ public class EvalueateBurger : MonoBehaviour
     void Start()
     {
         orderController=FindObjectOfType<OrderController>();
+        submitedBurger = GameObject.Find("DropArea");
     }
     //버튼이 눌리면 평가
     public void OnEvalue()
     {
+        Debug.Log("평가시작");
         BurgerScore(submitedBurger, requestBurgerNum);
         if(orderController != null)
         {
