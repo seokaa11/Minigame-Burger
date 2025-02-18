@@ -15,6 +15,9 @@ public class OrderController : MonoBehaviour
     [SerializeField] GameObject currentCustomer;
     CustomerOrderSystem customerOrderSystem;
 
+    public int burgerId; //버거 번호
+
+    public int customerIndex;  //손님 id
     void Awake()
     {
         customerOrderSystem = GetComponent<CustomerOrderSystem>();
@@ -45,7 +48,7 @@ public class OrderController : MonoBehaviour
     //손님 입장
     void EnterCustomer()
     {
-        int customerIndex = Random.Range(0, customers.Length);
+        customerIndex = Random.Range(0, customers.Length);
 
         // 손님 생성 및 위치 지정
         GameObject customer = Instantiate(customerPrefab, waitingRoom);
@@ -57,11 +60,12 @@ public class OrderController : MonoBehaviour
         else
         {
             currentCustomer = customer;
-
         }
         // 랜덤 손님 받아서 초기화 및 랜덤 버거도 초기화
         CustomerOrderInfo customerOrderInfo = customer.GetComponent<CustomerOrderInfo>();
-        customerOrderInfo.Init(burgers[Random.Range(0, burgers.Length)], customers[customerIndex]);
+        burgerId = Random.Range(0, burgers.Length);
+        Debug.Log(burgerId);
+        customerOrderInfo.Init(burgers[burgerId], customers[customerIndex]);
         customerOrderSystem.SetCustomerOrder(customerOrderInfo);
     }
 }

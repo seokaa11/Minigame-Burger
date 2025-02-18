@@ -424,6 +424,54 @@ PrefabInstance:
       propertyPath: waitingRoom
       value: 
       objectReference: {fileID: 2100907434}
+    - target: {fileID: 6297252065087535836, guid: d568f2ffb07e2704483eae97f94fac9c, type: 3}
+      propertyPath: burgers.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6297252065087535836, guid: d568f2ffb07e2704483eae97f94fac9c, type: 3}
+      propertyPath: burgers.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: daea67c7d4443f44eb8eee6f8311ef01, type: 2}
+    - target: {fileID: 6297252065087535836, guid: d568f2ffb07e2704483eae97f94fac9c, type: 3}
+      propertyPath: burgers.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 557740692aff1514dac91c3ca4031c10, type: 2}
+    - target: {fileID: 6297252065087535836, guid: d568f2ffb07e2704483eae97f94fac9c, type: 3}
+      propertyPath: burgers.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: d48230697c86ce843b6239f617c01c3f, type: 2}
+    - target: {fileID: 6297252065087535836, guid: d568f2ffb07e2704483eae97f94fac9c, type: 3}
+      propertyPath: burgers.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: ab8e9c14cc0a8434d8d498da8ce85db0, type: 2}
+    - target: {fileID: 6297252065087535836, guid: d568f2ffb07e2704483eae97f94fac9c, type: 3}
+      propertyPath: burgers.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 1bd5f91aa799b074d9685021a5d69d05, type: 2}
+    - target: {fileID: 6297252065087535836, guid: d568f2ffb07e2704483eae97f94fac9c, type: 3}
+      propertyPath: burgers.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: ab8b589e617088f4d99f92d83b4edf6e, type: 2}
+    - target: {fileID: 6297252065087535836, guid: d568f2ffb07e2704483eae97f94fac9c, type: 3}
+      propertyPath: burgers.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: d48230697c86ce843b6239f617c01c3f, type: 2}
+    - target: {fileID: 6297252065087535836, guid: d568f2ffb07e2704483eae97f94fac9c, type: 3}
+      propertyPath: burgers.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: ab8e9c14cc0a8434d8d498da8ce85db0, type: 2}
+    - target: {fileID: 6297252065087535836, guid: d568f2ffb07e2704483eae97f94fac9c, type: 3}
+      propertyPath: burgers.Array.data[8]
+      value: 
+      objectReference: {fileID: 11400000, guid: 1bd5f91aa799b074d9685021a5d69d05, type: 2}
+    - target: {fileID: 6297252065087535836, guid: d568f2ffb07e2704483eae97f94fac9c, type: 3}
+      propertyPath: burgers.Array.data[9]
+      value: 
+      objectReference: {fileID: 11400000, guid: daea67c7d4443f44eb8eee6f8311ef01, type: 2}
+    - target: {fileID: 6297252065087535836, guid: d568f2ffb07e2704483eae97f94fac9c, type: 3}
+      propertyPath: burgers.Array.data[10]
+      value: 
+      objectReference: {fileID: 11400000, guid: ab8b589e617088f4d99f92d83b4edf6e, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
