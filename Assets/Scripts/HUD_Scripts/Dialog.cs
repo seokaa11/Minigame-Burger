@@ -10,6 +10,7 @@ public class Dialog : MonoBehaviour
     private void Awake()
     {
         text = GetComponent<TextMeshProUGUI>();
+        HUD.Submit += ShowDialog;
     }
 
     public void ShowDialog()
