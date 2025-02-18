@@ -63,8 +63,8 @@ public class CustomerOrderSystem : MonoBehaviour
 
         // 주문서 생성
         GameObject newOrder = Instantiate(orderPrefab, orderContainer.transform.position, Quaternion.identity ,orderContainer);
-        newOrder.GetComponentInChildren<TextMeshProUGUI>().text = customer.GetCustomerOrderText();
-        Text orderText = newOrder.GetComponentInChildren<Text>();
+        //newOrder.GetComponentInChildren<TextMeshProUGUI>().text = customer.GetCustomerOrderText();
+        TextMeshProUGUI orderText = newOrder.GetComponentInChildren<TextMeshProUGUI>();
         Button orderButton = newOrder.GetComponent<Button>();
 
         if (orderText != null)
