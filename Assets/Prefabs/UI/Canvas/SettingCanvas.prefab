@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 389154900520460684}
   - component: {fileID: 737942326007837217}
   m_Layer: 5
-  m_Name: Text
+  m_Name: SoundText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -319,8 +319,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -78.711914, y: -69.89258}
-  m_SizeDelta: {x: 30, y: 30}
+  m_AnchoredPosition: {x: -40.47583, y: -38.825073}
+  m_SizeDelta: {x: 24.9781, y: 23.9319}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8503615228663616940
 CanvasRenderer:
@@ -381,11 +381,11 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 1, g: 0, b: 0, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.21176471}
+    m_PressedColor: {r: 1, g: 0, b: 0, a: 0}
+    m_SelectedColor: {r: 0, g: 0, b: 0, a: 0.18431373}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -715,7 +715,7 @@ GameObject:
   - component: {fileID: 4386991645796986216}
   - component: {fileID: 4083979216734752177}
   m_Layer: 5
-  m_Name: Text
+  m_Name: BGM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -897,7 +897,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: -505030835
   m_SortingOrder: 1
@@ -1277,7 +1277,7 @@ GameObject:
   - component: {fileID: 538319013524183495}
   - component: {fileID: 7009690657545866817}
   m_Layer: 5
-  m_Name: Text (1)
+  m_Name: FontSize
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1562,7 +1562,7 @@ GameObject:
   - component: {fileID: 3249108126238065021}
   - component: {fileID: 944839587453511884}
   m_Layer: 5
-  m_Name: Text
+  m_Name: SFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1799,7 +1799,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -40.000244}
+  m_AnchoredPosition: {x: 0, y: -40.000366}
   m_SizeDelta: {x: -868.5757, y: -450.21478}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3483793583800891844
@@ -1823,14 +1823,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8113208, g: 0.63582456, b: 0.003826994, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 32edf31b866debd45a6511968e89e9d1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1848,6 +1848,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4660264667294963651}
     m_Modifications:
+    - target: {fileID: 1220562114796763866, guid: 289c3f0d7ea7d0848bc37a1afe57375b, type: 3}
+      propertyPath: m_Name
+      value: Normal
+      objectReference: {fileID: 0}
     - target: {fileID: 2850662312411820464, guid: 289c3f0d7ea7d0848bc37a1afe57375b, type: 3}
       propertyPath: m_text
       value: "\uC911\uAC04"
@@ -2018,6 +2022,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4660264667294963651}
     m_Modifications:
+    - target: {fileID: 1220562114796763866, guid: 289c3f0d7ea7d0848bc37a1afe57375b, type: 3}
+      propertyPath: m_Name
+      value: Small
+      objectReference: {fileID: 0}
     - target: {fileID: 2850662312411820464, guid: 289c3f0d7ea7d0848bc37a1afe57375b, type: 3}
       propertyPath: m_text
       value: "\uC791\uAC8C\n"
@@ -2100,7 +2108,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5082091342626425557, guid: 289c3f0d7ea7d0848bc37a1afe57375b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 54.284363
+      value: 54.284367
       objectReference: {fileID: 0}
     - target: {fileID: 5082091342626425557, guid: 289c3f0d7ea7d0848bc37a1afe57375b, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2196,6 +2204,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4660264667294963651}
     m_Modifications:
+    - target: {fileID: 1220562114796763866, guid: 289c3f0d7ea7d0848bc37a1afe57375b, type: 3}
+      propertyPath: m_Name
+      value: Big
+      objectReference: {fileID: 0}
     - target: {fileID: 2850662312411820464, guid: 289c3f0d7ea7d0848bc37a1afe57375b, type: 3}
       propertyPath: m_text
       value: "\uD06C\uAC8C"
