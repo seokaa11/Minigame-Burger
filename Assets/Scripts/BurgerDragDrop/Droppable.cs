@@ -47,6 +47,7 @@ public class Droppable : MonoBehaviour
 
 
     }
+ 
 
     private void OnMouseDown()
     {
@@ -57,6 +58,9 @@ public class Droppable : MonoBehaviour
 
             // Hamburger 투명화
             SetTransparencyRecursively(parent, 0f);
+
+            DisableCollidersRecursively(gameObject);
+
 
             // Burger 프리팹 생성
             if (burgerPrefab != null)
@@ -138,11 +142,7 @@ public class Droppable : MonoBehaviour
         }
     }
 
-
-
-
-
-private void CheckAndDisableDraggableItems()
+    private void CheckAndDisableDraggableItems()
     {
         // DropArea 내에 있는 모든 "Bun" 개수 확인
         int bunCount = droppedItems.Count(item => item.name == "Bun");
@@ -314,10 +314,29 @@ private void CheckAndDisableDraggableItems()
 
     private void AbleAllDraggableItems()
     {
-        // 드롭 영역 내의 모든 드래그 가능한 오브젝트를 비활성화
+        // 드롭 영역 내의 모든 드래그 가능한 오브젝트를 활성화
         foreach (var draggable in FindObjectsOfType<Draggable>())
         {
             draggable.isDraggable = true;
+        }
+    }
+
+
+    public void DisableCollidersRecursively(GameObject parentObject)
+    {
+        Collider2D[] colliders2D = parentObject.GetComponentsInChildren<Collider2D>();
+        foreach (Collider2D collider2D in colliders2D)
+        {
+            collider2D.enabled = false;
+        }
+    }
+
+    public void ableCollidersRecursively(GameObject parentObject)
+    {
+        Collider2D[] colliders2D = parentObject.GetComponentsInChildren<Collider2D>();
+        foreach (Collider2D collider2D in colliders2D)
+        {
+            collider2D.enabled = true;
         }
     }
 
@@ -349,9 +368,11 @@ private void CheckAndDisableDraggableItems()
         Transform dropArea = FindObjectOfType<Droppable>().transform; // DropArea 참조
         SetObjectTransparency(dropArea.gameObject, 1.0f); // DropArea를 불투명 상태로 변경
 
+        ableCollidersRecursively(gameObject);
 
         // 모든 Draggable 아이템 다시 활성화
         AbleAllDraggableItems();
+
     }
 
 }
