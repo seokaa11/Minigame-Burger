@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: CatsBurger
   m_EditorClassIdentifier: 
   burgerNum: 0
-  orderText: 
-  burgerName: 
+  orderText: "\uCEA3\uCE20\uBC84\uAC70 \uD558\uB098 \uC8FC\uC138\uC694."
+  burgerName: "\uCEA3\uCE20\uBC84\uAC70"
   ingredients:
   - {fileID: 6965998175364508277, guid: 0e73401f71e8f93478b6f82bb34c2b0f, type: 3}
   - {fileID: 2630033735541529417, guid: c2cb5c1e12d77204b801eb8ef46b16be, type: 3}

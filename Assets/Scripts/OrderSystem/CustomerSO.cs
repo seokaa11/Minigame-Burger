@@ -6,8 +6,7 @@ public class CustomerSO : ScriptableObject
     [SerializeField] Sprite normalFace;
     [SerializeField] Sprite happyFace;
     [SerializeField] Sprite sadFace;
-    [SerializeField] string customerName;      
-
+    [SerializeField] string customerName;
 
     public Sprite GetCustomerNormalFace()
     {

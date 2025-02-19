@@ -67,10 +67,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   burgers:
   - {fileID: 11400000, guid: 557740692aff1514dac91c3ca4031c10, type: 2}
-  - {fileID: 11400000, guid: e029c9eb7edb1c244b60d6aea554fe8e, type: 2}
-  - {fileID: 11400000, guid: daea67c7d4443f44eb8eee6f8311ef01, type: 2}
-  - {fileID: 11400000, guid: 8f66c27806d19a1418a3d81f7be6ee0e, type: 2}
-  - {fileID: 11400000, guid: 444d4ad44343323438c5108f5404a410, type: 2}
+  - {fileID: 11400000, guid: d48230697c86ce843b6239f617c01c3f, type: 2}
+  - {fileID: 11400000, guid: ab8e9c14cc0a8434d8d498da8ce85db0, type: 2}
+  - {fileID: 11400000, guid: 1bd5f91aa799b074d9685021a5d69d05, type: 2}
+  - {fileID: 11400000, guid: ab8b589e617088f4d99f92d83b4edf6e, type: 2}
   customers:
   - {fileID: 11400000, guid: b06a746daa533b346813c436b622f70f, type: 2}
   - {fileID: 11400000, guid: 1907664510a8e2e48a7b36d22aa4968b, type: 2}
@@ -83,8 +83,9 @@ MonoBehaviour:
   customerPrefab: {fileID: 5339087170387032527, guid: 811627952fe7f46468e016915aca2eaf, type: 3}
   timeUntilNextOrder: 7
   waitingRoom: {fileID: 0}
-  reducedTime: 0.2
   currentCustomer: {fileID: 0}
+  burgerId: 0
+  customerIndex: 0
 --- !u!1 &1240277691943337200
 GameObject:
   m_ObjectHideFlags: 0
@@ -1947,8 +1948,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 8.59}
-  m_SizeDelta: {x: 200, y: 67.17}
+  m_AnchoredPosition: {x: 1.23, y: 23}
+  m_SizeDelta: {x: 423.23, y: 103.69}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2740361959378122368
 CanvasRenderer:
@@ -1978,7 +1979,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC8FC\uBB38 \uB0B4\uC6A9"
+  m_text: "\uCEA3\uCE20 \uBC84\uAC70 \uD558\uB098 \uC8FC\uC138\uC694"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4bb8eb02aed552f43934f1169f2a1b3c, type: 2}
   m_sharedMaterial: {fileID: -7429142376516430954, guid: 4bb8eb02aed552f43934f1169f2a1b3c, type: 2}
@@ -2005,15 +2006,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 30
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 30
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0

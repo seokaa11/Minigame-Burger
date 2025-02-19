@@ -15,11 +15,9 @@ public class CustomerOrderSystem : MonoBehaviour
     [SerializeField] TextMeshProUGUI customerOrderText;       // 현재 손님의 주문 텍스트
     [SerializeField] TextMeshProUGUI orderDetailsText;        // 주문 내용 텍스트
     CustomerOrderInfo customer;
-    private int currentOrder = -1;          // 현재 손님의 주문
 
     void Awake()
-    {
-        
+    {        
         recipeCanvas.onClick.AddListener(CheckoverOrder);
         acceptButton.onClick.AddListener(AcceptOrder);
 
@@ -44,26 +42,19 @@ public class CustomerOrderSystem : MonoBehaviour
     {
         orderDisplay.SetActive(true);
         customer = order;
-        currentOrder = customer.GetBurgerNum();
-        customerOrderText.text = $"{customer.GetCustomerName()}님의 주문:";
+        customerOrderText.text = $"{customer.GetCustomerName()}\n님의 주문";
+        orderDisplay.GetComponentInChildren<TextMeshProUGUI>().text=customer.GetCustomerOrderText();
     }
 
     // 주문 수락 및 버거 제조 시작
     void AcceptOrder()
-    {
-
-        if (currentOrder < 0)
-        {
-            Debug.LogWarning("현재 설정된 주문이 없습니다.");
-            return;
-        }
+    {       
 
         //주문창 비활성화
         orderDisplay.SetActive(false);
 
         // 주문서 생성
         GameObject newOrder = Instantiate(orderPrefab, orderContainer.transform.position, Quaternion.identity ,orderContainer);
-        //newOrder.GetComponentInChildren<TextMeshProUGUI>().text = customer.GetCustomerOrderText();
         TextMeshProUGUI orderText = newOrder.GetComponentInChildren<TextMeshProUGUI>();
         Button orderButton = newOrder.GetComponent<Button>();
 

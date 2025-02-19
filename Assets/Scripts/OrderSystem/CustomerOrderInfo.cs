@@ -12,10 +12,10 @@ public class CustomerOrderInfo : MonoBehaviour
         orderText=recipe.GetOrderText();
         GetComponent<SpriteRenderer>().sprite = customer.GetCustomerNormalFace();
     }
-    public int GetBurgerNum()
+    /*public int GetBurgerNum()
     {
         return burgerRecipe.GetBurgerNum();
-    }
+    }*/
 
     public string GetBurgerName()
     {

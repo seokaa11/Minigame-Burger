@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: DoubleCatsBurger
   m_EditorClassIdentifier: 
   burgerNum: 0
-  orderText: 
-  burgerName: 
+  orderText: "\uB354\uBE14\uCEA3\uCE20\uBC84\uAC70 \uD558\uB098 \uC8FC\uC138\uC694.(\uAE30\uBCF8) "
+  burgerName: "\uB354\uBE14\uCEA3\uCE20\uBC84\uAC70"
   ingredients:
   - {fileID: 6965998175364508277, guid: 0e73401f71e8f93478b6f82bb34c2b0f, type: 3}
   - {fileID: 2576549950969995327, guid: 72aa001f8f3bdfd46940b596dae17dba, type: 3}

@@ -11,12 +11,11 @@ public class OrderController : MonoBehaviour
     [SerializeField] GameObject customerPrefab;//손님 프리펩
     [SerializeField] float timeUntilNextOrder = 7f; //다음 주문까지 남은 시간
     [SerializeField] Transform waitingRoom; //손님 입장 위치
-    [SerializeField] float reducedTime = 0.2f;   //주문 텀 감소
     [SerializeField] GameObject currentCustomer;
+
     CustomerOrderSystem customerOrderSystem;
-
+    float reducedTime = 0.2f;   //주문 텀 감소
     public int burgerId; //버거 번호
-
     public int customerIndex;  //손님 id
     void Awake()
     {
