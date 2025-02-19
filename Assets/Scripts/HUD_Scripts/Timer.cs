@@ -31,8 +31,10 @@ public class Timer : MonoBehaviour
             minute = (int) curTime / 60;
             second = (int) curTime % 60;
             text.text = minute.ToString("00") + " : " + second.ToString("00");
-            if (curTime <= 0) { 
+            if (curTime <= 0)
+            {
                 Debug.Log("Game Over");
+                GameManager.instance.isGameOver = true;
                 curTime = 0;
             }
             yield return null;

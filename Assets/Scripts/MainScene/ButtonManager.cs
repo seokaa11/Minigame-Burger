@@ -26,8 +26,8 @@ public class ButtonManager : MonoBehaviour
         SoundManager.instance.PlayBGM(SoundManager.EBgm.BGM_GAME);
         Debug.Log("Game Start");
         Time.timeScale = 1;
-        GameManager.instance.IsLive = true;
         SceneManager.LoadScene(1);
+        GameManager.instance.Init();
     }
     public void LoadSetting()
     {

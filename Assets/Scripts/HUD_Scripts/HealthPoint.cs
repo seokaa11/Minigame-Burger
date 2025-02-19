@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class HealthPoint : MonoBehaviour
 {
-    public Image[] healthPoints;
+    public GameObject [] healthPoints;
     public Action DecreaseHealth;
     private void Awake()
     {
@@ -19,7 +19,11 @@ public class HealthPoint : MonoBehaviour
     {
         for(int i = 0; i < healthPoints.Length; i++)
         {
-            healthPoints[i].enabled = DisplayHealthPoint(GameManager.instance.health,i);
+            // healthPoints[i]가 null인지 확인
+            if (healthPoints[i] != null)
+            {
+                healthPoints[i].SetActive(DisplayHealthPoint(GameManager.instance.health, i));
+            }
         }
     }
 

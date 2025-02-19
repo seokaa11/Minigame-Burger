@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     public float takenTime; // 버거 제작 소요시간
     
     public string dialog; // 버거 제출시 대화문
-    [SerializeField]bool isGameOver = false; //게임이 끝났음 을 알림.
+    [SerializeField]public bool isGameOver = false; //게임이 끝났음 을 알림.
     public bool isPaused = false;   // 게임이 멈춰있는가? 
     [SerializeField] Texture2D cursor;
     [SerializeField] GameObject GameOverPanel;
@@ -37,9 +37,13 @@ public class GameManager : MonoBehaviour
         if (isPaused) { return; }
 
         takenTime += Time.deltaTime;
-        if (health <= 0 && !isGameOver)
+        if (health <= 0 || isGameOver)
         {
-            Instantiate(GameOverPanel);
+            isPaused = true;
+            Debug.Log("실행");
+            GameObject gameOverPanelInstance = Instantiate(GameOverPanel);
+            gameOverPanelInstance.SetActive(true);
+            gameOverPanelInstance.transform.SetParent(GameObject.Find("UICanvas").transform);
             endGame();
         }
     }
@@ -51,8 +55,13 @@ public class GameManager : MonoBehaviour
     }    
 
     //게임 설정 초기화
-    void Init()
+    public void Init()
     {
-
+        isGameOver = false;
+        isPaused = false;
+        IsLive = true;
+        score = 0;
+        health = 5;
+        takenTime = 0;
     }
 }

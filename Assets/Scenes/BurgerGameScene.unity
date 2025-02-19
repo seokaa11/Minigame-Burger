@@ -2530,11 +2530,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6033481553005698173, guid: 0e73401f71e8f93478b6f82bb34c2b0f, type: 3}
   m_PrefabInstance: {fileID: 6731289382103965245}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1295033393 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 594356747963697495, guid: 9168d78b32690c940b9c9d4d635df4cd, type: 3}
-  m_PrefabInstance: {fileID: 2043473576}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1295362741
 GameObject:
   m_ObjectHideFlags: 0
@@ -3381,7 +3376,7 @@ PrefabInstance:
     - target: {fileID: 2313949386812789270, guid: d5d2fbc8b49739748a21a520b62000c9, type: 3}
       propertyPath: GameOverPanel
       value: 
-      objectReference: {fileID: 1295033393}
+      objectReference: {fileID: 5594302983430372828, guid: e77b5eb66355f444b822a72a85cb7d1d, type: 3}
     - target: {fileID: 4934314983445971684, guid: d5d2fbc8b49739748a21a520b62000c9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3952,6 +3947,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1445939131}
+    - target: {fileID: 5688693221585755588, guid: 9168d78b32690c940b9c9d4d635df4cd, type: 3}
+      propertyPath: m_SortingOrder
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 9020404552493568552, guid: 9168d78b32690c940b9c9d4d635df4cd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -3961,7 +3960,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 982786593}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 594356747963697495, guid: 9168d78b32690c940b9c9d4d635df4cd, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9168d78b32690c940b9c9d4d635df4cd, type: 3}
