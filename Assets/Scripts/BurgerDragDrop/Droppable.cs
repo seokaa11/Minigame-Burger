@@ -75,8 +75,16 @@ public class Droppable : MonoBehaviour
                     instantiatedBurger.name = "Burger"; // 생성된 이름 명확히 설정
                     Debug.Log("Burger 프리팹 생성됨: " + instantiatedBurger.name);
 
+                    instantiatedBurger.transform.position = new Vector3(0, -3.2f, 0.2f);
+
+                    // 생성된 버거의 스케일을 0.2f, 0.2f, 0.2f로 조정
+                    instantiatedBurger.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+
                 }
             }
+
+            SoundManager.instance.PlaySFX(SoundManager.ESfx.SFX_PACKAGING);
+
         }
     }
 
@@ -268,6 +276,9 @@ public class Droppable : MonoBehaviour
 
             // 추가: Bun 개수 확인 후 모든 드래그 비활성화 여부 결정
             CheckAndDisableDraggableItems();
+
+            SoundManager.instance.PlaySFX(SoundManager.ESfx.SFX_PUT);
+
         }
     }
 
