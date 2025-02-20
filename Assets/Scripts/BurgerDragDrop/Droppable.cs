@@ -75,6 +75,11 @@ public class Droppable : MonoBehaviour
                     instantiatedBurger.name = "Burger"; // 생성된 이름 명확히 설정
                     Debug.Log("Burger 프리팹 생성됨: " + instantiatedBurger.name);
 
+                    instantiatedBurger.transform.position = new Vector3(0, -3.2f, 0.2f);
+
+                    // 생성된 버거의 스케일을 0.2f, 0.2f, 0.2f로 조정
+                    instantiatedBurger.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+
                 }
             }
 
