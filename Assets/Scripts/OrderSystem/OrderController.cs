@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 //주문 시간 관리, 고객 시간 관리
@@ -17,12 +15,12 @@ public class OrderController : MonoBehaviour
     CustomerOrderSystem customerOrderSystem;
     GameObject currentCustomer;
     float reducedTime = 0.2f;   //주문 텀 감소
-   
+
     void Awake()
     {
         customerOrderSystem = GetComponent<CustomerOrderSystem>();
     }
-    
+
     public int GetburgerId()
     {
         return burgerId;
@@ -34,9 +32,9 @@ public class OrderController : MonoBehaviour
     void Start()
     {
         dialog.SetActive(false);
-        Invoke("EnterCustomer", 1f);        
+        Invoke("EnterCustomer", 1f);
     }
-    
+
     public void NewOrder()
     {
         StartCoroutine(WaitingtimeUntilNextOrder());
@@ -48,14 +46,14 @@ public class OrderController : MonoBehaviour
         EnterCustomer();
         timeUntilNextOrder -= reducedTime;
         timeUntilNextOrder = Mathf.Max(timeUntilNextOrder, 0);
-    }    
+    }
     IEnumerator ExitCustomer()
     {
         customerOrderSystem.DestroyOrderPrefab();
         dialog.SetActive(true);
         currentCustomer.transform.position += new Vector3(4.5f, 0, 0);
         yield return new WaitForSeconds(3);
-        Destroy(currentCustomer);        
+        Destroy(currentCustomer);
         dialog.SetActive(false);
     }
     //손님 입장
