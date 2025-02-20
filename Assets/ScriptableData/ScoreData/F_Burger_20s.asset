@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96f1f4f3c650fac4382dcf6dd32766d5, type: 3}
+  m_Name: F_Burger_20s
+  m_EditorClassIdentifier: 
+  Time: 20
+  isPerfectBurger: 0
+  score: f6fffffff1fffffff6fffffff1fffffff6fffffff1fffffff6ffffffecffffff
+  health: -1.5
+  dialog: "\uC7A5\uC0AC \uC774\uB530\uAD6C\uB85C \uD558\uBA74 \uB2F9\uC2E0 \uB9DD\uD574"

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7912118a740a8946ba3cec1f120a85b, type: 3}
+  m_Name: Student_male
+  m_EditorClassIdentifier: 
+  normalFace: {fileID: 21300000, guid: 166e7a5ccc61bf8439a549e7439f9356, type: 3}
+  happyFace: {fileID: 21300000, guid: f6b969597e3ef7d4bb5af1820f684125, type: 3}
+  sadFace: {fileID: 21300000, guid: b75de3bfba75f9540a7b77368a186e29, type: 3}
+  customerName: "\uB0A8\uD559\uC0DD"
+  burgerNum: 2
