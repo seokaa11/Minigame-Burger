@@ -25,18 +25,12 @@ public class Timer : MonoBehaviour
     IEnumerator GameTimer()
     {
         curTime = time;
-        while(curTime > 0)
+        while(curTime >= 0)
         {
-            curTime -= Time.deltaTime;
+            curTime += Time.deltaTime;
             minute = (int) curTime / 60;
             second = (int) curTime % 60;
             text.text = minute.ToString("00") + " : " + second.ToString("00");
-            if (curTime <= 0)
-            {
-                Debug.Log("Game Over");
-                GameManager.instance.isGameOver = true;
-                curTime = 0;
-            }
             yield return null;
         }
     }
