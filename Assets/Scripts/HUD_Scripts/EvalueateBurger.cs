@@ -15,8 +15,7 @@ public class EvalueateBurger : MonoBehaviour
     //버튼이 눌리면 평가
     public void OnEvalue()
     {
-        requestBurgerNum = orderController.burgerId;
-
+        requestBurgerNum = orderController.GetburgerId();
         BurgerScore(submitedBurger, requestBurgerNum);
         if(orderController != null)
         {
@@ -33,7 +32,7 @@ public class EvalueateBurger : MonoBehaviour
             if (scoredata[i].Time >= GameManager.instance.takenTime)
             {
                 if (IsPerferctBurger(burger, burgerRecipes[requestBurgerNum]) && i != 4) { i += 5; }
-                GameManager.instance.score += scoredata[i].score[orderController.customerIndex];
+                GameManager.instance.score += scoredata[i].score[orderController.GetCustomerIndex()];
                 GameManager.instance.health += scoredata[i].health;
                 GameManager.instance.dialog = scoredata[i].dialog;
                 GameManager.instance.takenTime = 0;

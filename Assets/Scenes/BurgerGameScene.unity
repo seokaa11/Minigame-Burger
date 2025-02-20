@@ -485,6 +485,10 @@ PrefabInstance:
       value: Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 6297252065087535836, guid: d568f2ffb07e2704483eae97f94fac9c, type: 3}
+      propertyPath: dialog
+      value: 
+      objectReference: {fileID: 1679911526}
+    - target: {fileID: 6297252065087535836, guid: d568f2ffb07e2704483eae97f94fac9c, type: 3}
       propertyPath: waitingRoom
       value: 
       objectReference: {fileID: 2100907434}
@@ -3365,6 +3369,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 411144460}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1679911526 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4003965548078451863, guid: 9168d78b32690c940b9c9d4d635df4cd, type: 3}
+  m_PrefabInstance: {fileID: 2043473576}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1724368073
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3937,6 +3946,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 381993257814317282, guid: 9168d78b32690c940b9c9d4d635df4cd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 594356747963697495, guid: 9168d78b32690c940b9c9d4d635df4cd, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1673616988405447352, guid: 9168d78b32690c940b9c9d4d635df4cd, type: 3}
@@ -5011,8 +5024,8 @@ SceneRoots:
   m_Roots:
   - {fileID: 1445939132}
   - {fileID: 1384958805}
-  - {fileID: 2043473576}
   - {fileID: 26071962}
+  - {fileID: 2043473576}
   - {fileID: 1186493184}
   - {fileID: 1454493613}
   - {fileID: 132006777}

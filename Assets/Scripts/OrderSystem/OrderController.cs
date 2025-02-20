@@ -11,25 +11,29 @@ public class OrderController : MonoBehaviour
     [SerializeField] GameObject customerPrefab;//손님 프리펩
     [SerializeField] float timeUntilNextOrder = 7f; //다음 주문까지 남은 시간
     [SerializeField] Transform waitingRoom; //손님 입장 위치
-    [SerializeField] GameObject currentCustomer;
-
+    [SerializeField] GameObject dialog;
+    [SerializeField] int burgerId; //버거 번호
+    [SerializeField] int customerIndex;  //손님 id
     CustomerOrderSystem customerOrderSystem;
+    GameObject currentCustomer;
     float reducedTime = 0.2f;   //주문 텀 감소
-    public int burgerId; //버거 번호
-    public int customerIndex;  //손님 id
+   
     void Awake()
     {
         customerOrderSystem = GetComponent<CustomerOrderSystem>();
     }
-    /*void Update()
+
+    public int GetburgerId()
     {
-        if (Input.GetKeyUp(KeyCode.O)) {
-            EnterCustomer();
-        }
-    }*/
+        return burgerId;
+    }
+    public int GetCustomerIndex()
+    {
+        return customerIndex;
+    }
     void Start()
     {
-        EnterCustomer();
+        Invoke("EnterCustomer", 1f);
     }
 
     public void NewOrder()
@@ -38,12 +42,13 @@ public class OrderController : MonoBehaviour
     }
     IEnumerator WaitingtimeUntilNextOrder()
     {
-        currentCustomer.transform.position += new Vector3(4.5f,0,0);
-        yield return new WaitForSeconds(timeUntilNextOrder);        
+        currentCustomer.transform.position += new Vector3(4.5f, 0, 0);
+        yield return new WaitForSeconds(timeUntilNextOrder);
         EnterCustomer();
         timeUntilNextOrder -= reducedTime;
         timeUntilNextOrder = Mathf.Max(timeUntilNextOrder, 0);
-    }
+    }    
+
     //손님 입장
     void EnterCustomer()
     {
@@ -53,7 +58,6 @@ public class OrderController : MonoBehaviour
         GameObject customer = Instantiate(customerPrefab, waitingRoom);
         if (currentCustomer != null)
         {
-            Destroy(currentCustomer,2f);
             currentCustomer = customer;
         }
         else
