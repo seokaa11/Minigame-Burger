@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,24 +6,25 @@ public class GameOverPanel : MonoBehaviour
 {
     Image image;
     float duration = 3.0f; // FadeOut 기간
-    float time = 0; // 경과 시간
-    float alpha = 0; // 알파값
+    [SerializeField] float time = 0; // 경과 시간
 
-    private void OnEnable()
+    [SerializeField] float alpha =1; // 알파값
+
+    private void Awake()
     {
         image = GetComponent<Image>();
-        GameManager.endGame += OnFadeOut;
+        GameManager.endGame += ()=>StartCoroutine(OnFadeOut());
         GameManager.endGame += OnGameOver;
-    }
+    }    
 
-
-    void OnFadeOut()
+    IEnumerator OnFadeOut()
     {
         while (time <= duration)
         {
             time += Time.deltaTime;
             alpha = Mathf.Clamp01(time / duration);
             image.color = new Color(0, 0, 0, alpha);
+            yield return null;
         }
         image.color = new Color(0, 0, 0, 1);
     }
@@ -36,5 +38,10 @@ public class GameOverPanel : MonoBehaviour
         }
         GameManager.instance.IsLive = true;
         GameManager.instance.isPaused = true;
+    }
+    void OnDisable()
+    {
+        GameManager.endGame -= () => StartCoroutine(OnFadeOut());
+        GameManager.endGame -= OnGameOver;
     }
 }

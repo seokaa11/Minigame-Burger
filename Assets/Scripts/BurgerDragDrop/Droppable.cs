@@ -73,7 +73,7 @@ public class Droppable : MonoBehaviour
                         Quaternion.identity
                     );
                     instantiatedBurger.name = "Burger"; // 생성된 이름 명확히 설정
-                    Debug.Log("Burger 프리팹 생성됨: " + instantiatedBurger.name);
+                    //Debug.Log("Burger 프리팹 생성됨: " + instantiatedBurger.name);
 
                     instantiatedBurger.transform.position = new Vector3(0, -3.2f, 0.2f);
 
@@ -175,7 +175,7 @@ public class Droppable : MonoBehaviour
         Collider2D other = draggable.GetComponent<Collider2D>();
         if (other != null && other.CompareTag("Draggable"))
         {
-            Debug.Log("Draggable entered drop area");
+            //Debug.Log("Draggable entered drop area");
 
 
             // Bun인지 확인하고 처음 놓는 경우 UnderBun으로 변환

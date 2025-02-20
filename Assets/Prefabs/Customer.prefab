@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: -550269779
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4061a432688f52b41a4d3e7a7ec661a0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 25e67061171e3fd4eb0732d069460b2b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,6 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   burgerRecipe: {fileID: 0}
   customer: {fileID: 0}
+  customerSprite: {fileID: 0}
 --- !u!61 &6685238384615966829
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -136,7 +137,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 1.2508138, y: 2.2083333}
+    oldSize: {x: 1.2092692, y: 2.3541667}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

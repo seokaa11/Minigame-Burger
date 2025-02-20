@@ -409,7 +409,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   curTime: 0
-  time: 60
+  time: 0
 --- !u!1 &4003965548078451863
 GameObject:
   m_ObjectHideFlags: 0
