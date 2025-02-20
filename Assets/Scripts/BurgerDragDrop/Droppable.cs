@@ -77,6 +77,9 @@ public class Droppable : MonoBehaviour
 
                 }
             }
+
+            SoundManager.instance.PlaySFX(SoundManager.ESfx.SFX_PACKAGING);
+
         }
     }
 
@@ -268,6 +271,9 @@ public class Droppable : MonoBehaviour
 
             // 추가: Bun 개수 확인 후 모든 드래그 비활성화 여부 결정
             CheckAndDisableDraggableItems();
+
+            SoundManager.instance.PlaySFX(SoundManager.ESfx.SFX_PUT);
+
         }
     }
 
