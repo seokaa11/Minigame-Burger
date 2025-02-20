@@ -22,7 +22,7 @@ public class OrderController : MonoBehaviour
     {
         customerOrderSystem = GetComponent<CustomerOrderSystem>();
     }
-
+    
     public int GetburgerId()
     {
         return burgerId;
@@ -33,22 +33,31 @@ public class OrderController : MonoBehaviour
     }
     void Start()
     {
-        Invoke("EnterCustomer", 1f);
+        dialog.SetActive(false);
+        Invoke("EnterCustomer", 1f);        
     }
-
+    
     public void NewOrder()
     {
         StartCoroutine(WaitingtimeUntilNextOrder());
+        StartCoroutine(ExitCustomer());
     }
     IEnumerator WaitingtimeUntilNextOrder()
     {
-        currentCustomer.transform.position += new Vector3(4.5f, 0, 0);
         yield return new WaitForSeconds(timeUntilNextOrder);
         EnterCustomer();
         timeUntilNextOrder -= reducedTime;
         timeUntilNextOrder = Mathf.Max(timeUntilNextOrder, 0);
     }    
-
+    IEnumerator ExitCustomer()
+    {
+        customerOrderSystem.DestroyOrderPrefab();
+        dialog.SetActive(true);
+        currentCustomer.transform.position += new Vector3(4.5f, 0, 0);
+        yield return new WaitForSeconds(3);
+        Destroy(currentCustomer);        
+        dialog.SetActive(false);
+    }
     //º’¥‘ ¿‘¿Â
     void EnterCustomer()
     {

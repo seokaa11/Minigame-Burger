@@ -19,4 +19,9 @@ public class ScrollingSky : MonoBehaviour
         offset = speed * Time.deltaTime;
         mat.mainTextureOffset += offset;
     }
+    void OnDisable()
+    {
+        mat.mainTextureOffset=Vector2.zero;
+
+    }
 }

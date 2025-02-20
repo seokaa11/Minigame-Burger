@@ -15,9 +15,8 @@ public class CustomerOrderSystem : MonoBehaviour
     [SerializeField] TextMeshProUGUI customerOrderText;       // 현재 손님의 주문 텍스트
     [SerializeField] TextMeshProUGUI orderDetailsText;        // 주문 내용 텍스트
     CustomerOrderInfo customer;
-
     void Awake()
-    {        
+    {
         recipeCanvas.onClick.AddListener(CheckoverOrder);
         acceptButton.onClick.AddListener(AcceptOrder);
 
@@ -43,20 +42,20 @@ public class CustomerOrderSystem : MonoBehaviour
         orderDisplay.SetActive(true);
         customer = order;
         customerOrderText.text = $"{customer.GetCustomerName()}\n님의 주문";
-        orderDisplay.GetComponentInChildren<TextMeshProUGUI>().text=customer.GetCustomerOrderText();
+        orderDisplay.GetComponentInChildren<TextMeshProUGUI>().text = customer.GetCustomerOrderText();
     }
 
     // 주문 수락 및 버거 제조 시작
     void AcceptOrder()
-    {       
-
+    {
         //주문창 비활성화
         orderDisplay.SetActive(false);
 
         // 주문서 생성
-        GameObject newOrder = Instantiate(orderPrefab, orderContainer.transform.position, Quaternion.identity ,orderContainer);
-        TextMeshProUGUI orderText = newOrder.GetComponentInChildren<TextMeshProUGUI>();
-        Button orderButton = newOrder.GetComponent<Button>();
+        if (orderPrefab == null) return;
+        orderPrefab.SetActive(true);
+        TextMeshProUGUI orderText = orderPrefab.GetComponentInChildren<TextMeshProUGUI>();
+        Button orderButton = orderPrefab.GetComponent<Button>();
 
         if (orderText != null)
         {
@@ -77,5 +76,9 @@ public class CustomerOrderSystem : MonoBehaviour
         orderDetailsUI.SetActive(true);       // 주문 내용 UI 활성화
         orderDetailsText.text = "";
         orderDetailsText.text = customer.GetBurgerName();
+    }
+    public void DestroyOrderPrefab()
+    {
+        orderPrefab.SetActive(false);
     }
 }

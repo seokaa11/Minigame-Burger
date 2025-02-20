@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "steve\n\uB2D8\uC758 \uC8FC\uBB38"
+  m_text: "\uACBD\uC7C1\uC0AC \uC9C1\uC6D0\n\uB2D8\uC758 \uC8FC\uBB38"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4bb8eb02aed552f43934f1169f2a1b3c, type: 2}
   m_sharedMaterial: {fileID: -7429142376516430954, guid: 4bb8eb02aed552f43934f1169f2a1b3c, type: 2}

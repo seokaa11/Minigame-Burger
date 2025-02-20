@@ -9,7 +9,7 @@ public class EvalueateBurger : MonoBehaviour
     OrderController orderController;
     void Start()
     {
-        orderController=FindObjectOfType<OrderController>();
+        orderController = FindObjectOfType<OrderController>();
         submitedBurger = GameObject.Find("DropArea");
     }
     //버튼이 눌리면 평가
@@ -17,7 +17,7 @@ public class EvalueateBurger : MonoBehaviour
     {
         requestBurgerNum = orderController.GetburgerId();
         BurgerScore(submitedBurger, requestBurgerNum);
-        if(orderController != null)
+        if (orderController != null)
         {
             orderController.NewOrder();
         }
@@ -31,7 +31,10 @@ public class EvalueateBurger : MonoBehaviour
             if (GameManager.instance.takenTime > 20) { i = 4; }
             if (scoredata[i].Time >= GameManager.instance.takenTime)
             {
-                if (IsPerferctBurger(burger, burgerRecipes[requestBurgerNum]) && i != 4) { i += 5; }
+                if (IsPerferctBurger(burger, burgerRecipes[requestBurgerNum]) && i != 4)
+                {
+                    i += 5;
+                }
                 GameManager.instance.score += scoredata[i].score[orderController.GetCustomerIndex()];
                 GameManager.instance.health += scoredata[i].health;
                 GameManager.instance.dialog = scoredata[i].dialog;
