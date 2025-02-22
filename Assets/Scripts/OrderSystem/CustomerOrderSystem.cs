@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,11 +17,14 @@ public class CustomerOrderSystem : MonoBehaviour
     [SerializeField] TextMeshProUGUI customerOrderText;       // 현재 손님의 주문 텍스트
     [SerializeField] TextMeshProUGUI orderDetailsText;        // 주문 내용 텍스트
     CustomerOrderInfo customer;
+    [SerializeField] float time = 0;
+    [SerializeField] bool isOrderWaiting = false;
+
+    public static event Action OnOrderTimeout;
     void Awake()
     {
         recipeCanvas.onClick.AddListener(CheckoverOrder);
         acceptButton.onClick.AddListener(AcceptOrder);
-
         if (orderDetailsUI != null)
         {
             orderDetailsUI.SetActive(false);
@@ -43,15 +48,39 @@ public class CustomerOrderSystem : MonoBehaviour
         customer = order;
         customerOrderText.text = $"{customer.GetCustomerName()}\n님의 주문";
         orderDisplay.GetComponentInChildren<TextMeshProUGUI>().text = customer.GetCustomerOrderText();
+        isOrderWaiting = true;
+        if (GameManager.instance.score >= 100)
+        {
+            StartCoroutine(WaitingCount());
+        }
     }
+    IEnumerator WaitingCount()
+    {
+        time = 0;
 
+        while (isOrderWaiting)
+        {
+            if (time > 10)
+            {
+                GameManager.instance.score -= 5;
+                orderDisplay.SetActive(false);                
+                OnOrderTimeout?.Invoke();
+                break;
+            }
+            time += Time.deltaTime;
+            yield return null;
+        }
+    }
     // 주문 수락 및 버거 제조 시작
     void AcceptOrder()
     {
+        GameManager.instance.takenTime = 0;
+        isOrderWaiting = false;
         //주문창 비활성화
         orderDisplay.SetActive(false);
-
-        // 주문서 생성
+        //손님 콜라이더 활성화. 주문 받았을 때에만 전달 가능하게
+        customer.GetComponent<Collider2D>().enabled = true;
+        // 주문서 활성화
         if (orderPrefab == null) return;
         orderPrefab.SetActive(true);
         TextMeshProUGUI orderText = orderPrefab.GetComponentInChildren<TextMeshProUGUI>();

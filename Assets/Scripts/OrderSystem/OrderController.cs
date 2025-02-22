@@ -12,15 +12,10 @@ public class OrderController : MonoBehaviour
     [SerializeField] GameObject dialog;
     [SerializeField] int burgerId; //버거 번호
     [SerializeField] int customerIndex;  //손님 id
+
     CustomerOrderSystem customerOrderSystem;
     GameObject currentCustomer;
     float reducedTime = 0.2f;   //주문 텀 감소
-
-    void Awake()
-    {
-        customerOrderSystem = GetComponent<CustomerOrderSystem>();
-    }
-
     public int GetburgerId()
     {
         return burgerId;
@@ -28,6 +23,12 @@ public class OrderController : MonoBehaviour
     public int GetCustomerIndex()
     {
         return customerIndex;
+    }
+
+    void Awake()
+    {
+        customerOrderSystem = GetComponent<CustomerOrderSystem>();
+        CustomerOrderSystem.OnOrderTimeout += NewOrder;
     }
     void Start()
     {
@@ -77,5 +78,9 @@ public class OrderController : MonoBehaviour
         Debug.Log(burgerId);
         customerOrderInfo.Init(burgers[burgerId], customers[customerIndex]);
         customerOrderSystem.SetCustomerOrder(customerOrderInfo);
+    }
+    void OnDisable()
+    {
+        CustomerOrderSystem.OnOrderTimeout -= NewOrder;
     }
 }

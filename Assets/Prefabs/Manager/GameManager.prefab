@@ -51,4 +51,4 @@ MonoBehaviour:
   isGameOver: 0
   isPaused: 0
   cursor: {fileID: 2800000, guid: 01051351bc09a8a48abf798910253c98, type: 3}
-  GameOverPanel: {fileID: 1467599594274481275, guid: 71847263c662d864f804eb1cbce7da14, type: 3}
+  GameOverPanel: {fileID: 5594302983430372828, guid: e77b5eb66355f444b822a72a85cb7d1d, type: 3}

@@ -32,7 +32,7 @@ public class Submission : MonoBehaviour
         // 마우스를 놓았을 때 드랍 가능 여부 확인
         if (isDropped)
         {
-            Debug.Log("Burger가 Customer에 드롭되었습니다.");
+            //Debug.Log("Burger가 Customer에 드롭되었습니다.");
 
             // 여기서 필요한 처리를 진행합니다.
             HandleBurgerDrop();
