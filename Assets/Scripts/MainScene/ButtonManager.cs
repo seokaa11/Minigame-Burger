@@ -7,7 +7,8 @@ public class ButtonManager : MonoBehaviour
 {
     public static ButtonManager instance;
     GameObject settingCanvas;
-   
+    GameObject ruleCanvas;
+
 
     // Start is called before the first frame update
     void Awake()
@@ -19,6 +20,7 @@ public class ButtonManager : MonoBehaviour
         }
         else { Destroy(gameObject); }
         settingCanvas = FindAnyObjectByType<SettingCanvas>().settingBorder;
+        ruleCanvas = FindAnyObjectByType<RuleCanvas>().ruleBorder;
     }
    
     public void GameStart()
@@ -37,7 +39,8 @@ public class ButtonManager : MonoBehaviour
     
     public void LoadHelp()
     {
-        //∞‘¿” º≥∏Ì æ¿?
+        if (ruleCanvas == null) { return; }
+        ruleCanvas.SetActive(!ruleCanvas.activeSelf);
     }
 
     public void GameExit()
