@@ -2749,6 +2749,10 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 0.057
       objectReference: {fileID: 0}
+    - target: {fileID: 6039519759816350055, guid: 13c4186e734106e4698256274be79d41, type: 3}
+      propertyPath: sfxs.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: b7134de413b994742a673cac0cf525dd, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

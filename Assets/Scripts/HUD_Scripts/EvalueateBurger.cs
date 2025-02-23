@@ -36,7 +36,9 @@ public class EvalueateBurger : MonoBehaviour
                     i += 5;
                 }
                 GameManager.instance.score += scoredata[i].score[orderController.GetCustomerIndex()];
+                if (scoredata[i].score[orderController.GetCustomerIndex()] > 0) { SoundManager.instance.PlaySFX(SoundManager.ESfx.SFX_SCORE); }
                 GameManager.instance.health += scoredata[i].health;
+                if (scoredata[i].health < 0) { SoundManager.instance.PlaySFX(SoundManager.ESfx.SFX_LOSTHEALTH); }
                 GameManager.instance.dialog = scoredata[i].dialog;
                 GameManager.instance.takenTime = 0;
 
