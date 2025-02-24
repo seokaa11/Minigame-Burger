@@ -10,9 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a7912118a740a8946ba3cec1f120a85b, type: 3}
-  m_Name: subwayMan
+  m_Name: "\uC9C0\uD558\uCCA0 \uC9C1\uC6D0"
   m_EditorClassIdentifier: 
   normalFace: {fileID: 21300000, guid: a750ecb7de8a58a479d68c473c9a63a8, type: 3}
   happyFace: {fileID: 21300000, guid: ac6c4e47f019bef45800b7f34c0479c2, type: 3}
   sadFace: {fileID: 21300000, guid: 9bc99dd51d53eee40ae3b9d022687f78, type: 3}
-  customerName: "\uACBD\uC7C1\uC0AC \uC9C1\uC6D0"
+  customerName: "\uC9C0\uD558\uCCA0 \uC9C1\uC6D0"
+  originalOrderText: 
+  orderText: 
+  orderText2: " \uD558\uB098 \uC8FC\uC138\uC694\u314E\u314E."

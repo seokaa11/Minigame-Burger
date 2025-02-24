@@ -97,6 +97,7 @@ public class CustomerOrderSystem : MonoBehaviour
         customer = order;
         customerOrderText.text = $"{customer.GetCustomerName()}\n님의 주문";
         orderDisplay.GetComponentInChildren<TextMeshProUGUI>().text = customer.GetCustomerOrderText();
+        
         isOrderWaiting = true;
         if (GameManager.instance.score >= 100)
         {
@@ -122,6 +123,7 @@ public class CustomerOrderSystem : MonoBehaviour
     //주문 거절
     void RefuseOrder()
     {
+        
         OnOrderTimeout?.Invoke();
         orderDisplay.SetActive(false);//주문창 비활성화
         if (prevRefuseOrder)

@@ -10,10 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a7912118a740a8946ba3cec1f120a85b, type: 3}
-  m_Name: Alien
+  m_Name: "\uC678\uACC4\uC778"
   m_EditorClassIdentifier: 
   normalFace: {fileID: 21300000, guid: f3ae82450c2320a4b9da93d41840667b, type: 3}
   happyFace: {fileID: 21300000, guid: 556032d5169af4140a8fa593cec85c40, type: 3}
   sadFace: {fileID: 21300000, guid: 0697e4df209981145a7a0577efd54bec, type: 3}
   customerName: ???
-  burgerNum: 4
+  originalOrderText: "\uC9C0\uAD6C \uD584\uBC84\uAC70\uB294 \uCC98\uC74C\uC774\uC5D0\uC694.
+    ."
+  orderText: "\uC9C0\uAD6C \uD584\uBC84\uAC70\uB294 \uCC98\uC74C\uC774\uC5D0\uC694.
+    ."
+  orderText2: " \uD558\uB098 \uC8FC\uC138\uC694"

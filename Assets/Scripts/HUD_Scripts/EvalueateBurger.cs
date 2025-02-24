@@ -8,10 +8,12 @@ public class EvalueateBurger : MonoBehaviour
     public int requestBurgerNum;
     OrderController orderController;
     CustomerOrderSystem customerOrderSystem;
+    CustomerOrderInfo customerOrderInfo;
     void Start()
     {
         orderController = FindObjectOfType<OrderController>();
-        customerOrderSystem=FindObjectOfType<CustomerOrderSystem>();
+        customerOrderSystem = FindObjectOfType<CustomerOrderSystem>();
+        customerOrderInfo=FindObjectOfType<CustomerOrderInfo>();
         submitedBurger = GameObject.Find("DropArea");
     }
     //고객에게 버거 드래그 제출 시 평가
@@ -41,15 +43,34 @@ public class EvalueateBurger : MonoBehaviour
                 {
                     i += 5;
                 }
-                GameManager.instance.score += scoredata[i].score[orderController.GetCustomerIndex()];
-                if (scoredata[i].score[orderController.GetCustomerIndex()] > 0) { SoundManager.instance.PlaySFX(SoundManager.ESfx.SFX_SCORE); }
+                int num = orderController.GetCustomerIndex();
+                GameManager.instance.score += scoredata[i].score[num];                
+                GameManager.instance.dialog = scoredata[i].dialog[num];
                 GameManager.instance.health += scoredata[i].health;
-                if (scoredata[i].health < 0) { SoundManager.instance.PlaySFX(SoundManager.ESfx.SFX_LOSTHEALTH); }
-                GameManager.instance.dialog = scoredata[i].dialog;
                 GameManager.instance.takenTime = 0;
-
+                SetCustomerFace_PlaySound(i);               
                 break;
             }
+        }
+    }    
+
+    void SetCustomerFace_PlaySound(int i)
+    {
+        if (i >= 0 && i <= 4)
+        {
+            customerOrderInfo.SetCustomerSadFace();
+            SoundManager.instance.PlaySFX(SoundManager.ESfx.SFX_LOSTHEALTH);
+        }
+        else if (i >= 5 && i <= 6)
+        {
+            customerOrderInfo.SetCustomerHappyFace();
+            SoundManager.instance.PlaySFX(SoundManager.ESfx.SFX_SCORE);
+        }
+        else
+        {
+            customerOrderInfo.SetCustomerNormalFace();
+            SoundManager.instance.PlaySFX(SoundManager.ESfx.SFX_SCORE);
+
         }
     }
 

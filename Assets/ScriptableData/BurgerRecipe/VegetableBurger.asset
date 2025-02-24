@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8f56ff150c08714a8497ef852498576, type: 3}
   m_Name: VegetableBurger
   m_EditorClassIdentifier: 
-  burgerNum: 0
-  orderText: "\uB354\uBE14\uCE58\uC988\uBC84\uAC70 \uD558\uB098 \uC8FC\uC138\uC694.(\uAE30\uBCF8) "
+  orderText: "\uB354\uBE14\uCE58\uC988\uBC84\uAC70"
   burgerName: "\uC57C\uCC44\uBC84\uAC70"
   ingredients:
   - {fileID: 6965998175364508277, guid: 0e73401f71e8f93478b6f82bb34c2b0f, type: 3}
