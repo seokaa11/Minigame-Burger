@@ -12,9 +12,13 @@ public class Score_Ui : MonoBehaviour
         text = GetComponent<TextMeshProUGUI>();
         HUD.Submit += UpdateScore;
     }
-
+    void Update()
+    {
+        UpdateScore();
+    }
     void UpdateScore()
     {
         text.text = GameManager.instance.score.ToString();// 점수 표시
+
     }
 }

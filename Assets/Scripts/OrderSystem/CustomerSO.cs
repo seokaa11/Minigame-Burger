@@ -7,12 +7,30 @@ public class CustomerSO : ScriptableObject
     [SerializeField] Sprite happyFace;
     [SerializeField] Sprite sadFace;
     [SerializeField] string customerName;
+    [SerializeField]string originalOrderText;
+    [SerializeField] string orderText;
+    [SerializeField] string orderText2;
+    
 
+
+
+    public string OrderText
+    {
+        get
+        {
+            return orderText + orderText2;
+        }
+        set
+        {
+            orderText = originalOrderText;
+            orderText += value;
+        }
+    }
     public Sprite GetCustomerNormalFace()
     {
         return normalFace;
     }
-    public Sprite GetCustomerHappylFace()
+    public Sprite GetCustomerHappyFace()
     {
         return happyFace;
     }
@@ -23,5 +41,6 @@ public class CustomerSO : ScriptableObject
     public string GetCustomerName()
     {
         return customerName;
-    }        
+    }
+    
 }

@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8f56ff150c08714a8497ef852498576, type: 3}
   m_Name: CatsBurger
   m_EditorClassIdentifier: 
-  burgerNum: 0
-  orderText: "\uCEA3\uCE20\uBC84\uAC70 \uD558\uB098 \uC8FC\uC138\uC694."
+  orderText: "\uCEA3\uCE20\uBC84\uAC70"
   burgerName: "\uCEA3\uCE20\uBC84\uAC70"
   ingredients:
   - {fileID: 6965998175364508277, guid: 0e73401f71e8f93478b6f82bb34c2b0f, type: 3}

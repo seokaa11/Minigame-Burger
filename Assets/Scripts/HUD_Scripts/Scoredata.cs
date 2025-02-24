@@ -9,5 +9,5 @@ public class Scoredata : ScriptableObject
     public bool isPerfectBurger;
     public int[] score;
     public float health;
-    public string dialog;
+    public string[] dialog;
 }
