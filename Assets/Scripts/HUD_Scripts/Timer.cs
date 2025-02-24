@@ -10,8 +10,8 @@ public class Timer : MonoBehaviour
     TextMeshProUGUI text;
     int minute;
     int second;
-    [SerializeField] float curTime;
-    [SerializeField] float time;
+    public static float  curTime;
+    [SerializeField]float time;
 
     private void Awake()
     {

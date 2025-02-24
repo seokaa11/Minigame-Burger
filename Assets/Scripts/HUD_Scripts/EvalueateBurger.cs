@@ -7,14 +7,17 @@ public class EvalueateBurger : MonoBehaviour
     public GameObject submitedBurger;
     public int requestBurgerNum;
     OrderController orderController;
+    CustomerOrderSystem customerOrderSystem;
     void Start()
     {
         orderController = FindObjectOfType<OrderController>();
+        customerOrderSystem=FindObjectOfType<CustomerOrderSystem>();
         submitedBurger = GameObject.Find("DropArea");
     }
-    //버튼이 눌리면 평가
+    //고객에게 버거 드래그 제출 시 평가
     public void OnEvalue()
     {
+        customerOrderSystem.IsMaking = false;
         requestBurgerNum = orderController.GetburgerId();
         BurgerScore(submitedBurger, requestBurgerNum);
         if (orderController != null)
@@ -22,7 +25,10 @@ public class EvalueateBurger : MonoBehaviour
             orderController.NewOrder();
         }
     }
-
+    public Scoredata GetScoredatas(int n)
+    {
+        return scoredata[n];
+    }
     // 버거 상태에 따라 점수가 주어지고 대화문 출력
     public void BurgerScore(GameObject burger, int requestBurgerNum)
     {
