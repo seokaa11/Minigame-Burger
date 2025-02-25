@@ -13,7 +13,7 @@ public class OrderController : MonoBehaviour
     [SerializeField] int customerIndex;  //¼Õ´Ô id
     CustomerOrderSystem customerOrderSystem;
     GameObject currentCustomer;
-
+    
     public int GetburgerId()
     {
         return burgerId;

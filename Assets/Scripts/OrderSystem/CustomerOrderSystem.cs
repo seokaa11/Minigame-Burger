@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -11,7 +12,7 @@ public class CustomerOrderSystem : MonoBehaviour
 {
     [SerializeField] Button yesButton;          // 수락 버튼
     [SerializeField] Button noButton;          // 거절 버튼
-    [SerializeField]bool prevRefuseOrder=false;//전에 거절을 눌렀는지
+    [SerializeField] bool prevRefuseOrder = false;//전에 거절을 눌렀는지
     [SerializeField] GameObject orderDisplay;
     [SerializeField] GameObject orderPrefab;       // 주문서 프리팹
     [SerializeField] Transform orderContainer;     // 주문서를 걸 컨테이너
@@ -30,7 +31,7 @@ public class CustomerOrderSystem : MonoBehaviour
     float time = 0;//reducedMakingTimeStandard 시간 체크를 위한 변수
     CustomerOrderInfo customer;
     public static event Action OnOrderTimeout;//손님 퇴장, 새로운 손님 입장
-    [SerializeField]EvalueateBurger evalueateBurger;
+    [SerializeField] EvalueateBurger evalueateBurger;
     OrderController orderController;
     public bool IsMaking
     {
@@ -63,11 +64,11 @@ public class CustomerOrderSystem : MonoBehaviour
         {
             orderDisplay.SetActive(false);
         }
-        
-        orderController=FindObjectOfType<OrderController>();
+
+        orderController = FindObjectOfType<OrderController>();
     }
 
-   
+
 
     void Update()
     {
@@ -97,7 +98,7 @@ public class CustomerOrderSystem : MonoBehaviour
         customer = order;
         customerOrderText.text = $"{customer.GetCustomerName()}\n님의 주문";
         orderDisplay.GetComponentInChildren<TextMeshProUGUI>().text = customer.GetCustomerOrderText();
-        
+
         isOrderWaiting = true;
         if (GameManager.instance.score >= 100)
         {
@@ -112,7 +113,10 @@ public class CustomerOrderSystem : MonoBehaviour
             if (time > 10)
             {
                 GameManager.instance.score -= 5;
+
                 orderDisplay.SetActive(false);
+                int num = orderController.GetCustomerIndex();
+                GameManager.instance.Dialog = evalueateBurger.GetScoredatas(4).dialog[num];
                 OnOrderTimeout?.Invoke();
                 break;
             }
@@ -123,27 +127,27 @@ public class CustomerOrderSystem : MonoBehaviour
     //주문 거절
     void RefuseOrder()
     {
-        
+
         OnOrderTimeout?.Invoke();
+        int num = orderController.GetCustomerIndex();
+        GameManager.instance.Dialog = "...";
         orderDisplay.SetActive(false);//주문창 비활성화
         if (prevRefuseOrder)
         {
-            GameManager.instance.score += evalueateBurger.GetScoredatas(4).score[orderController.GetCustomerIndex()];
+            GameManager.instance.score += evalueateBurger.GetScoredatas(4).score[num];
             prevRefuseOrder = false;
         }
         if (Timer.curTime >= 30)
         {
-            GameManager.instance.score += evalueateBurger.GetScoredatas(0).score[orderController.GetCustomerIndex()];
+            GameManager.instance.score += evalueateBurger.GetScoredatas(0).score[num];
             prevRefuseOrder = false;
         }
-        prevRefuseOrder =true;
-        
-        print("거절");
+        prevRefuseOrder = true;        
     }
     // 주문 수락 및 버거 제조 시작
     void AcceptOrder()
     {
-        prevRefuseOrder=false;
+        prevRefuseOrder = false;
         StartMakingTimer();
 
         orderDisplay.SetActive(false);//주문창 비활성화

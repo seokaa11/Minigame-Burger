@@ -8,7 +8,7 @@ public class EvalueateBurger : MonoBehaviour
     public int requestBurgerNum;
     OrderController orderController;
     CustomerOrderSystem customerOrderSystem;
-    CustomerOrderInfo customerOrderInfo;
+    [SerializeField]CustomerOrderInfo customerOrderInfo;
     void Start()
     {
         orderController = FindObjectOfType<OrderController>();
@@ -45,8 +45,8 @@ public class EvalueateBurger : MonoBehaviour
                 }
                 int num = orderController.GetCustomerIndex();
                 GameManager.instance.score += scoredata[i].score[num];                
-                GameManager.instance.dialog = scoredata[i].dialog[num];
                 GameManager.instance.health += scoredata[i].health;
+                GameManager.instance.Dialog = scoredata[i].dialog[num];
                 GameManager.instance.takenTime = 0;
                 SetCustomerFace_PlaySound(i);               
                 break;
