@@ -60,7 +60,7 @@ public class SoundManager : MonoBehaviour
         
         audioMixer.SetFloat("BGM", Mathf.Log10(bgmValue) * 20);
         audioMixer.SetFloat("SFX", Mathf.Log10(sfxValue) * 20);
-        foreach(ESfx esfx in System.Enum.GetValues(typeof(EBgm)))
+        foreach(ESfx esfx in System.Enum.GetValues(typeof(ESfx)))
         {
             sfxVolumes[esfx] = sfxVol[(int)esfx];
         }

@@ -2,21 +2,22 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro; // TextMeshPro 네임스페이스 추가
 
 public class GameOverPanel : MonoBehaviour
 {
     Image image;
-
+    TextMeshProUGUI scoreText; // TextMeshProUGUI로 변경
     [SerializeField] float duration = 5.0f; // FadeOut 기간
     [SerializeField] float time = 0; // 경과 시간
-    [SerializeField] float alpha =1; // 알파값
+    [SerializeField] float alpha = 1; // 알파값
 
     private void Awake()
     {
         image = GetComponent<Image>();
         StartCoroutine(OnFadeOut());
         GameManager.endGame += OnGameOver;
-    }    
+    }
 
     IEnumerator OnFadeOut()
     {
@@ -30,6 +31,13 @@ public class GameOverPanel : MonoBehaviour
         }
         image.color = new Color(0, 0, 0, 1);
         transform.GetChild(0).gameObject.SetActive(true);
+        transform.GetChild(1).gameObject.SetActive(true);
+
+        scoreText = transform.GetChild(1).GetComponent<TextMeshProUGUI>(); // TextMeshProUGUI로 변경
+        if (scoreText != null)
+        {
+            scoreText.text = "Score : " + GameManager.instance.score;
+        }
         yield return new WaitForSeconds(2.0f);
         SceneManager.LoadScene(0);
     }
@@ -44,9 +52,9 @@ public class GameOverPanel : MonoBehaviour
         GameManager.instance.IsLive = true;
         GameManager.instance.isPaused = true;
     }
+
     void OnDisable()
     {
-
         GameManager.endGame -= OnGameOver;
     }
 }

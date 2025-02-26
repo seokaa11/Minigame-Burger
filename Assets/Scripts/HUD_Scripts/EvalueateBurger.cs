@@ -13,7 +13,6 @@ public class EvalueateBurger : MonoBehaviour
     {
         orderController = FindObjectOfType<OrderController>();
         customerOrderSystem = FindObjectOfType<CustomerOrderSystem>();
-        customerOrderInfo=FindObjectOfType<CustomerOrderInfo>();
         submitedBurger = GameObject.Find("DropArea");
     }
     //고객에게 버거 드래그 제출 시 평가
@@ -56,6 +55,7 @@ public class EvalueateBurger : MonoBehaviour
 
     void SetCustomerFace_PlaySound(int i)
     {
+        customerOrderInfo = FindObjectOfType<CustomerOrderInfo>(); //손님오기전에 버거를 만들면 OrderInfo를 못찾아서 여기로 옮겼습니다.
         if (i >= 0 && i <= 4)
         {
             customerOrderInfo.SetCustomerSadFace();

@@ -60,7 +60,6 @@ public class GameManager : MonoBehaviour
             isPaused = true;
             GameObject gameOverPanelInstance = Instantiate(GameOverPanel);
             gameOverPanelInstance.SetActive(true);
-            //gameOverPanelInstance.transform.SetParent(GameObject.Find("UICanvas").transform);
             endGame();
         }
     }
