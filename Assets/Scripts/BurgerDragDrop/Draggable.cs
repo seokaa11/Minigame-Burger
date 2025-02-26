@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Draggable : MonoBehaviour
 {
@@ -33,7 +34,8 @@ public class Draggable : MonoBehaviour
     }
 
     void OnMouseDown()
-    {
+    {       
+        
         if (isDraggable && Time.timeScale == 1)
         {
             // 마우스를 클릭한 위치와 오브젝트 중심의 차이를 계산
