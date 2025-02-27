@@ -166,7 +166,7 @@ public class Droppable : MonoBehaviour
 
             // 모든 재료의 드래그 기능 비활성화
             DisableAllDraggableItems();
-            Debug.Log("Bun 개수가 2개 이상입니다. 모든 Draggable을 비활성화합니다.");
+            //Debug.Log("Bun 개수가 2개 이상입니다. 모든 Draggable을 비활성화합니다.");
         }
     }
 

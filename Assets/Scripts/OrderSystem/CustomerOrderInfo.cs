@@ -24,17 +24,14 @@ public class CustomerOrderInfo : MonoBehaviour
 
     public void SetCustomerSadFace()
     {
-        print("ΩΩ«ƒ¿Ã");
         customerSprite.sprite = customer.GetCustomerSadFace();
     }
     public void SetCustomerHappyFace()
     {
-        print("±‚ª›¿Ã");
         customerSprite.sprite = customer.GetCustomerHappyFace();
     }
     public void SetCustomerNormalFace()
     {
-        print("∫∏≈Î¿Ã");
         customerSprite.sprite = customer.GetCustomerNormalFace();
     }
     public string GetBurgerName()

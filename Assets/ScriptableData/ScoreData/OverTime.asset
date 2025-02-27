@@ -15,7 +15,7 @@ MonoBehaviour:
   Time: 999
   isPerfectBurger: 0
   score: f6fffffff1fffffff6fffffff1fffffff6fffffff1fffffff6ffffffecffffff
-  health: -1
+  health: -0.5
   dialog:
   - "\uC81C\uAC00 \uC57C\uC790\uC2DC\uAC04\uC774 \uB2E4 \uB418\uC5B4\uAC00\uC11C\u315C
     \uAC00\uBCFC\uAC8C\uC694!"

@@ -180,9 +180,10 @@ public class CustomerOrderSystem : MonoBehaviour
             time += Time.deltaTime;
             if (time > makingTime)
             {
-                print("제작 대기 시간 초과");
                 OnOrderTimeout?.Invoke();
                 GameManager.instance.score += evalueateBurger.GetScoredatas(4).score[orderController.GetCustomerIndex()];
+                GameManager.instance.Dialog = evalueateBurger.GetScoredatas(4).dialog[orderController.GetCustomerIndex()];
+
                 break;
             }
             yield return null;
