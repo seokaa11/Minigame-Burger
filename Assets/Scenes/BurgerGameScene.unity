@@ -2904,6 +2904,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7344276852199346090, guid: 74f101d99e6f24c438f7735b0a5c9db4, type: 3}
+      propertyPath: SauceSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e01d873c6de063f479073c4b6f2639e3, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2917,6 +2921,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 411144460}
     m_Modifications:
+    - target: {fileID: 1079280982298888200, guid: 8b30adc7391241946a625f0b7049c7c6, type: 3}
+      propertyPath: SauceSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ffc9609769f6a00489f570f656dbd99d, type: 3}
     - target: {fileID: 2423613832544557236, guid: 8b30adc7391241946a625f0b7049c7c6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.8919997
@@ -3095,6 +3103,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7172566478287341279, guid: 72aa001f8f3bdfd46940b596dae17dba, type: 3}
+      propertyPath: SauceSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a87319b34bf69ef4bae54859ac06f8d9, type: 3}
     - target: {fileID: 7475890670680372724, guid: 72aa001f8f3bdfd46940b596dae17dba, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.9989996
