@@ -2756,6 +2756,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb89883ae58dfef488583382dad4fe85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  originalSprite: {fileID: 0}
   burgerPrefab: {fileID: 5299414840539110601, guid: 33023843d4073f2419a012f69ae76b31, type: 3}
   stackCount: 0
   originalIngredients:
@@ -2902,7 +2903,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1309752413472548127, guid: 74f101d99e6f24c438f7735b0a5c9db4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.098999
+      value: 8.1
       objectReference: {fileID: 0}
     - target: {fileID: 1309752413472548127, guid: 74f101d99e6f24c438f7735b0a5c9db4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3169,7 +3170,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: a87319b34bf69ef4bae54859ac06f8d9, type: 3}
     - target: {fileID: 7475890670680372724, guid: 72aa001f8f3bdfd46940b596dae17dba, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.9989996
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7475890670680372724, guid: 72aa001f8f3bdfd46940b596dae17dba, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3530,7 +3531,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3593486624856865462, guid: 28c2a42b7a96ae548b042b9e1ff697c7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.0009996891
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3593486624856865462, guid: 28c2a42b7a96ae548b042b9e1ff697c7, type: 3}
       propertyPath: m_LocalPosition.y

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Droppable : MonoBehaviour
 {
-
+    public Sprite originalSprite; // 원래 스프라이트 (소스 이미지 변경용)
     public GameObject burgerPrefab; // Burger 프리팹을 할당할 변수
     private GameObject instantiatedBurger; // 생성된 Burger 오브젝트를 참조
 
@@ -33,16 +33,16 @@ public class Droppable : MonoBehaviour
         // 재료별 위치 초기화
         ingredientPositions = new List<Vector3>
         {
-            new Vector3(-7.54f, -0.76f, 0f), // Bun
-            new Vector3(-5.04f, -0.91f, 0f), // Patty
-            new Vector3(-2.49f, -0.89f, 0f), // Lettuce
-            new Vector3(0.01f, -0.89f, 0f), // Tomato
-            new Vector3(2.53f, -0.84f, 0f), // Cheese
-            new Vector3(5.02f, -0.88f, 0f), // Pickle
-            new Vector3(7.59f, -0.9f, 0f), // Onion
-            new Vector3(5.9f, 1.7f, 0f), // Ketchup2
-            new Vector3(7.01f, 1.7f, 0f), // Mayo2
-            new Vector3(8.09f, 1.7f, 0f)  // Bulgogi2
+            new Vector3(-7.57f, -0.8f, 0f), // Bun
+            new Vector3(-5.05f, -0.95f, 0f), // Patty
+            new Vector3(-2.47f, -0.9f, 0f), // Lettuce
+            new Vector3(0, -0.92f, 0f), // Tomato
+            new Vector3(2.55f, -0.87f, 0f), // Cheese
+            new Vector3(5.04f, -0.85f, 0f), // Pickle
+            new Vector3(7.6f, -0.9f, 0f), // Onion
+            new Vector3(5.892f, 1.14f, 0f), // Ketchup2
+            new Vector3(7, 1.14f, 0f), // Mayo2
+            new Vector3(8.1f, 1.14f, 0f)  // Bulgogi2
         };
 
 
@@ -86,6 +86,7 @@ public class Droppable : MonoBehaviour
             SoundManager.instance.PlaySFX(SoundManager.ESfx.SFX_PACKAGING);
 
         }
+
     }
 
     private void SetTransparencyRecursively(Transform parent, float alpha)

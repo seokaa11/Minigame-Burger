@@ -44,6 +44,12 @@ public class Draggable : MonoBehaviour
             originalScale = transform.localScale; // 드래그 시작 시 원본 스케일 저장
             isDragging = true;
             SetTransparency(1f);
+
+            // 드래그 시작 시 이미지를 원래 스프라이트로 변경
+            if (originalSprite != null)
+            {
+                spriteRenderer.sprite = originalSprite;
+            }
         }
     }
 
