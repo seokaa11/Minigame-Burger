@@ -43,7 +43,7 @@ public abstract class ChangeSprite : MonoBehaviour
                     if (isNoneSpriteSet || isHalfSpriteSet)
                     {
                         // noneSprite 또는 halfSprite에서 manySprite로 변경될 때 y값을 0.5 높입니다.
-                        transform.position = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z);
+                        transform.position = new Vector3(transform.position.x, transform.position.y + 0.4f, transform.position.z);
                     }
                     spriteRenderer.sprite = manySprite;
                     isNoneSpriteSet = false;
