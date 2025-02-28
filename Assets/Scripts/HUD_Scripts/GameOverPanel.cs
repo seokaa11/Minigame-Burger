@@ -38,7 +38,9 @@ public class GameOverPanel : MonoBehaviour
         {
             scoreText.text = "Score : " + GameManager.instance.score;
         }
+        
         yield return new WaitForSeconds(2.0f);
+        SoundManager.instance.PlayBGM(SoundManager.EBgm.BGM_MAIN);
         SceneManager.LoadScene(0);
     }
 

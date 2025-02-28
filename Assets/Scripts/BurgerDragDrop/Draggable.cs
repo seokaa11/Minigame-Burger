@@ -25,7 +25,7 @@ public class Draggable : MonoBehaviour
     {
         // 시작 시 오브젝트를 투명하게 설정
         SetTransparency(0f);
-    }
+    }    
     private void SetTransparency(float alpha) // 투명도 설정 함수
     {
         Color color = spriteRenderer.color;
@@ -34,8 +34,8 @@ public class Draggable : MonoBehaviour
     }
 
     void OnMouseDown()
-    {       
-        
+    {
+        if (GameManager.instance.IsLive) { return; }
         if (isDraggable && Time.timeScale == 1)
         {
             // 마우스를 클릭한 위치와 오브젝트 중심의 차이를 계산

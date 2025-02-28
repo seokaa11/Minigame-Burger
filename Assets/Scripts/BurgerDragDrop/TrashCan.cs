@@ -8,8 +8,7 @@ public class TrashCan : MonoBehaviour
 
     void OnMouseDown()
     {
-        
-        Debug.Log("Trash Can Clicked");
+        if (GameManager.instance.IsLive) { return; }
 
         if (dropArea != null)
         {
