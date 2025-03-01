@@ -15,6 +15,6 @@ public class Dialog : MonoBehaviour
 
     public void ShowDialog()
     {
-        text.text = GameManager.instance.dialog;
+        text.text = GameManager.instance.Dialog;
     }
 }

@@ -1,6 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using System.Collections.Generic;
 
 public class TrashCan : MonoBehaviour
 {
@@ -8,7 +8,8 @@ public class TrashCan : MonoBehaviour
 
     void OnMouseDown()
     {
-        Debug.Log("Trash Can Clicked");
+        if (GameManager.instance.IsLive) { return; }
+
         if (dropArea != null)
         {
             dropArea.ClearAllDroppedItems();

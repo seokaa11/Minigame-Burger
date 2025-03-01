@@ -12,7 +12,7 @@ public class HealthPoint : MonoBehaviour
 
     // Hp 칸을 조절하는 함수입니다. Health는 최대 5, 0.5 단위 조절
     void HealthFiller()
-    {
+    {        
         for (int i = 0; i < healthPoints.Length; i++)
         {
             // healthPoints[i]가 null인지 확인

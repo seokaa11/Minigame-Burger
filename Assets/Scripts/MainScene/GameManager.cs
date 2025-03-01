@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,13 +12,21 @@ public class GameManager : MonoBehaviour
     public int score;  // 게임 점수
     public float health = 5; // Player 목숨
     public float takenTime; // 버거 제작 소요시간    
-    public string dialog; // 버거 제출시 대화문
+    public string _dialog; // 버거 제출시 대화문
     public bool isPaused = false;   // 게임이 멈춰있는가? 
 
     [SerializeField] bool isGameOver = false; //게임이 끝났음 을 알림.
     [SerializeField] Texture2D cursor;
     [SerializeField] GameObject GameOverPanel;
-
+    public string Dialog
+    {
+        get { return _dialog; }
+        set
+        {
+            _dialog = value;
+            HUD.Submit();
+        }
+    }
     void Awake()
     {
         if (instance == null)
@@ -52,11 +61,14 @@ public class GameManager : MonoBehaviour
             isPaused = true;
             GameObject gameOverPanelInstance = Instantiate(GameOverPanel);
             gameOverPanelInstance.SetActive(true);
-            //gameOverPanelInstance.transform.SetParent(GameObject.Find("UICanvas").transform);
             endGame();
         }
     }
-
+    public void CallGameOver()
+    {
+        health = -1;
+        IsLive = true;
+    }
     //게임 설정 초기화
     public void Init()
     {

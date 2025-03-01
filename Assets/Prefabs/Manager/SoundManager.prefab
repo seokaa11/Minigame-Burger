@@ -157,6 +157,13 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e5d643c54b4b83f4d87c822bb417d830, type: 3}
   - {fileID: 8300000, guid: 00936a5fc11dc8643a3aeb9881379ef6, type: 3}
   - {fileID: 8300000, guid: b7134de413b994742a673cac0cf525dd, type: 3}
+  sfxVol:
+  - 0.05
+  - 1
+  - 0.5
+  - 1
+  - 0.05
+  - 0.1
   audioBgm: {fileID: 5202393450027350053}
   audioSfx: {fileID: 4713733726374500893}
 --- !u!1 &6824662519118313026

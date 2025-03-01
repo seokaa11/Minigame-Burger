@@ -16,11 +16,11 @@ MonoBehaviour:
   burgerName: "\uCE58\uC988\uBC84\uAC70"
   ingredients:
   - {fileID: 6965998175364508277, guid: 0e73401f71e8f93478b6f82bb34c2b0f, type: 3}
-  - {fileID: 2576549950969995327, guid: 72aa001f8f3bdfd46940b596dae17dba, type: 3}
-  - {fileID: 2630033735541529417, guid: c2cb5c1e12d77204b801eb8ef46b16be, type: 3}
-  - {fileID: 2882269403982427008, guid: a307ed91df3ce1e4b8d156fcc0fa46d5, type: 3}
-  - {fileID: 8917288931817831926, guid: bc88c5f17fee05d4b996e25e86bec8b8, type: 3}
-  - {fileID: 2777463594421513682, guid: 8b30adc7391241946a625f0b7049c7c6, type: 3}
-  - {fileID: 1142281067614056616, guid: 96fe585f9a30df246adb05f033accb18, type: 3}
   - {fileID: 873573852717989173, guid: e6cc13035303848459b74816ef6c13fc, type: 3}
+  - {fileID: 1142281067614056616, guid: 96fe585f9a30df246adb05f033accb18, type: 3}
+  - {fileID: 2777463594421513682, guid: 8b30adc7391241946a625f0b7049c7c6, type: 3}
+  - {fileID: 8917288931817831926, guid: bc88c5f17fee05d4b996e25e86bec8b8, type: 3}
+  - {fileID: 2882269403982427008, guid: a307ed91df3ce1e4b8d156fcc0fa46d5, type: 3}
+  - {fileID: 2630033735541529417, guid: c2cb5c1e12d77204b801eb8ef46b16be, type: 3}
+  - {fileID: 2576549950969995327, guid: 72aa001f8f3bdfd46940b596dae17dba, type: 3}
   - {fileID: 6965998175364508277, guid: 0e73401f71e8f93478b6f82bb34c2b0f, type: 3}

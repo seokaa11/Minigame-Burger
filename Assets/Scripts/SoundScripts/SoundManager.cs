@@ -27,11 +27,12 @@ public class SoundManager : MonoBehaviour
         SFX_LOSTHEALTH,//하트 사라질 때
         SFX_GAMEOVER//종료음
     }
-
+    
     //audio clip 담을 수 있는 배열
     [SerializeField] AudioClip[] bgms;
     [SerializeField] AudioClip[] sfxs;
-
+    [SerializeField] float[] sfxVol;
+    Dictionary<ESfx,float> sfxVolumes= new Dictionary<ESfx,float>();
     //플레이하는 AudioSource
     [SerializeField] AudioSource audioBgm;
     [SerializeField] AudioSource audioSfx;
@@ -51,15 +52,19 @@ public class SoundManager : MonoBehaviour
     void Start()
     {
         //시작시 저장된 volume
-        string bgmVolumeKey = "BGMVolume";
-        string sfxVolumeKey = "SFXVolume";
-
+        const string bgmVolumeKey = "BGMVolume";
+        const string sfxVolumeKey = "SFXVolume";
         float bgmValue = PlayerPrefs.GetFloat(bgmVolumeKey, 0.5f);
         float sfxValue = PlayerPrefs.GetFloat(sfxVolumeKey, 0.5f);
         //value값은 0.0001 ~ 1 사이
         
         audioMixer.SetFloat("BGM", Mathf.Log10(bgmValue) * 20);
         audioMixer.SetFloat("SFX", Mathf.Log10(sfxValue) * 20);
+        foreach(ESfx esfx in System.Enum.GetValues(typeof(ESfx)))
+        {
+            sfxVolumes[esfx] = sfxVol[(int)esfx];
+        }
+       
     }
     //BGM 재생
     public void PlayBGM(EBgm bgmIdx)
@@ -79,5 +84,6 @@ public class SoundManager : MonoBehaviour
     public void PlaySFX(ESfx esfx)
     {
         audioSfx.PlayOneShot(sfxs[(int)esfx]);
+        audioSfx.volume=sfxVolumes[esfx];
     }
 }

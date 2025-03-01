@@ -58,9 +58,6 @@ TagManager:
   - name: UI
     uniqueID: 3789936461
     locked: 0
-  - name: Pause
-    uniqueID: 3791042111
-    locked: 0
   - name: GameOver
     uniqueID: 4225245577
     locked: 0

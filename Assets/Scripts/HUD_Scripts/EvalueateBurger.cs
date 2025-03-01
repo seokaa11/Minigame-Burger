@@ -8,12 +8,11 @@ public class EvalueateBurger : MonoBehaviour
     public int requestBurgerNum;
     OrderController orderController;
     CustomerOrderSystem customerOrderSystem;
-    CustomerOrderInfo customerOrderInfo;
+    [SerializeField] CustomerOrderInfo customerOrderInfo;
     void Start()
     {
         orderController = FindObjectOfType<OrderController>();
         customerOrderSystem = FindObjectOfType<CustomerOrderSystem>();
-        customerOrderInfo=FindObjectOfType<CustomerOrderInfo>();
         submitedBurger = GameObject.Find("DropArea");
     }
     //고객에게 버거 드래그 제출 시 평가
@@ -34,34 +33,34 @@ public class EvalueateBurger : MonoBehaviour
     // 버거 상태에 따라 점수가 주어지고 대화문 출력
     public void BurgerScore(GameObject burger, int requestBurgerNum)
     {
-        for (int i = 0; i <= scoredata.Length / 2; i++)
+        for (int scoredataIndex = 0; scoredataIndex <= scoredata.Length / 2; scoredataIndex++)
         {
-            if (GameManager.instance.takenTime > 20) { i = 4; }
-            if (scoredata[i].Time >= GameManager.instance.takenTime)
+            if (scoredata[scoredataIndex].Time >= GameManager.instance.takenTime)
             {
-                if (IsPerferctBurger(burger, burgerRecipes[requestBurgerNum]) && i != 4)
+                if (IsPerferctBurger(burger, burgerRecipes[requestBurgerNum]))
                 {
-                    i += 5;
+                    scoredataIndex += 3;
                 }
                 int num = orderController.GetCustomerIndex();
-                GameManager.instance.score += scoredata[i].score[num];                
-                GameManager.instance.dialog = scoredata[i].dialog[num];
-                GameManager.instance.health += scoredata[i].health;
+                GameManager.instance.score += scoredata[scoredataIndex].score[num];
+                GameManager.instance.health += scoredata[scoredataIndex].health;
+                GameManager.instance.Dialog = scoredata[scoredataIndex].dialog[num];
                 GameManager.instance.takenTime = 0;
-                SetCustomerFace_PlaySound(i);               
+                SetCustomerFace_PlaySound(scoredataIndex);
                 break;
             }
         }
-    }    
+    }
 
-    void SetCustomerFace_PlaySound(int i)
+    void SetCustomerFace_PlaySound(int scoredataIndex)
     {
-        if (i >= 0 && i <= 4)
+        customerOrderInfo = FindObjectOfType<CustomerOrderInfo>(); //손님오기전에 버거를 만들면 OrderInfo를 못찾아서 여기로 옮겼습니다.
+        if (scoredataIndex >= 0 && scoredataIndex <= 3)
         {
             customerOrderInfo.SetCustomerSadFace();
             SoundManager.instance.PlaySFX(SoundManager.ESfx.SFX_LOSTHEALTH);
         }
-        else if (i >= 5 && i <= 6)
+        else if (scoredataIndex >= 4 && scoredataIndex <= 5)
         {
             customerOrderInfo.SetCustomerHappyFace();
             SoundManager.instance.PlaySFX(SoundManager.ESfx.SFX_SCORE);
@@ -79,8 +78,14 @@ public class EvalueateBurger : MonoBehaviour
     {
         for (int i = 0; i < recipe.ingredients.Count; i++)
         {
-            if (items.transform.childCount != recipe.ingredients.Count) { return false; }
-            else if (recipe.ingredients[i].transform.name != items.transform.GetChild(i).name) { return false; }
+            if (items.transform.childCount != recipe.ingredients.Count)
+            {
+                return false;
+            }
+            else if (recipe.ingredients[i].transform.name != items.transform.GetChild(i).name)
+            {
+                return false;
+            }
         }
         return true;
     }
