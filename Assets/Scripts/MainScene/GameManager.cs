@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -63,7 +64,11 @@ public class GameManager : MonoBehaviour
             endGame();
         }
     }
-
+    public void CallGameOver()
+    {
+        health = -1;
+        IsLive = true;
+    }
     //게임 설정 초기화
     public void Init()
     {
