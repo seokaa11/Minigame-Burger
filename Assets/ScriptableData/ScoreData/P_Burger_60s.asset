@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 96f1f4f3c650fac4382dcf6dd32766d5, type: 3}
-  m_Name: P_Burger_5s
+  m_Name: P_Burger_60s
   m_EditorClassIdentifier: 
-  Time: 5
+  Time: 20
   isPerfectBurger: 1
-  score: 0a0000000a0000000a0000000a0000000f0000000a0000000f00000014000000
+  score: 0a0000000800000007000000080000000a0000000a0000000a0000000f000000
   health: 0
   dialog:
   - "\uC81C \uB2C8\uC988\uC5D0 \uB531 \uB9DE\uC544\uC694! \uB2E4\uC74C\uC5D0 \uB610

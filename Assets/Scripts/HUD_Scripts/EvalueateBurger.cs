@@ -35,12 +35,11 @@ public class EvalueateBurger : MonoBehaviour
     {
         for (int scoredataIndex = 0; scoredataIndex <= scoredata.Length / 2; scoredataIndex++)
         {
-            if (GameManager.instance.takenTime > 20) { scoredataIndex = 4; }
             if (scoredata[scoredataIndex].Time >= GameManager.instance.takenTime)
             {
-                if (IsPerferctBurger(burger, burgerRecipes[requestBurgerNum]) && scoredataIndex != 4)
+                if (IsPerferctBurger(burger, burgerRecipes[requestBurgerNum]))
                 {
-                    scoredataIndex += 5;
+                    scoredataIndex += 3;
                 }
                 int num = orderController.GetCustomerIndex();
                 GameManager.instance.score += scoredata[scoredataIndex].score[num];
@@ -56,12 +55,12 @@ public class EvalueateBurger : MonoBehaviour
     void SetCustomerFace_PlaySound(int scoredataIndex)
     {
         customerOrderInfo = FindObjectOfType<CustomerOrderInfo>(); //손님오기전에 버거를 만들면 OrderInfo를 못찾아서 여기로 옮겼습니다.
-        if (scoredataIndex >= 0 && scoredataIndex <= 4)
+        if (scoredataIndex >= 0 && scoredataIndex <= 3)
         {
             customerOrderInfo.SetCustomerSadFace();
             SoundManager.instance.PlaySFX(SoundManager.ESfx.SFX_LOSTHEALTH);
         }
-        else if (scoredataIndex >= 5 && scoredataIndex <= 6)
+        else if (scoredataIndex >= 4 && scoredataIndex <= 5)
         {
             customerOrderInfo.SetCustomerHappyFace();
             SoundManager.instance.PlaySFX(SoundManager.ESfx.SFX_SCORE);

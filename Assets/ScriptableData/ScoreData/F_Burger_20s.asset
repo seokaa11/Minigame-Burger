@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Time: 20
   isPerfectBurger: 0
-  score: f6fffffff1fffffff6fffffff1fffffff6fffffff1fffffff6ffffffecffffff
+  score: fdfffffffbfffffffbfffffffbfffffff9fffffffefffffffbfffffff1ffffff
   health: -0.5
   dialog:
   - "\uBC84\uAC70\uAC00 \uC870\uAE08 \uC544\uD30C \uBCF4\uC774\uB124\uC694\u315C"

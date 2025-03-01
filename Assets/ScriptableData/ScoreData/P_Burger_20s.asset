@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96f1f4f3c650fac4382dcf6dd32766d5, type: 3}
   m_Name: P_Burger_20s
   m_EditorClassIdentifier: 
-  Time: 20
+  Time: 60
   isPerfectBurger: 1
-  score: 030000000600000005000000010000000800000001000000050000000a000000
+  score: 050000000600000005000000050000000800000005000000050000000a000000
   health: 0
   dialog:
   - "\uC640! \uAC10\uC0AC\uD569\uB2C8\uB2E4!"

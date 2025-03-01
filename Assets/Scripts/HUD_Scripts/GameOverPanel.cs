@@ -8,6 +8,8 @@ public class GameOverPanel : MonoBehaviour
 {
     Image image;
     TextMeshProUGUI scoreText; // TextMeshProUGUI로 변경
+    [SerializeField] GameObject gameOverText;
+    [SerializeField] GameObject [] EndGameScene;
     [SerializeField] float duration = 5.0f; // FadeOut 기간
     [SerializeField] float time = 0; // 경과 시간
     [SerializeField] float alpha = 1; // 알파값
@@ -40,6 +42,21 @@ public class GameOverPanel : MonoBehaviour
         }
         
         yield return new WaitForSeconds(2.0f);
+        image.color = new Color(0, 0, 0, 0);
+        scoreText.text = "";
+        gameOverText.SetActive(false);
+        if (GameManager.instance.score <= 10)
+        {
+            Instantiate(EndGameScene[0]);
+        }else if(GameManager.instance.score > 10 && GameManager.instance.score <= 70)
+        {
+            Instantiate(EndGameScene[1]);
+        }
+        else
+        {
+            Instantiate(EndGameScene[2]);
+        }
+        yield return new WaitForSeconds(4.0f);
         SoundManager.instance.PlayBGM(SoundManager.EBgm.BGM_MAIN);
         SceneManager.LoadScene(0);
     }

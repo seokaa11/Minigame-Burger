@@ -370,6 +370,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcdab2d54d07ed94390e783c40540671, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOverText: {fileID: 4379785735702862837}
+  EndGameScene:
+  - {fileID: 3724935426330026601, guid: 463450f862f90344eb3e95742270045d, type: 3}
+  - {fileID: 344794127696394002, guid: 656605650d0feaa4092c1ef00ffd6a03, type: 3}
+  - {fileID: 8513282659566107682, guid: b04472ea40346ee4aa4147890319d5db, type: 3}
   duration: 5
   time: 0
   alpha: 1
