@@ -185,12 +185,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoredata:
-  - {fileID: 11400000, guid: 07ce7e5cc67acbb438c45aa6ac056ea0, type: 2}
   - {fileID: 11400000, guid: aa77dd644ecdcf54486394b2087779ea, type: 2}
   - {fileID: 11400000, guid: a61ff4e8a33f4aa45bdfdcad001b8e13, type: 2}
-  - {fileID: 11400000, guid: 766c33558a722e846a90aee04ed1f68d, type: 2}
-  - {fileID: 11400000, guid: ec952f5046c050442852cf9474aac90a, type: 2}
+  - {fileID: 11400000, guid: 9d6c5668821b27241add90f7f66beba2, type: 2}
+  - {fileID: 11400000, guid: 69ff8f771681ed046b82281af1175cf7, type: 2}
   - {fileID: 11400000, guid: d4f6a3c2ff3bc1144946321ff09c9b3d, type: 2}
+  - {fileID: 11400000, guid: ec952f5046c050442852cf9474aac90a, type: 2}
+  - {fileID: 11400000, guid: debaf6ef0101a734cb690067399719de, type: 2}
   burgerRecipes:
   - {fileID: 11400000, guid: 557740692aff1514dac91c3ca4031c10, type: 2}
   - {fileID: 11400000, guid: d48230697c86ce843b6239f617c01c3f, type: 2}

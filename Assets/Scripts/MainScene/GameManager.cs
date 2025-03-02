@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,6 +15,7 @@ public class GameManager : MonoBehaviour
     public float takenTime; // 버거 제작 소요시간    
     public string _dialog; // 버거 제출시 대화문
     public bool isPaused = false;   // 게임이 멈춰있는가? 
+    bool isPlayerPressStop = false;
 
     [SerializeField] bool isGameOver = false; //게임이 끝났음 을 알림.
     [SerializeField] Texture2D cursor;
@@ -60,18 +62,20 @@ public class GameManager : MonoBehaviour
             Debug.Log("게임오버");
             isPaused = true;
             GameObject gameOverPanelInstance = Instantiate(GameOverPanel);
+            gameOverPanelInstance.GetComponent<GameOverPanel>().GameOverTextDisable(isPlayerPressStop);
             gameOverPanelInstance.SetActive(true);
             endGame();
         }
     }
     public void CallGameOver()
     {
-        health = -1;
         IsLive = true;
+        isPlayerPressStop = true;
     }
     //게임 설정 초기화
     public void Init()
     {
+        isPlayerPressStop = false;
         isPaused = false;
         IsLive = false;
         score = 0;
