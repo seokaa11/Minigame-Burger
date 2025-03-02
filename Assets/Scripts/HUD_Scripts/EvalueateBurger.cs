@@ -41,10 +41,10 @@ public class EvalueateBurger : MonoBehaviour
                 {
                     scoredataIndex += 3;
                 }
-                int num = orderController.GetCustomerIndex();
-                GameManager.instance.score += scoredata[scoredataIndex].score[num];
+                int customerIndex = orderController.GetCustomerIndex();
+                GameManager.instance.score += scoredata[scoredataIndex].score[customerIndex];
                 GameManager.instance.health += scoredata[scoredataIndex].health;
-                GameManager.instance.Dialog = scoredata[scoredataIndex].dialog[num];
+                GameManager.instance.Dialog = scoredata[scoredataIndex].dialog[customerIndex];
                 GameManager.instance.takenTime = 0;
                 SetCustomerFace_PlaySound(scoredataIndex);
                 break;

@@ -10,17 +10,22 @@ public class GameOverPanel : MonoBehaviour
     TextMeshProUGUI scoreText; // TextMeshProUGUI로 변경
     [SerializeField] GameObject gameOverText;
     [SerializeField] GameObject [] EndGameScene;
+    
     [SerializeField] float duration = 5.0f; // FadeOut 기간
     [SerializeField] float time = 0; // 경과 시간
     [SerializeField] float alpha = 1; // 알파값
-
+    bool gameoverTextEnable=false;
     private void Awake()
     {
         image = GetComponent<Image>();
         StartCoroutine(OnFadeOut());
         GameManager.endGame += OnGameOver;
     }
-
+    public void GameOverTextDisable(bool b)
+    {
+        gameoverTextEnable = !b;
+        gameOverText.SetActive(gameoverTextEnable);
+    }
     IEnumerator OnFadeOut()
     {
         SoundManager.instance.PlaySFX(SoundManager.ESfx.SFX_GAMEOVER);
@@ -32,7 +37,7 @@ public class GameOverPanel : MonoBehaviour
             yield return null;
         }
         image.color = new Color(0, 0, 0, 1);
-        transform.GetChild(0).gameObject.SetActive(true);
+        transform.GetChild(0).gameObject.SetActive(gameoverTextEnable);
         transform.GetChild(1).gameObject.SetActive(true);
 
         scoreText = transform.GetChild(1).GetComponent<TextMeshProUGUI>(); // TextMeshProUGUI로 변경
