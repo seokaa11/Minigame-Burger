@@ -30,6 +30,7 @@ public class GameOverPanel : MonoBehaviour
     }
     IEnumerator OnFadeOut()
     {
+        SoundManager.instance.StopBGM();
         SoundManager.instance.PlaySFX(SoundManager.ESfx.SFX_GAMEOVER);
         transform.GetChild(0).gameObject.SetActive(gameoverTextEnable);
         while (time <= duration)
@@ -48,12 +49,15 @@ public class GameOverPanel : MonoBehaviour
         if (GameManager.instance.score <= 10)
         {
             Instantiate(EndGameScene[0]);
+            SoundManager.instance.PlayBGM(SoundManager.EBgm.BGM_LOWSCORE, false);
         }else if(GameManager.instance.score > 10 && GameManager.instance.score <= 70)
         {
+            SoundManager.instance.PlayBGM(SoundManager.EBgm.BGM_NORMALSCORE, false);
             Instantiate(EndGameScene[1]);
         }
         else
         {
+            SoundManager.instance.PlayBGM(SoundManager.EBgm.BGM_HIGHSCORE, false);
             Instantiate(EndGameScene[2]);
         }
     }
