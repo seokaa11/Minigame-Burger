@@ -67,11 +67,12 @@ public class SoundManager : MonoBehaviour
        
     }
     //BGM 재생
-    public void PlayBGM(EBgm bgmIdx)
+    public void PlayBGM(EBgm bgmIdx,bool looping=true)
     {
-        
+        StopBGM();
         audioBgm.clip = bgms[(int)bgmIdx];
-        audioBgm.Play();
+        if(looping) audioBgm.Play();
+        else audioBgm.PlayOneShot(audioBgm.clip);
     }
 
     // 현재 재생 중인 배경 음악 정지

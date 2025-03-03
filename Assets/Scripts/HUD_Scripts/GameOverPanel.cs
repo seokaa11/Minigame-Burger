@@ -8,6 +8,7 @@ public class GameOverPanel : MonoBehaviour
 {
     Image image;
     TextMeshProUGUI scoreText; // TextMeshProUGUI로 변경
+    TextMeshProUGUI gameOver;
     [SerializeField] GameObject gameOverText;
     [SerializeField] GameObject [] EndGameScene;
     
@@ -18,6 +19,7 @@ public class GameOverPanel : MonoBehaviour
     private void Awake()
     {
         image = GetComponent<Image>();
+        gameOver = gameOverText.GetComponent<TextMeshProUGUI>();
         StartCoroutine(OnFadeOut());
         GameManager.endGame += OnGameOver;
     }
@@ -28,42 +30,36 @@ public class GameOverPanel : MonoBehaviour
     }
     IEnumerator OnFadeOut()
     {
+        SoundManager.instance.StopBGM();
         SoundManager.instance.PlaySFX(SoundManager.ESfx.SFX_GAMEOVER);
+        transform.GetChild(0).gameObject.SetActive(gameoverTextEnable);
         while (time <= duration)
         {
             time += Time.deltaTime;
             alpha = Mathf.Clamp01(time / duration);
             image.color = new Color(0, 0, 0, alpha);
+            gameOver.color = new Color(255, 255, 255,alpha);
             yield return null;
         }
         image.color = new Color(0, 0, 0, 1);
-        transform.GetChild(0).gameObject.SetActive(gameoverTextEnable);
-        transform.GetChild(1).gameObject.SetActive(true);
-
-        scoreText = transform.GetChild(1).GetComponent<TextMeshProUGUI>(); // TextMeshProUGUI로 변경
-        if (scoreText != null)
-        {
-            scoreText.text = "Score : " + GameManager.instance.score;
-        }
         
         yield return new WaitForSeconds(2.0f);
         image.color = new Color(0, 0, 0, 0);
-        scoreText.text = "";
-        gameOverText.SetActive(false);
+        transform.GetChild(0).gameObject.SetActive(false);
         if (GameManager.instance.score <= 10)
         {
             Instantiate(EndGameScene[0]);
+            SoundManager.instance.PlayBGM(SoundManager.EBgm.BGM_LOWSCORE, false);
         }else if(GameManager.instance.score > 10 && GameManager.instance.score <= 70)
         {
+            SoundManager.instance.PlayBGM(SoundManager.EBgm.BGM_NORMALSCORE, false);
             Instantiate(EndGameScene[1]);
         }
         else
         {
+            SoundManager.instance.PlayBGM(SoundManager.EBgm.BGM_HIGHSCORE, false);
             Instantiate(EndGameScene[2]);
         }
-        yield return new WaitForSeconds(4.0f);
-        SoundManager.instance.PlayBGM(SoundManager.EBgm.BGM_MAIN);
-        SceneManager.LoadScene(0);
     }
 
     void OnGameOver()
