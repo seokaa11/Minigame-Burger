@@ -116,7 +116,7 @@ public class CustomerOrderSystem : MonoBehaviour
 
                 orderDisplay.SetActive(false);
                 int num = orderController.GetCustomerIndex();
-                GameManager.instance.Dialog = evalueateBurger.GetScoredatas(4).dialog[num];
+                GameManager.instance.Dialog = evalueateBurger.GetScoredatas(3).dialog[num];
                 OnOrderTimeout?.Invoke();
                 break;
             }
@@ -134,7 +134,7 @@ public class CustomerOrderSystem : MonoBehaviour
         orderDisplay.SetActive(false);//주문창 비활성화
         if (prevRefuseOrder)
         {
-            GameManager.instance.score += evalueateBurger.GetScoredatas(4).score[num];
+            GameManager.instance.score += evalueateBurger.GetScoredatas(3).score[num];
             prevRefuseOrder = false;
         }
         if (Timer.curTime >= 30)
@@ -181,8 +181,8 @@ public class CustomerOrderSystem : MonoBehaviour
             if (time > makingTime)
             {
                 OnOrderTimeout?.Invoke();
-                GameManager.instance.score += evalueateBurger.GetScoredatas(4).score[orderController.GetCustomerIndex()];
-                GameManager.instance.Dialog = evalueateBurger.GetScoredatas(4).dialog[orderController.GetCustomerIndex()];
+                GameManager.instance.score += evalueateBurger.GetScoredatas(3).score[orderController.GetCustomerIndex()];
+                GameManager.instance.Dialog = evalueateBurger.GetScoredatas(3).dialog[orderController.GetCustomerIndex()];
 
                 break;
             }

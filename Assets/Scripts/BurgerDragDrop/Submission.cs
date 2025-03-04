@@ -79,7 +79,7 @@ public class Submission : MonoBehaviour
     private void HandleBurgerDrop()
     {
         // Burger가 "Customer" 영역에 드롭되었을 때 필요한 작업을 수행
-        Debug.Log("Burger가 Customer에 드롭되었습니다. 아이템을 제거합니다.");
+        //Debug.Log("Burger가 Customer에 드롭되었습니다. 아이템을 제거합니다.");
 
         // 여기에서 필요한 추가 작업을 처리합니다.
         // 예: 드롭된 아이템 삭제, Burger 생성, 기타 후속 작업 등
